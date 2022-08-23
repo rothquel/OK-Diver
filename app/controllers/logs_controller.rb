@@ -8,7 +8,7 @@ class LogsController < ApplicationController
     # @log.dive_number = @log.dive_number + 1
     @log.user = current_user
     if @log.save
-      redirect log_path(@log)
+      redirect_to log_path(@log)
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,6 +34,6 @@ class LogsController < ApplicationController
 
   private
   def log_params
-    params.require[:log].permit[:date, :dive_number, :depth, :time_in, :time_out, :air_temp, :water_temp, :bar_start, :bar_end, :wet_suit, :weight, :visibility, :comments, :dive_center]
+    params.require(:log).permit(:date, :dive_site_id, :dive_number, :depth, :time_in, :time_out, :air_temp, :water_temp, :bar_start, :bar_end, :wet_suit, :weight, :visibility, :comments, :dive_center)
   end
 end

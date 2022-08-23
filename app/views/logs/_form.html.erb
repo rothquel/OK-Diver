@@ -1,5 +1,6 @@
         <%= simple_form_for @log do |f| %>
-        <%= f.input :date, html5: true  %>
+        <%= f.input :date, html5: true %>
+        <%= f.association :dive_site %>
         <%= f.input :depth %>
         <%= f.input :time_in %>
         <%= f.input :time_out %>
