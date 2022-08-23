@@ -13,18 +13,18 @@ class DiveSitesController < ApplicationController
 
   def create
     @dive_site = DiveSite.new(dive_site_params)
-    @dive_site.user = current_user
+    # @dive_site.user = current_user
+
     if @dive_site.save
-      redirect dive_site_path(@dive_site)
+      redirect_to dive_site_path(@dive_site)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-
   private
 
   def dive_site_params
-    params.require[:dive_site].permit[:name, :description, :country, :address, :type]
+    params.require(:dive_site).permit(:name, :description, :country, :address, :dive_type, :photo)
   end
 end
