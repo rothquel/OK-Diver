@@ -15,6 +15,7 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :first_name,
                 required: true,
                 input_html: { autocomplete: "first-name" } %>
