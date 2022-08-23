@@ -30,11 +30,9 @@ class LogsController < ApplicationController
     @log.update(log_params)
     redirect_to log_path
   end
-  end
 
   private
   def log_params
     params.require[:log].permit[:date, :dive_number, :depth, :time_in, :time_out, :air_temp, :water_temp, :bar_start, :bar_end, :wet_suit, :weight, :visibility, :comments, :dive_center]
-
   end
 end
