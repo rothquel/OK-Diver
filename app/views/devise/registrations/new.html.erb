@@ -24,29 +24,34 @@
     <%= f.input :birthdate,
                 required: false,
                 input_html: { autocomplete: "birth-date" } %>
-     <%= f.input :country,
+    <%= f.input :country,
                 required: false,
                 input_html: { autocomplete: "country" } %>
-    <%= f.input :certified,
-                required: false,
-                as: :boolean, checked_value: 'positive', unchecked_value: 'negative',
-                input_html: { autocomplete: "Are you a certified diver?" } %>
-    <%= f.input :certification_date,
-                required: false,
-                input_html: { autocomplete: "When did you get certified" } %>
-    <%= f.input :certification_body,
-                required: false,
-                collection: ["PADI", "SSI", "NAUI Worldwide", "Global Underwater Explorers"],
-                input_html: { autocomplete: "With which organization did you get certified" } %>
-    <%= f.input :certification_level,
-                required: false,
-                collection: ["Beginner", "Intermediate", "Advanced", "Professional"],
-                input_html: { autocomplete: "What level are you?" } %>
-    <%= f.input :student_number,
-                required: false,
-                input_html: { autocomplete: "The student number on your certification card" } %>
-
-
+    <div data-controller="sign-up">
+      <%= f.input :certified,
+                  required: false,
+                  as: :boolean, checked_value: 1, unchecked_value: 0,
+                  input_html: {
+                    autocomplete: "Are you a certified diver?",
+                    data: { action: "click->sign-up#toggleInputs" }
+                    } %>
+        <div data-sign-up-target="inputs" class="d-none">
+          <%= f.input :certification_date,
+                      required: false,
+                      input_html: { autocomplete: "When did you get certified" } %>
+          <%= f.input :certification_body,
+                      required: false,
+                      collection: ["PADI", "SSI", "NAUI Worldwide", "Global Underwater Explorers"],
+                      input_html: { autocomplete: "With which organization did you get certified" } %>
+          <%= f.input :certification_level,
+                      required: false,
+                      collection: ["Beginner", "Intermediate", "Advanced", "Professional"],
+                      input_html: { autocomplete: "What level are you?" } %>
+          <%= f.input :student_number,
+                      required: false,
+                      input_html: { autocomplete: "The student number on your certification card" } %>
+        </div>
+    </div>
   </div>
 
   <div class="form-actions">
