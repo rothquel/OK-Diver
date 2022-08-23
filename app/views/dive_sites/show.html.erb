@@ -1,1 +1,13 @@
-<h1>Here is a dive site</h1>
+<%= cl_image_tag @dive_site.photo.key %>
+<h1><%= @dive_site.name %></h1>
+<h2><%= @dive_site.country %></h2>
+<h3><%= @dive_site.description %></h3>
+<h4><%= @dive_site.dive_type %></h4>
+MAP HERE
+<hr>
+<h2>Reviews:</h2>
+<% @dive_site.reviews.each do |review|  %>
+  <%= review.rating %>
+  <%= review.highlight %>
+  <%= review.tips %>
+<% end %>
