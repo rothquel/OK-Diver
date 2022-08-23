@@ -27,6 +27,8 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem 'country_select'
+
 # dotenv
 gem "dotenv-rails", groups: [:development, :test]
 
