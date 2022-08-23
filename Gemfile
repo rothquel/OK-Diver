@@ -33,6 +33,9 @@ gem "dotenv-rails", groups: [:development, :test]
 # cloudinary
 gem "cloudinary"
 
+# country_select
+gem 'country_select'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

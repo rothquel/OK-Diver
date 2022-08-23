@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_23_153546) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_08_23_161351) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +45,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_153546) do
   create_table "dive_sites", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.text "description"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "country"
+    t.string "address"
+    t.string "type"
   end
 
   create_table "logs", force: :cascade do |t|
