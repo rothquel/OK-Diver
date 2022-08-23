@@ -1,4 +1,6 @@
 class DiveSitesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @dive_sites = DiveSite.all
     @markers = @dive_sites.geocoded.map do |dive_site|
