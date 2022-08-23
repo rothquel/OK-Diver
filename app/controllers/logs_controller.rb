@@ -5,6 +5,7 @@ class LogsController < ApplicationController
 
   def create
     @log = Log.new(log_params)
+    # @log.dive_number = @log.dive_number + 1
     @log.user = current_user
     if @log.save
       redirect log_path(@log)

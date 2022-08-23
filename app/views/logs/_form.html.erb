@@ -1,0 +1,17 @@
+        <%= simple_form_for @log do |f| %>
+        <%= f.input :date, html5: true  %>
+        <%= f.input :depth %>
+        <%= f.input :time_in %>
+        <%= f.input :time_out %>
+        <%= f.input :air_temp %>
+        <%= f.input :water_temp %>
+        <%= f.input :bar_start %>
+        <%= f.input :bar_end %>
+        <%= f.input :wet_suit %>
+        <%= f.input :weight %>
+        <%= f.input :visibility %>
+        <%= f.input :comments %>
+        <%= f.input :dive_center %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
