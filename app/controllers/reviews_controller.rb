@@ -7,10 +7,10 @@ class ReviewsController < ApplicationController
   def create
     @dive_site = DiveSite.find(params[:dive_site_id])
     @review = Review.new(review_params)
-    @user = current_user.id
-    @review.user_id = @user
+    @review.user = current_user
+    @review.dive_site = @dive_site
     if @review.save
-      redirect_to dive_site_path
+      redirect_to dive_site_path(@dive_site)
     else
       render 'reviews/new', status: :unprocessable_entity
     end
