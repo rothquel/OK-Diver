@@ -14,6 +14,7 @@ class DiveSitesController < ApplicationController
   def create
     @dive_site = DiveSite.new(dive_site_params)
     # @dive_site.user = current_user
+
     if @dive_site.save
       redirect_to dive_site_path(@dive_site)
     else
