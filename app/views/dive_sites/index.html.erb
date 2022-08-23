@@ -5,5 +5,11 @@
     <%= dive_site.country %><br>
     <%= dive_site.description %><br>
     <%= dive_site.dive_type %><br>
+    <%= link_to "Learn More", dive_site_path(dive_site) %>
   </div>
 <% end %>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>

@@ -27,8 +27,6 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-gem 'country_select'
-
 # dotenv
 gem "dotenv-rails", groups: [:development, :test]
 
@@ -37,6 +35,9 @@ gem "cloudinary"
 
 # country_select
 gem 'country_select'
+
+# Geocoder
+gem "geocoder"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
