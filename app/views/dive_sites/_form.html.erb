@@ -1,8 +1,12 @@
-<%= simple_form_for @review do |f|
+<%= simple_form_for @dive_site do |f| %>
   <%= f.input :name %>
-  <%= f.input :highlight %>
-  <%= f.input :tips %>
-    <%# input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+  <%= f.input :description %>
+  <%= f.input :country %>
+  <%= f.input :dive_type %>
+  <%= f.input :address,
+  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+  %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit class: 'btn btn-primary' %>
-<% end %> %>
+<% end %>

@@ -1,4 +1,4 @@
-<%= cl_image_tag @dive_site.photo.key %>
+<%= cl_image_tag @dive_site.photo.key, height: 300, width: 400, crop: :fill %>
 <h1><%= @dive_site.name %></h1>
 <h2><%= @dive_site.country %></h2>
 <h3><%= @dive_site.description %></h3>

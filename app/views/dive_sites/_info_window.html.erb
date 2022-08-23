@@ -1,0 +1,4 @@
+<%= cl_image_tag dive_site.photo.key, height: 150, width: 200, crop: :fill  %><br>
+<h2><%= dive_site.name %></h2>
+<p><%= dive_site.country %></p>
+<%= link_to "Learn More", dive_site_path(dive_site) %>
