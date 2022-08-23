@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
       redirect_to dive_site_path(@dive_site)
     else
       render 'reviews/new', status: :unprocessable_entity
+      flash[:alert] = "Something went wrong."
     end
   end
 
