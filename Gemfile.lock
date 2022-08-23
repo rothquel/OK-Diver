@@ -290,6 +290,7 @@ DEPENDENCIES
   capybara
   country_select
   cloudinary
+  country_select
   debug
   devise
   dotenv-rails
