@@ -8,7 +8,10 @@ export default class extends Controller {
   }
 
   toggleInputs(event) {
-    this.inputsTarget.classList.remove("d-none")
-
+    if (event.target.checked) {
+      this.inputsTarget.classList.remove("d-none")
+    } else {
+      this.inputsTarget.classList.add("d-none")
+    }
   }
 }

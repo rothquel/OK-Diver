@@ -288,7 +288,6 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   capybara
-  country_select
   cloudinary
   country_select
   debug
