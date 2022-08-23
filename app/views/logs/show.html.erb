@@ -1,1 +1,21 @@
-<h1>Here is a log</h1>
+<h1>Log number <%= current_user.logs.size %> </h1>
+
+  <%= cl_image_tag @log.photo.key, height: 300, width: 400, crop: :fill  %><br>
+
+  <p>Dive date: <%= @log.date %></p>
+  <p>Dive site name: <%= @log.dive_site.name%></p>
+  <p>Dive depth: <%= @log.depth %></p>
+  <p>Dive time in: <%= @log.time_in %></p>
+  <p>Dive time out: <%= @log.time_out %></p>
+  <p>Dive air temperature: <%= @log.air_temp %></p>
+  <p>Dive water temperature: <%= @log.water_temp %></p>
+  <p>Dive bar start: <%= @log.bar_start %></p>
+  <p>Dive bar end: <%= @log.bar_end %></p>
+  <p>Dive wetsuit: <%= @log.wet_suit %></p>
+  <p>Dive weight: <%= @log.weight %></p>
+  <p>Dive visibility: <%= @log.visibility %></p>
+  <p>Dive comments: <%= @log.comments %></p>
+  <p>Dive center name: <%= @log.dive_center %></p>
+
+  <%= link_to "Edit log", edit_log_path(@log) %>
+  <%= link_to "Back to all my logs", logs_path %>
