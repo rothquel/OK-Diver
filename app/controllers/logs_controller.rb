@@ -16,6 +16,13 @@ class LogsController < ApplicationController
 
   def index
     @logs = Log.all
+    @markers = @logs.dive_sites.geocoded.map do |dive_site|
+      {
+        lat: dive_site.latitude,
+        lng: dive_site.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {dive_site: dive_site})
+      }
+    end
   end
 
   def show
@@ -34,6 +41,6 @@ class LogsController < ApplicationController
 
   private
   def log_params
-    params.require(:log).permit(:date, :dive_site_id, :dive_number, :depth, :time_in, :time_out, :air_temp, :water_temp, :bar_start, :bar_end, :wet_suit, :weight, :visibility, :comments, :dive_center)
+    params.require(:log).permit(:date, :dive_site_id, :dive_number, :depth, :time_in, :time_out, :air_temp, :water_temp, :bar_start, :bar_end, :wet_suit, :weight, :visibility, :comments, :dive_center, :photo)
   end
 end
