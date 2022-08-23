@@ -15,3 +15,6 @@ application.register("map", MapController)
 
 import SignUpController from "./sign_up_controller"
 application.register("sign-up", SignUpController)
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)

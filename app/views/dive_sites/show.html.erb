@@ -8,6 +8,15 @@ MAP HERE
 <h2>Reviews:</h2>
 <% @dive_site.reviews.each do |review|  %>
   <%= review.rating %>
+    <% count = 0 %>
+                <% 5.times do %>
+                  <% if review.rating > count %>
+                    <i class="fa-solid fa-star"></i>
+                  <% else %>
+                    <i class="fa-regular fa-star"></i>
+                  <% end %>
+                    <% count += 1 %>
+                <% end %>
   <%= review.highlight %>
   <%= review.tips %>
 <% end %>
