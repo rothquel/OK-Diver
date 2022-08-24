@@ -49,6 +49,6 @@ class DiveSitesController < ApplicationController
   private
 
   def dive_site_params
-    params.require(:dive_site).permit(:name, :description, :country, :address, :dive_type, :photo)
+    params.require(:dive_site).permit(:name, :description, :country, :dive_type, :level, :photo, :city, :latitude, :longitude)
   end
 end
