@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   resources :logs, only: [:index, :show]
 
   get 'create-log/', to: 'pages#index_or_show'
+  resources :dive_site, only: :destroy do
+    resources :dive_site_tags, only: [:new, :create]
+  end
 end

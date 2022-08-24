@@ -11,6 +11,7 @@ site1 = DiveSite.new(
   latitude: 11.9602977874923,
   longitude: 121.913588047028,
   dive_type: "wreck",
+  level: DiveSite::PROFICIENCY[2],
   image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661290402/development/nx8vege6bpurgk0r2k3kzt8xhryz.jpg"
 )
 site1.save!
@@ -24,6 +25,7 @@ site2 = DiveSite.new(
   latitude: -2.23858124636481,
   longitude: 130.580406188965,
   dive_type: "reef",
+  level: DiveSite::PROFICIENCY[0],
   image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661285538/development/q05ueyrfzlp9atiw99tjj16b1b7f.jpg"
 )
 site2.save!
@@ -37,6 +39,7 @@ site3 = DiveSite.new(
   latitude: -0.565100090931986,
   longitude: 130.533542633057,
   dive_type: "deep",
+  level: DiveSite::PROFICIENCY[1],
   image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661219744/development/xi7rpzkhdyh35zte0rwqb8blz8ik.jpg"
 )
 site3.save!
