@@ -1,0 +1,9 @@
+<% if dive_site.photo.attached? %>
+  <%= cl_image_tag dive_site.photo.key, height: 150, width: 200, crop: :fill  %><br>
+<% else %>
+  <img src="<%= dive_site.image %>" width="200">
+<% end %>
+<h2><%= dive_site.name %></h2>
+<p><%= dive_site.city %></p>
+<p><%= dive_site.country %></p>
+<%= link_to "Use this location", new_dive_site_log_path(dive_site) %>

@@ -1,14 +1,17 @@
 class LogsController < ApplicationController
   def new
     @log = Log.new
+    @dive_site = DiveSite.find(params[:dive_site_id])
   end
 
   def create
     @log = Log.new(log_params)
     # @log.dive_number = @log.dive_number + 1
     @log.user = current_user
+    @dive_site = DiveSite.find(params[:dive_site_id])
+    @log.dive_site = @dive_site
     if @log.save
-      redirect_to log_path(@log)
+      redirect_to new_dive_site_review_path(@dive_site)
     else
       render :new, status: :unprocessable_entity
     end
