@@ -6,5 +6,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  :recoverable, :rememberable, :validatable
+
+  # Array to define content of level # Cap = constante
+  PROFICIENCY = %w[beginner intermediate professional]
 end
