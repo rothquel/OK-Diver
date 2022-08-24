@@ -9,4 +9,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :dive_site, only: :destroy do
+    resources :dive_site_tags, only: [:new, :create]
+  end
 end
