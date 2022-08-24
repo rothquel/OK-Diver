@@ -1,0 +1,6 @@
+<h1>Where did you dive?</h1>
+<%= link_to "Can't find your site? Add a new dive site.", new_dive_site_path %>
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
