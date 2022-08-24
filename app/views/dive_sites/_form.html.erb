@@ -2,7 +2,8 @@
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :country %>
-  <%= f.input :dive_type %>
+  <%= f.input :dive_type, collection: DiveSite::TYPE %>
+  <%= f.input :level, collection: DiveSite::PROFICIENCY %>
   <%= f.input :address,
   input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
   wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
