@@ -15,7 +15,9 @@ class LogsController < ApplicationController
   end
 
   def index
-    @logs = Log.all
+    # @logs = Log.all
+    # Find all the logs belonging to the current user
+    @my_logs = Log.where(user_id: current_user.id)
   end
 
   def show
@@ -31,6 +33,7 @@ class LogsController < ApplicationController
     @log.update(log_params)
     redirect_to log_path
   end
+
 
   private
   def log_params

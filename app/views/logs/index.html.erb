@@ -1,7 +1,7 @@
 <h1>Here are all your logs</h1>
 
-<% @logs.each do |log| %>
-<%= cl_image_tag @log.photo.key, height: 300, width: 400, crop: :fill %>
+<% @my_logs.each do |log| %>
+<%= cl_image_tag log.photo.key, height: 300, width: 400, crop: :fill %>
 <p>Dive number: <%= log.dive_number %></p>
 <p>Date <%= log.date %></p>
 <p>Location: <%= log.dive_site.name %></p>
