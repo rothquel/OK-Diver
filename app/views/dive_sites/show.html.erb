@@ -1,4 +1,8 @@
-<%= cl_image_tag @dive_site.photo.key, height: 300, width: 400, crop: :fill %>
+<% if @dive_site.photo.attached? %>
+  <%= cl_image_tag @dive_site.photo.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+  <img src="<%= @dive_site.image %>" width="300">
+<% end %>
 <h1><%= @dive_site.name %></h1>
 <h2><%= @dive_site.country %></h2>
 <h3><%= @dive_site.description %></h3>
