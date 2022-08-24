@@ -15,4 +15,5 @@ class DiveSite < ApplicationRecord
   PROFICIENCY = %w[Beginner Intermediate Advanced Professional]
   # Array to define options of dive type # Cap = constante
   TYPE = %w[Reef\ diving Wall\ diving Wreck\ diving Cave\ diving Night\ diving Drift\ diving]
+  # Array to define options of TAGS # Cap = constante
 end
