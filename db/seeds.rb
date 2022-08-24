@@ -45,3 +45,62 @@ site3 = DiveSite.new(
 )
 site3.save!
 puts "#{site3.name} created"
+
+
+site4 = DiveSite.new(
+  name: "East of Arborek Island",
+  description: "One of the best diving sites that I have been to! Super isolated and in the middle of the ocean, very deep but beautiful. Advanced only!",
+  country: "Philippines",
+  city: "Arborek Island",
+  latitude: -0.565100090931986,
+  longitude: 130.533542633057,
+  dive_type: DiveSite::TYPE[2],
+  level: DiveSite::PROFICIENCY[0],
+  image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661219744/development/xi7rpzkhdyh35zte0rwqb8blz8ik.jpg"
+)
+site4.save!
+puts "#{site4.name} created"
+
+
+site5 = DiveSite.new(
+  name: "East of Arborek Island",
+  description: "One of the best diving sites that I have been to! Super isolated and in the middle of the ocean, very deep but beautiful. Advanced only!",
+  country: "Philippines",
+  city: "Arborek Island",
+  latitude: -0.565100090931986,
+  longitude: 130.533542633057,
+  dive_type: DiveSite::TYPE[3],
+  level: DiveSite::PROFICIENCY[3],
+  image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661219744/development/xi7rpzkhdyh35zte0rwqb8blz8ik.jpg"
+)
+site5.save!
+puts "#{site5.name} created"
+
+
+site6 = DiveSite.new(
+  name: "East of Arborek Island",
+  description: "One of the best diving sites that I have been to! Super isolated and in the middle of the ocean, very deep but beautiful. Advanced only!",
+  country: "Philippines",
+  city: "Arborek Island",
+  latitude: -0.565100090931986,
+  longitude: 130.533542633057,
+  dive_type: DiveSite::TYPE[0],
+  level: DiveSite::PROFICIENCY[1],
+  image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661219744/development/xi7rpzkhdyh35zte0rwqb8blz8ik.jpg"
+)
+site6.save!
+puts "#{site6.name} created"
+
+site7 = DiveSite.new(
+  name: "East of Arborek Island",
+  description: "One of the best diving sites that I have been to! Super isolated and in the middle of the ocean, very deep but beautiful. Advanced only!",
+  country: "Philippines",
+  city: "Arborek Island",
+  latitude: -0.565100090931986,
+  longitude: 130.533542633057,
+  dive_type: DiveSite::TYPE[0],
+  level: DiveSite::PROFICIENCY[1],
+  image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661219744/development/xi7rpzkhdyh35zte0rwqb8blz8ik.jpg"
+)
+site7.save!
+puts "#{site7.name} created"
