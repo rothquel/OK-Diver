@@ -1,3 +1,28 @@
+<%# FILTERS %>
+<%= simple_form_for @dive_site do |f| %>
+  <%= f.input :country %>
+  <%= f.input :dive_type, collection: DiveSite::TYPE %>
+  <%= f.input :level, collection: DiveSite::PROFICIENCY %>
+  <%= f.input :address,
+  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+  %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+
+<%= turbo_frame_tag "players", class: "shadow overflow-hidden rounded border-b border-gray-200" do %>
+  <div class="flex justify-end mb-1">
+    <%= form_with url: list_players_path, method: :get do |form| %>
+      <%= form.text_field :name, placeholder: "Search by name", value: params[:name], class: "border border-blue-500 rounded p-2" %>
+      <%= form.button "Search", class: "bg-blue-500 text-white p-2 rounded-sm" %>
+    <% end %>
+  </div>
+  <!-- Snip the table -->
+<% end %>
+
+
+
 <% @dive_sites.each do |dive_site| %>
   <div>
   <% if dive_site.photo.attached? %>
