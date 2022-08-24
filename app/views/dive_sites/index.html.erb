@@ -1,27 +1,33 @@
-<%# FILTERS %>
-<%= simple_form_for @dive_site do |f| %>
-  <%= f.input :country %>
-  <%= f.input :dive_type, collection: DiveSite::TYPE %>
-  <%= f.input :level, collection: DiveSite::PROFICIENCY %>
-  <%= f.input :address,
-  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-  %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit class: 'btn btn-primary' %>
+<%= form_with url: dive_sites_path, method: :get, class: "d-flex" do |form| %>
+
+<%= text_field_tag :country,
+    params[:query],
+    class: "form-control",
+    placeholder: "Country"
+%>
+<%= text_field_tag :city,
+    params[:query],
+    class: "form-control",
+    placeholder: "City"
+%>
+
+<%= select_tag :dive_type, options_for_select(DiveSite::TYPE),
+class: "form-control",
+prompt: 'Dive Type'%>
+
+<%= select_tag :level, options_for_select(DiveSite::PROFICIENCY),
+class: "form-control",
+prompt: 'Difficulty'%>
+
+<%# TAGS MULTIPLE ON HOLD %>
+<%#select_tag :tags, options_for_select(DiveSite::TBD),
+class: "form-control",
+prompt: 'Specialties'%>
+
+  <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
-<%= turbo_frame_tag "players", class: "shadow overflow-hidden rounded border-b border-gray-200" do %>
-  <div class="flex justify-end mb-1">
-    <%= form_with url: list_players_path, method: :get do |form| %>
-      <%= form.text_field :name, placeholder: "Search by name", value: params[:name], class: "border border-blue-500 rounded p-2" %>
-      <%= form.button "Search", class: "bg-blue-500 text-white p-2 rounded-sm" %>
-    <% end %>
-  </div>
-  <!-- Snip the table -->
-<% end %>
-
-
+<%# envoyer multiples values, query devient un objet %>
 
 <% @dive_sites.each do |dive_site| %>
   <div>

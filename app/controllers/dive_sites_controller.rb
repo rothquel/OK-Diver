@@ -2,7 +2,23 @@ class DiveSitesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    # raise
+    # if par niveau
+    # If AND par niveau
     @dive_sites = DiveSite.all
+    if params[:country].present?
+      @dive_sites = @dive_sites.where(country: params[:country])
+    end
+    if params[:city].present?
+      @dive_sites = @dive_sites.where(city: params[:city])
+    end
+    if params[:dive_type].present?
+      @dive_sites = @dive_sites.where(dive_type: params[:dive_type])
+    end
+    if params[:level].present?
+      @dive_sites = @dive_sites.where(level: params[:level])
+    end
+
     @markers = @dive_sites.geocoded.map do |dive_site|
       {
         lat: dive_site.latitude,
