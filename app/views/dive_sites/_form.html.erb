@@ -1,14 +1,19 @@
-<%= simple_form_for @dive_site do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :country %>
-  <%= f.input :city %>
-  <%= f.input :dive_type, collection: DiveSite::TYPE %>
-  <%= f.input :level, collection: DiveSite::PROFICIENCY %>
-  <%= f.input :address,
-  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-  %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit class: 'btn btn-primary' %>
-<% end %>
+<div data-controller="create-site-map"
+data-create-site-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <%= simple_form_for @dive_site do |f| %>
+  <p>If you know the GPS co-ordinates of your dive enter them here, or pinpoint your dive site on the map below</p>
+    <%= f.input :latitude, input_html: { data: { create_site_map_target: "latitude" } } %>
+    <%= f.input :longitude, input_html: { data: { create_site_map_target: "longitude" } } %>
+  <div style="width: 100%; height: 600px;"
+    data-create-site-map-target="map"
+    ></div>
+    <%= f.input :country %>
+    <%= f.input :city %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :dive_type, collection: DiveSite::TYPE %>
+    <%= f.input :level, collection: DiveSite::PROFICIENCY %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+</div>

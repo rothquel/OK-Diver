@@ -1,2 +1,3 @@
-<h1>Log a dive for dive number <%= current_user.logs.size + 1 %> </h1>
+<h1>Log your dive at <%= @dive_site.name %></h1>
+<p>Your dive number <%= current_user.logs.size + 1 %> </p>
 <%= render "form", log: @log %>

@@ -22,7 +22,7 @@
     <%= f.input :last_name,
                 required: true,
                 input_html: { autocomplete: "last-name" } %>
-    <%= f.input :birthdate,
+    <%= f.input :birthdate, html5: true,
                 required: false,
                 input_html: { autocomplete: "birth-date" } %>
     <%= f.input :country,
