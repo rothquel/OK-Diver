@@ -1,6 +1,10 @@
 <% @dive_sites.each do |dive_site| %>
   <div>
+  <% if dive_site.photo.attached? %>
     <%= cl_image_tag dive_site.photo.key, height: 300, width: 400, crop: :fill  %><br>
+  <% else %>
+    <img src="<%= dive_site.image %>" width="300">
+  <% end %>
     <%= dive_site.name %><br>
     <%= dive_site.country %><br>
     <%= dive_site.description %><br>
