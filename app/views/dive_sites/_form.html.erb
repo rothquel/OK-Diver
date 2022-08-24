@@ -8,10 +8,7 @@ data-create-site-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     data-create-site-map-target="map"
     ></div>
     <%= f.input :country %>
-    <%= f.input :city,
-    input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-    %>
+    <%= f.input :city %>
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :dive_type %>
