@@ -8,8 +8,5 @@ Rails.application.routes.draw do
   end
   resources :logs, only: [:index, :show]
 
-  get 'create-log/1', to: 'pages#index_or_show'
-  get 'create-log/2', to: 'pages#log'
-  get 'create-log/3', to: 'pages#review'
-  get 'create-log/success', to: 'pages#success'
+  get 'create-log/', to: 'pages#index_or_show'
 end

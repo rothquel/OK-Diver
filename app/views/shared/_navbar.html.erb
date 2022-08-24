@@ -13,7 +13,7 @@
         <%= link_to "Explore", dive_sites_path, class: "nav-link" %>
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <%= link_to "Log a dive", create_log_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>

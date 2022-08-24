@@ -15,11 +15,6 @@ class PagesController < ApplicationController
     end
   end
 
-  def log(dive_site)
-    @log = Log.new
-    @log.dive_site = @dive_site
-  end
-
-  def review
+  def success
   end
 end
