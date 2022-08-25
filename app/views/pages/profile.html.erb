@@ -1,0 +1,32 @@
+<div class="container py-5">
+  <div>
+    <% if @user.photo.present? %>
+      <%= cl_image_tag @user.photo.key, class: "profile-avatar" %>
+    <% else %>
+      <%= image_tag "diver.png", class: "profile-avatar"%>
+    <% end %>
+    <%= link_to "Edit", edit_user_registration_path(@user) %>
+  </div>
+
+  <div>
+    <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+    <h4><%= @user.country %></h4>
+  </div>
+
+  <div>
+    <p><strong>Joined OK Diver:</strong> <%= @user.created_at.strftime('%B %Y') %>
+    <p><strong>Dive logs:</strong> <%= @user.logs.count %>
+    <p><strong>Dive sites created:</strong> <%= @user.dive_sites.count %>
+  </div>
+
+  <% if @user.certified? %>
+  <div>
+    <h3>Certification details:</h3>
+    <p><strong>Certification body:</strong> <%= @user.certification_body %></p>
+    <p><strong>Certified since:</strong> <%= @user.certification_date.strftime('%B %Y') %></p>
+    <p><strong>Certification level:</strong> <%= @user.certification_level %></p>
+    <p><strong>Student number:</strong> <%= @user.student_number %></p>
+    <p><strong>Date of birth:</strong> <%= @user.birthdate %></p>
+  </div>
+  <% end %>
+</div>
