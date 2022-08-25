@@ -1,0 +1,7 @@
+
+var divesiteID = '<%= @inspo.id %>'
+function toggleLikeButton(divesiteID, innerHTML) {
+  let likeButton = document.querySelector(`.like-icon[data-id='${divesiteID}']`)
+  likeButton.classList.toggle('red');
+}
+toggleLikeButton(divesiteID);

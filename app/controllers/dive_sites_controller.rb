@@ -1,6 +1,6 @@
 class DiveSitesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-
+  before_action :authenticate_user!, only: :toggle_favorite
 
   def index
     # raise
@@ -44,6 +44,11 @@ class DiveSitesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def toggle_favorite
+    @dive_site = DiveSite.find_by(id: params[:id])
+    current_user.favorited?(@dive_site) ? current_user.unfavorite(@dive_site) : current_user.favorite(@dive_site)
   end
 
   private
