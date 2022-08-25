@@ -10,7 +10,7 @@ site1 = DiveSite.new(
   city: "Balabag",
   latitude: 11.9602977874923,
   longitude: 121.913588047028,
-  dive_type: "wreck",
+  dive_type: DiveSite::TYPE[3],
   level: DiveSite::PROFICIENCY[2],
   image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661290402/development/nx8vege6bpurgk0r2k3kzt8xhryz.jpg"
 )
@@ -24,7 +24,7 @@ site2 = DiveSite.new(
   city: "Pulau Batanme",
   latitude: -2.23858124636481,
   longitude: 130.580406188965,
-  dive_type: "reef",
+  dive_type: DiveSite::TYPE[1],
   level: DiveSite::PROFICIENCY[0],
   image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661285538/development/q05ueyrfzlp9atiw99tjj16b1b7f.jpg"
 )
@@ -38,7 +38,7 @@ site3 = DiveSite.new(
   city: "Arborek Island",
   latitude: -0.565100090931986,
   longitude: 130.533542633057,
-  dive_type: "deep",
+  dive_type: DiveSite::TYPE[2],
   level: DiveSite::PROFICIENCY[1],
   image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661219744/development/xi7rpzkhdyh35zte0rwqb8blz8ik.jpg"
 )

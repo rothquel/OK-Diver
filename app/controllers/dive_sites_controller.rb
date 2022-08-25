@@ -2,10 +2,8 @@ class DiveSitesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    # Thx to lazy load, active record will update dive_sites in accordance
     # raise
-    # if par niveau
-    # If AND par niveau
-    raise
     @dive_sites = DiveSite.all
     if params[:country].present?
       @dive_sites = @dive_sites.where(country: params[:country])
@@ -24,8 +22,20 @@ class DiveSitesController < ApplicationController
       {
         lat: dive_site.latitude,
         lng: dive_site.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {dive_site: dive_site})
+        info_window: render_to_string(partial: "info_window", locals: { dive_site: dive_site })
       }
+    end
+
+    # Implementing ajax in search
+    dive_sites = render_to_string(partial: "dive_sites/dive_sites_list", layout: false, locals: { dive_sites: @dive_sites })
+    respond_to do |format|
+      format.html
+      format.json do
+        render json: {
+          diveSites: dive_sites
+          # diveSites: render_to_string('hello')
+        }
+      end
     end
   end
 
