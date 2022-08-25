@@ -31,6 +31,11 @@
           <h3><%= link_to "#{review.user.first_name} #{review.user.last_name}", profile_path(review.user.id) %></h3>
           <h6>Highlights:</h6> <p><%= review.highlight %></p>
           <h6>Tips:</h6> <p><%= review.tips %></p>
+          <% if review.user.id == current_user.id %>
+            <%= link_to "Edit your review", edit_review_path(review) %>
+            <%= link_to "Delete this review", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+          <% end %>
         </div>
       <% end %>
     </div>
