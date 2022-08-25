@@ -4,7 +4,7 @@ class DiveSitesController < ApplicationController
   def index
     # Thx to lazy load, active record will update dive_sites in accordance
     # raise
-    
+
     @dive_sites = DiveSite.all
     if params[:country].present?
       @dive_sites = @dive_sites.where("country ILIKE ?", "%#{params[:country]}%")
@@ -46,6 +46,22 @@ class DiveSitesController < ApplicationController
 
   def show
     @dive_site = DiveSite.find(params[:id])
+
+    if @dive_site.latitude.nil?
+      latitude = 45.501690
+      longitude = -73.567253
+    else
+      latitude = @dive_site.latitude
+      longitude = @dive_site.longitude
+    end
+    @markers = [
+      {
+        lat: latitude,
+        lng: longitude,
+        info_window: render_to_string(partial: "info_window", locals: {dive_site: @dive_site}),
+        image_url: helpers.asset_url("https://res.cloudinary.com/dg7mx0hnl/image/upload/v1660853532/6_ebqm2m.png")
+      }
+    ]
   end
 
   def new
