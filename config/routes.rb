@@ -14,4 +14,11 @@ Rails.application.routes.draw do
   resources :dive_site, only: :destroy do
     resources :dive_site_tags, only: [:new, :create]
   end
+
+  resources :dive_site, only: :index do
+    member do
+      post 'toggle_favorite', to: "dive_site#toggle_favorite"
+      # Route generated: cocktails/:id/toggle_favorite
+    end
+  end
 end

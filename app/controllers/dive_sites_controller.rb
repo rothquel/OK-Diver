@@ -1,6 +1,7 @@
 class DiveSitesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
+
   def index
     # raise
     # if par niveau
@@ -23,7 +24,7 @@ class DiveSitesController < ApplicationController
       {
         lat: dive_site.latitude,
         lng: dive_site.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {dive_site: dive_site})
+        info_window: render_to_string(partial: "info_window", locals: {dive_site: dive_site} )
       }
     end
   end
