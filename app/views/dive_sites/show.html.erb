@@ -1,26 +1,37 @@
-<% if @dive_site.photo.attached? %>
-  <%= cl_image_tag @dive_site.photo.key, height: 300, width: 400, crop: :fill %>
-<% else %>
-  <img src="<%= @dive_site.image %>" width="300">
-<% end %>
-<h1><%= @dive_site.name %></h1>
-<h2><%= @dive_site.country %></h2>
-<h3><%= @dive_site.description %></h3>
-<h4><%= @dive_site.dive_type %></h4>
-MAP HERE
-<hr>
-<h2>Reviews:</h2>
-<% @dive_site.reviews.each do |review|  %>
-  <%= review.rating %>
-    <% count = 0 %>
-                <% 5.times do %>
-                  <% if review.rating > count %>
-                    <i class="fa-solid fa-star"></i>
-                  <% else %>
-                    <i class="fa-regular fa-star"></i>
-                  <% end %>
-                    <% count += 1 %>
-                <% end %>
-  <%= review.highlight %>
-  <%= review.tips %>
-<% end %>
+<div class="container">
+  <% if @dive_site.photo.attached? %>
+    <%= cl_image_tag @dive_site.photo.key, height: 300, width: 400, crop: :fill %>
+  <% else %>
+    <img src="<%= @dive_site.image %>" width="300">
+  <% end %>
+  <h1><%= @dive_site.name %></h1>
+  <h2><%= @dive_site.country %></h2>
+  <h3><%= @dive_site.description %></h3>
+  <h4><%= @dive_site.dive_type %></h4>
+  MAP HERE
+  <hr>
+  <h2>Reviews:</h2>
+    <div class="reviews">
+      <% @dive_site.reviews.each do |review|  %>
+        <div class="review-card">
+          <% if review.user.photo.present? %>
+            <%= cl_image_tag review.user.photo.key, class: "review-avatar" %><br>
+          <% else %>
+            <%= image_tag "diver.png", class: "review-avatar"%><br>
+          <% end %>
+          <% count = 0 %>
+            <% 5.times do %>
+              <% if review.rating > count %>
+                <i class="fa-solid fa-star star-color"></i>
+              <% else %>
+                <i class="fa-regular fa-star star-color"></i>
+              <% end %>
+                <% count += 1 %>
+            <% end %>
+          <h3><%= link_to "#{review.user.first_name} #{review.user.last_name}", profile_path(review.user.id) %></h3>
+          <h6>Highlights:</h6> <p><%= review.highlight %></p>
+          <h6>Tips:</h6> <p><%= review.tips %></p>
+        </div>
+      <% end %>
+    </div>
+</div>

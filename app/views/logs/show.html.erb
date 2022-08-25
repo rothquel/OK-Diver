@@ -1,9 +1,13 @@
 <h1>Log number <%= current_user.logs.size %> </h1>
 
-  <%= cl_image_tag @log.photo.key, height: 300, width: 400, crop: :fill  %><br>
+<% if @log.photo.present? %>
+  <%= cl_image_tag @log.photo.key, height: 300, width: 400, crop: :fill %><br>
+<% else %>
+  <%= cl_image_tag @log.dive_site.photo.key, height: 300, width: 400, crop: :fill %><br>
+<% end %>
 
   <p>Dive date: <%= @log.date %></p>
-  <p>Dive site name: <%= @log.dive_site.name%></p>
+  <p>Dive site name: <%= link_to @log.dive_site.name, dive_site_path(@log.dive_site) %></p>
   <p>Dive depth: <%= @log.depth %></p>
   <p>Dive time in: <%= @log.time_in %></p>
   <p>Dive time out: <%= @log.time_out %></p>
@@ -17,5 +21,5 @@
   <p>Dive comments: <%= @log.comments %></p>
   <p>Dive center name: <%= @log.dive_center %></p>
 
-  <%= link_to "Edit log", edit_log_path(@log) %>
+  <%= link_to "Edit log", edit_dive_site_log_path(@log) %>
   <%= link_to "Back to all my logs", logs_path %>
