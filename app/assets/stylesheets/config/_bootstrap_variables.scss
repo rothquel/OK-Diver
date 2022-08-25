@@ -23,3 +23,6 @@ $border-radius-lg: 8px;
 $border-radius-sm: 8px;
 
 // Override other variables below!
+.override-bs-nav-link-padding-y {
+  --bs-nav-link-padding-y: 0.0rem !important;
+}
