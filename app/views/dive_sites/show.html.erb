@@ -1,3 +1,40 @@
+<div class="top-bar">
+<h1><%= @dive_site.name %></h1>
+</div>
+
+<div class="show-card-section">
+  <div class="container py-5">
+
+    <div class="row justify-content-between">
+      <div class="col">
+        <p><i class="fa-solid fa-star star-color"></i> 5.0 ・ 1732 reviews ・ City, Country
+      </div>
+      <div class="col text-end">
+        <i class="fa-solid fa-arrow-up-from-bracket"></i> Share ・ <i class="fa-solid fa-anchor"></i> Log ・ <i class="fa-solid fa-heart"></i> Save
+      </div>
+    </div>
+
+    <div class="row justify-content-between">
+      <div class="col-6">
+          <% if @dive_site.photo.attached? %>
+            <%= cl_image_tag @dive_site.photo.key, height: 300, width: 400, crop: :fill %>
+          <% else %>
+            <img src="<%= @dive_site.image %>" width="300">
+          <% end %>
+      </div>
+
+      <div class="col-6">
+
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+</div>
+
 <div class="container">
   <% if @dive_site.photo.attached? %>
     <%= cl_image_tag @dive_site.photo.key, height: 300, width: 400, crop: :fill %>
