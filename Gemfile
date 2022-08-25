@@ -39,6 +39,9 @@ gem 'country_select'
 # Geocoder
 gem "geocoder"
 
+# countries
+gem "countries"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
