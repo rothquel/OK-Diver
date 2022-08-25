@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import CreateSiteMapController from "./create_site_map_controller"
 application.register("create-site-map", CreateSiteMapController)
 
+import DiveSitesFiltersController from "./dive_sites_filters_controller"
+application.register("dive-sites-filters", DiveSitesFiltersController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

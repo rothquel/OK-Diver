@@ -19,13 +19,15 @@
 }
 
 .register-button {
-  height: 60px;
+  // height: 60px;
   background: #023E8A;
   color: white;
   box-shadow: 0px 4px 15px #023E8A;
   border-radius: 8px;
   padding: 10px 16px;
   gap: 10px;
+  // display: flex;
+  // justify-content: space-between;
   text-align: center;
   color: $white;
   text-decoration: none;
@@ -39,7 +41,7 @@
 
 
 .explore-button {
-  height: 60px;
+  // height: 60px;
   background: #FF9E00;
   box-shadow: 0px 4px 15px #FF9E00;
   border-radius: 8px;
@@ -50,7 +52,8 @@
   text-decoration: none;
   font-family: $headers-font;
   font-weight: 600;
-  z-index: 2;
+  display: flex;
+  justify-content: space-between;
 }
 
 .explore-button:hover {

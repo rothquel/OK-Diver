@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_24_174846) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_25_210845) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,6 +45,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_174846) do
   create_table "dive_site_tags", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "dive_site_id", null: false
+    t.bigint "tag_id", null: false
+    t.index ["dive_site_id"], name: "index_dive_site_tags_on_dive_site_id"
+    t.index ["tag_id"], name: "index_dive_site_tags_on_tag_id"
   end
 
   create_table "dive_sites", force: :cascade do |t|
@@ -60,6 +64,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_174846) do
     t.string "city"
     t.string "image"
     t.string "level"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.string "favoritable_type", null: false
+    t.bigint "favoritable_id", null: false
+    t.string "favoritor_type", null: false
+    t.bigint "favoritor_id", null: false
+    t.string "scope", default: "favorite", null: false
+    t.boolean "blocked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blocked"], name: "index_favorites_on_blocked"
+    t.index ["favoritable_id", "favoritable_type"], name: "fk_favoritables"
+    t.index ["favoritable_type", "favoritable_id", "favoritor_type", "favoritor_id", "scope"], name: "uniq_favorites__and_favoritables", unique: true
+    t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable"
+    t.index ["favoritor_id", "favoritor_type"], name: "fk_favorites"
+    t.index ["favoritor_type", "favoritor_id"], name: "index_favorites_on_favoritor"
+    t.index ["scope"], name: "index_favorites_on_scope"
   end
 
   create_table "logs", force: :cascade do |t|
@@ -126,6 +148,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_174846) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "dive_site_tags", "dive_sites"
+  add_foreign_key "dive_site_tags", "tags"
   add_foreign_key "logs", "dive_sites"
   add_foreign_key "logs", "users"
   add_foreign_key "reviews", "dive_sites"

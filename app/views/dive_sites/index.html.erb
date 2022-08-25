@@ -1,50 +1,65 @@
-<%= form_with url: dive_sites_path, method: :get, class: "d-flex" do |form| %>
+<div data-controller="dive-sites-filters">
 
-<%= text_field_tag :country,
-    params[:query],
-    class: "form-control",
-    placeholder: "Country"
-%>
-<%= text_field_tag :city,
-    params[:query],
-    class: "form-control",
-    placeholder: "City"
-%>
+  <%= form_with url: dive_sites_path, method: :get, html: {class: "d-flex", data: {dive_sites_filters_target: "form"}}  do |form| %>
 
-<%= select_tag :dive_type, options_for_select(DiveSite::TYPE),
-class: "form-control",
-prompt: 'Dive Type'%>
+  <%= text_field_tag :country,
+      params[:query],
+      class: "form-control",
+      placeholder: "Country",
+      data: {
+                dive_sites_filters_target: "country",
+                action: "keyup->dive-sites-filters#update"
+              }
+  %>
+  <%= text_field_tag :city,
+      params[:query],
+      class: "form-control",
+      placeholder: "City",
+      data: {
+                dive_sites_filters_target: "city",
+                action: "keyup->dive-sites-filters#update"
+              }
+  %>
 
-<%= select_tag :level, options_for_select(DiveSite::PROFICIENCY),
-class: "form-control",
-prompt: 'Difficulty'%>
+  <%= select_tag :dive_type, options_for_select(DiveSite::TYPE),
+  class: "form-control",
+  prompt: 'Dive Type',
+  data: {
+                dive_sites_filters_target: "diveType",
+                action: "change->dive-sites-filters#update"
+              }%>
 
-<%# TAGS MULTIPLE ON HOLD %>
-<%= select_tag :tags, options_from_collection_for_select(Tag.all, 'id', 'name'), include_blank: false, multiple: true,
-class: "form-control",
-prompt: 'Specialties'%>
+  <%= select_tag :level, options_for_select(DiveSite::PROFICIENCY),
+  class: "form-control",
+  prompt: 'Difficulty',
+  data: {
+                dive_sites_filters_target: "level",
+                action: "change->dive-sites-filters#update"
+              }
+              %>
 
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+  <%# TAGS MULTIPLE ON HOLD %>
+  <%= select_tag :tags, options_from_collection_for_select(Tag.all, 'id', 'name'), include_blank: false, multiple: true,
+  class: "form-control",
+  prompt: 'Specialties'%>
 
-<%# envoyer multiples values, query devient un objet %>
-
-<% @dive_sites.each do |dive_site| %>
-  <div>
-  <% if dive_site.photo.attached? %>
-    <%= cl_image_tag dive_site.photo.key, height: 300, width: 400, crop: :fill  %><br>
-  <% else %>
-    <img src="<%= dive_site.image %>" width="300">
+    <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
-    <%= dive_site.name %><br>
-    <%= dive_site.country %><br>
-    <%= dive_site.description %><br>
-    <%= dive_site.dive_type %><br>
-    <%= link_to "Learn More", dive_site_path(dive_site) %>
-  </div>
-<% end %>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <%#  Partial dive-sites %>
+  <div data-dive-sites-filters-target="diveSites">
+    <%= render 'dive_sites_list', dive_sites: @dive_sites %>
+  </div>
+  <%# Partial of maps (upcoming) %>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    data-dive-sites-filters-target="mapRefresh"
+    <%# Custom "action type" %>
+    data-action="dive-sites-filters:refreshMap->map#refreshMapAjax">
+
+
+    </div>
+
+</div>
