@@ -1,30 +1,57 @@
+<% dive_site_country = ISO3166::Country.new(@dive_site.country) %>
+
 <div class="top-bar">
 <h1><%= @dive_site.name %></h1>
 </div>
 
 <div class="show-card-section">
   <div class="container py-5">
-
-    <div class="row justify-content-between">
+    <div class="row justify-content-between pb-3">
       <div class="col">
-        <p><i class="fa-solid fa-star star-color"></i> 5.0 ・ 1732 reviews ・ City, Country
+        <p><i class="fa-solid fa-star star-color"></i> 5.0 ・ <%= pluralize @dive_site.reviews.count, "review" %> ・ <%= @dive_site.city %>, <%= dive_site_country %>
       </div>
       <div class="col text-end">
         <i class="fa-solid fa-arrow-up-from-bracket"></i> Share ・ <i class="fa-solid fa-anchor"></i> Log ・ <i class="fa-solid fa-heart"></i> Save
       </div>
     </div>
 
-    <div class="row justify-content-between">
+    <div class="row justify-content-between g-5">
       <div class="col-6">
-          <% if @dive_site.photo.attached? %>
-            <%= cl_image_tag @dive_site.photo.key, height: 300, width: 400, crop: :fill %>
-          <% else %>
-            <img src="<%= @dive_site.image %>" width="300">
-          <% end %>
+        <% if @dive_site.photo.attached? %>
+          <%= cl_image_tag @dive_site.photo.key, height: 400 %>
+        <% else %>
+          <img src="<%= @dive_site.image %>" height="400">
+        <% end %>
+        <div class="row g-5 pt-5 justify-content-evenly">
+          <div class="col">
+            <% if @dive_site.photo.attached? %>
+              <%= cl_image_tag @dive_site.photo.key, height: 100 %>
+            <% else %>
+              <img src="<%= @dive_site.image %>" height="100">
+            <% end %>
+          </div>
+          <div class="col">
+            <% if @dive_site.photo.attached? %>
+              <%= cl_image_tag @dive_site.photo.key, height: 100 %>
+            <% else %>
+              <img src="<%= @dive_site.image %>" height="100">
+            <% end %>
+          </div>
+          <div class="col">
+            <% if @dive_site.photo.attached? %>
+              <%= cl_image_tag @dive_site.photo.key, height: 100 %>
+            <% else %>
+              <img src="<%= @dive_site.image %>" height="100">
+            <% end %>
+          </div>
+        </div>
       </div>
 
       <div class="col-6">
-
+        <div style="width: 100%; height: 550px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       </div>
     </div>
 
@@ -35,19 +62,25 @@
   </div>
 </div>
 
+<div class="container py-5 my-5">
+  <div class="row">
+    <div class="col-6">
+      <h2 class="fw-bold pb-5">Description of the site</h2>
+      <p><%= @dive_site.description %>
+    </div>
+    <div class="col-6">
+      <h4 class="fw-bold pb-5">Features other divers have seen at this site:</h4>
+    </div>
+
+
+
+
+  </div>
+</div>
+
 <div class="container">
-  <% if @dive_site.photo.attached? %>
-    <%= cl_image_tag @dive_site.photo.key, height: 300, width: 400, crop: :fill %>
-  <% else %>
-    <img src="<%= @dive_site.image %>" width="300">
-  <% end %>
-  <h1><%= @dive_site.name %></h1>
-  <h2><%= @dive_site.country %></h2>
-  <h3><%= @dive_site.description %></h3>
-  <h4><%= @dive_site.dive_type %></h4>
-  MAP HERE
-  <hr>
-  <h2>Reviews:</h2>
+  <div class="row">
+      <h2 class="fw-bold pb-5">Feedback of the site (<%= pluralize @dive_site.reviews.count, "review" %>)</h2>
     <div class="reviews">
       <% @dive_site.reviews.each do |review|  %>
         <div class="review-card">
@@ -76,4 +109,8 @@
         </div>
       <% end %>
     </div>
+  </div>
+</div>
+
+
 </div>
