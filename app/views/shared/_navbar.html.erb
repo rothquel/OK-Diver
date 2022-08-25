@@ -1,16 +1,25 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top px-3 border-bottom">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661355934/logoblack_oxqiqy.png" %>
-    <% end %>
-
+    <div style="width-576px">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661355934/logoblack_oxqiqy.png", style: "width:150px" %>
+      <% end %>
+    </div>
+    <div class="search-box">
+      <form class="example" action="action_page.php">
+        <input id="input-box" type="text" placeholder="Find a dive site..." name="search">
+        <button class="search-icon-button"type="submit">
+          <i class="fa fa-search"></i>
+        </button>
+      </form>
+    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <%= link_to "Explore", dive_sites_path, class: "nav-link" %>
+        <%= link_to "Explore", dive_sites_path, class: "nav-link " %>
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Log a dive", create_log_path, class: "nav-link" %>
@@ -19,20 +28,24 @@
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-          <% if current_user.photo.present? %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% else %>
-            <%= image_tag "diver.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My profile", profile_path(current_user.id), class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+            <% if current_user.photo.present? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "diver.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "My profile", profiles_path(current_user.id), class: "dropdown-item" %>
+                <%= link_to "My Logs", "#", class: "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              </div>
           </li>
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li>
+            <%= link_to "Sign up", new_user_registration_path %><br />
           </li>
         <% end %>
       </ul>
