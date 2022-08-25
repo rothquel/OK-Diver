@@ -91,7 +91,7 @@ site6.save!
 puts "#{site6.name} created"
 
 site7 = DiveSite.new(
-  name: "East of Arborek Island",
+  name: "Jardin du Cari",
   description: "One of the best diving sites that I have been to! Super isolated and in the middle of the ocean, very deep but beautiful. Advanced only!",
   country: "Philippines",
   city: "Arborek Island",
@@ -103,3 +103,31 @@ site7 = DiveSite.new(
 )
 site7.save!
 puts "#{site7.name} created"
+
+site8 = DiveSite.new(
+  name: "Le Wagon Gang",
+  description: "One of the best diving sites that I have been to! Super isolated and in the middle of the ocean, very deep but beautiful. Advanced only!",
+  country: "Canada",
+  city: "Montreal",
+  latitude: -0.565100090931986,
+  longitude: 130.533542633057,
+  dive_type: DiveSite::TYPE[0],
+  level: DiveSite::PROFICIENCY[1],
+  image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661219744/development/xi7rpzkhdyh35zte0rwqb8blz8ik.jpg"
+)
+site8.save!
+puts "#{site8.name} created"
+
+site9 = DiveSite.new(
+  name: "Le Wagon Gang",
+  description: "One of the best diving sites that I have been to! Super isolated and in the middle of the ocean, very deep but beautiful. Advanced only!",
+  country: "Canada",
+  city: "Montreal",
+  latitude: -0.565100090931986,
+  longitude: 130.533542633057,
+  dive_type: DiveSite::TYPE[0],
+  level: DiveSite::PROFICIENCY[1],
+  image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661219744/development/xi7rpzkhdyh35zte0rwqb8blz8ik.jpg"
+)
+site9.save!
+puts "#{site9.name} created"

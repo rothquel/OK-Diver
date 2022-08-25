@@ -26,7 +26,7 @@
   prompt: 'Dive Type',
   data: {
                 dive_sites_filters_target: "diveType",
-                action: "select->dive-sites-filters#update"
+                action: "change->dive-sites-filters#update"
               }%>
 
   <%= select_tag :level, options_for_select(DiveSite::PROFICIENCY),
@@ -34,7 +34,7 @@
   prompt: 'Difficulty',
   data: {
                 dive_sites_filters_target: "level",
-                action: "select->dive-sites-filters#update"
+                action: "change->dive-sites-filters#update"
               }
               %>
 
@@ -45,12 +45,13 @@
 
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
+
+  <%#  Partial dive-sites %>
+  <div data-dive-sites-filters-target="diveSites">
+    <%= render 'dive_sites_list', dive_sites: @dive_sites %>
+  </div>
 </div>
 
-<%#  Partial dive-sites %>
-<div data-dive-sites-filters-target="dive-sites">
-<%= render 'dive_sites_list', dive_sites: @dive_sites %>
-</div>
 
 <%# Partial of maps (upcoming) %>
   <div style="width: 100%; height: 600px;"

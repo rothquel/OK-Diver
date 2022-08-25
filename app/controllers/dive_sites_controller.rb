@@ -6,10 +6,10 @@ class DiveSitesController < ApplicationController
     # raise
     @dive_sites = DiveSite.all
     if params[:country].present?
-      @dive_sites = @dive_sites.where(country: params[:country])
+      @dive_sites = @dive_sites.where("country ILIKE ?", "%#{params[:country]}%")
     end
     if params[:city].present?
-      @dive_sites = @dive_sites.where(city: params[:city])
+      @dive_sites = @dive_sites.where("city ILIKE ?", "%#{params[:city]}%")
     end
     if params[:dive_type].present?
       @dive_sites = @dive_sites.where(dive_type: params[:dive_type])
@@ -22,18 +22,21 @@ class DiveSitesController < ApplicationController
       {
         lat: dive_site.latitude,
         lng: dive_site.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { dive_site: dive_site })
+        info_window: render_to_string(partial: "info_window", formats: :html, locals: { dive_site: dive_site })
       }
     end
 
     # Implementing ajax in search
-    dive_sites = render_to_string(partial: "dive_sites/dive_sites_list", layout: false, locals: { dive_sites: @dive_sites })
     respond_to do |format|
       format.html
       format.json do
         render json: {
-          diveSites: dive_sites
-          # diveSites: render_to_string('hello')
+          dive_sites: render_to_string(
+            partial: "dive_sites/dive_sites_list",
+            formats: :html,
+            layout: false,
+            locals: { dive_sites: @dive_sites }
+          )
         }
       end
     end

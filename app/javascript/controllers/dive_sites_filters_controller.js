@@ -16,14 +16,13 @@ export default class extends Controller {
     // console.log(`dive-type: ${this.diveTypeTarget.value}`)
     // console.log(`level: ${this.levelTarget.value}`)
 
-    const url = `${this.formTarget.action}?country=${this.countryTarget.value}&city=''&dive_type=Reef+diving&level=''`
+    const url = `${this.formTarget.action}?country=${this.countryTarget.value}&city=${this.cityTarget.value}&dive_type=${this.diveTypeTarget.value}&level=${this.levelTarget.value}`
 
     fetch(url, {headers: {"Accept": "application/json"}})
       .then(response => response.json())
       .then((data) => {
         console.log(data);
-
-        this.formTarget.outerHTML = data
+        this.diveSitesTarget.innerHTML = data.dive_sites
       })
     }
 }
