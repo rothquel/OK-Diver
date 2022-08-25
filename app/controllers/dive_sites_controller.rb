@@ -5,7 +5,6 @@ class DiveSitesController < ApplicationController
     # raise
     # if par niveau
     # If AND par niveau
-    raise
     @dive_sites = DiveSite.all
     if params[:country].present?
       @dive_sites = @dive_sites.where(country: params[:country])
