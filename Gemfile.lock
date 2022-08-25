@@ -290,6 +290,7 @@ DEPENDENCIES
   bootsnap
   capybara
   cloudinary
+  countries
   country_select
   debug
   devise
