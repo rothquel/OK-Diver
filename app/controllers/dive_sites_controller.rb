@@ -36,7 +36,8 @@ class DiveSitesController < ApplicationController
             formats: :html,
             layout: false,
             locals: { dive_sites: @dive_sites }
-          )
+          ),
+          markers: @markers.to_json
         }
       end
     end

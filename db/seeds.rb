@@ -131,3 +131,25 @@ site9 = DiveSite.new(
 )
 site9.save!
 puts "#{site9.name} created"
+
+tag_names = %w[
+Underwater\ fauna
+underwater\ flora
+phytoplankton
+red\ algae
+kelp
+seagrass
+sargassum
+sharks
+Ship's\ wreck
+Barrier\ Reef
+Pipefish
+Lionfish
+Ghost\ Pipefish
+Seahorse
+Comet\ Goldfish
+]
+
+tag_names.each do |name|
+  Tag.create!(name: name)
+end
