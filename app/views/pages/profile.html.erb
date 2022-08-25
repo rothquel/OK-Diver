@@ -26,22 +26,29 @@
       <h4><%= home_country %></h4>
     </div>
 
-    <div class="row">
-      <div class="col">
-       <p><strong>Joined OK Diver:</strong><br><%= @user.created_at.strftime('%B %Y') %>
-      </div>
-      <div class="col">
-        <p><strong>Dive logs:</strong><br><%= @user.logs.count %>
-      </div>
-      <div class="col">
-        <p><strong>Dive sites created:</strong><br><%= @user.dive_sites.count %>
+    <div class="container">
+      <div class="row">
+        <div class="col stats">
+          <p>Joined OK Diver:</p>
+          <h3><%= @user.created_at.strftime('%B %Y') %></h3>
+        </div>
+        <div class="col stats">
+          <p>Logged<br>dives:</p>
+          <h3><%= @user.logs.count %></h3>
+        </div>
+        <div class="col stats">
+          <p>Dive sites created:</p>
+          <h3><%= @user.dive_sites.count %></h3>
+        </div>
       </div>
     </div>
+  </div>
 
     <% if @user.id == current_user.id %>
       <% if @user.certified? %>
-        <div>
-          <h3>Certification details:</h3>
+        <div class="profile-top mt-5 pb-3">
+          <h3 class="pb-3">Certification details:</h3>
+          <p id="tiny-text">(Only you can see these)</p>
           <p><strong>Certification body:</strong> <%= @user.certification_body %></p>
           <p><strong>Certified since:</strong> <%= @user.certification_date.strftime('%B %Y') %></p>
           <p><strong>Certification level:</strong> <%= @user.certification_level %></p>
@@ -51,7 +58,7 @@
         <% end %>
       <% end %>
 
-  </div>
+
 </div>
 
 <% if @user.logs.present? %>
