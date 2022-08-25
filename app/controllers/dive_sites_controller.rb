@@ -4,6 +4,7 @@ class DiveSitesController < ApplicationController
   def index
     # Thx to lazy load, active record will update dive_sites in accordance
     # raise
+    
     @dive_sites = DiveSite.all
     if params[:country].present?
       @dive_sites = @dive_sites.where("country ILIKE ?", "%#{params[:country]}%")

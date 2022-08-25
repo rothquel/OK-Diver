@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get 'create-log/', to: 'pages#index_or_show'
+  get 'profile/:id', to: 'pages#profile', as: :profile
 
   resources :dive_sites, only: [:new, :create, :index, :show], path: '/dive-sites' do
     resources :reviews, only: [:new, :create, :edit, :update, :destroy]
