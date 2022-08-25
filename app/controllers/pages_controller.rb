@@ -20,5 +20,12 @@ class PagesController < ApplicationController
 
   def profile
     @user = User.find(params[:id])
+    @markers = @user.dive_sites.geocoded.map do |dive_site|
+      {
+        lat: dive_site.latitude,
+        lng: dive_site.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {dive_site: dive_site})
+      }
+    end
   end
 end
