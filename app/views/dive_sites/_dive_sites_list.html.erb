@@ -10,7 +10,5 @@
       <%= dive_site.description %><br>
       <%= dive_site.dive_type %><br>
       <%= link_to "Learn More", dive_site_path(dive_site) %>
-      <%# Favoriting %>
-      <%= link_to "like", toggle_favorite_dive_site_path(dive_site), data: {turbo_method: :post}, class:'btn-flat' %>
     </div>
   <% end %>

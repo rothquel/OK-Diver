@@ -26,6 +26,8 @@ class DiveSitesController < ApplicationController
         lng: dive_site.longitude,
         info_window: render_to_string(partial: "info_window", formats: :html, locals: { dive_site: dive_site })
       }
+      # List of favorited dive_site
+      @favorite_dive_sites = current_user.favorited_by_type('DiveSite')
     end
 
     # Implementing ajax in search
