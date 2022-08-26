@@ -38,6 +38,11 @@
   margin: 15px;
 }
 
+.hero-box {
+  z-index: 1;
+}
+
+
 .video-container {
   position: absolute;
   width: 100%;
@@ -52,21 +57,4 @@
   justify-content: center;
   object-fit: cover;
   top: 0;
-}
-
-.separation-zone {
-  background-color: #E5F1F8;
-
-}
-
-.home-page-container {
-  display: flex;
-  flex-direction: column;
-  padding: 0px;
-
-  position: absolute;
-  width: 80vh;
-  height: 80vh;
-  border-color: red;
-  border-style: dashed;
 }
