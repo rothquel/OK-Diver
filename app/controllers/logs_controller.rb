@@ -20,13 +20,13 @@ class LogsController < ApplicationController
   def index
     # Find all the logs belonging to the current user
     @my_logs = Log.where(user_id: current_user.id)
-    # @markers = @my_logs.dive_sites.geocoded.map do |dive_site|
-      # {
-        # lat: dive_site.latitude,
-        # lng: dive_site.longitude,
-        # info_window: render_to_string(partial: "info_window", formats: :html, locals: { dive_site: dive_site })
-      # }
-    # end
+    @markers = current_user.dive_sites.geocoded.map do |dive_site|
+      {
+        lat: dive_site.latitude,
+        lng: dive_site.longitude,
+        info_window: render_to_string(partial: "dive_sites/info_window", formats: :html, locals: { dive_site: dive_site })
+      }
+    end
   end
 
   def show
