@@ -1,3 +1,6 @@
-<h1>Log your dive at <%= @dive_site.name %></h1>
-<p>Your dive number <%= current_user.logs.size + 1 %> </p>
-<%= render "form", log: @log %>
+<div class="container py-5">
+  <% dive_site_country = ISO3166::Country.new(@dive_site.country) %>
+  <h2 class="text-center fw-bold">Log your dive at "<%= @dive_site.name %>" (<%= dive_site_country %>)</h2>
+  <p class="text-center pb-3">Your dive number <%= current_user.logs.size + 1 %> </p>
+  <%= render "form", log: @log %>
+</div>
