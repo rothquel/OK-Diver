@@ -8,7 +8,7 @@
   <div class="container py-5">
     <div class="row justify-content-between pb-3">
       <div class="col">
-        <p><i class="fa-solid fa-star star-color"></i> 5.0 ・ <%= pluralize @dive_site.reviews.count, "review" %> ・ <%= @dive_site.city %>, <%= dive_site_country %>
+        <p><i class="fa-solid fa-star star-color"></i> 5.0 ・ <%= pluralize @dive_site.reviews.count, "review" %> ・ <%= @dive_site.city %>, <%= @dive_site.country %>
       </div>
       <div class="col text-end">
         <i class="fa-solid fa-arrow-up-from-bracket"></i> Share ・ <i class="fa-solid fa-anchor"></i> Log ・ <i class="fa-solid fa-heart"></i> Save
@@ -66,7 +66,20 @@
   <div class="row">
     <div class="col-6">
       <h2 class="fw-bold pb-5">Description of the site</h2>
-      <p><%= @dive_site.description %>
+      <p class="pb-5"><%= @dive_site.description %>
+      <div class="row">
+        <div class="col">
+          <h5 class="fw-bold"><i class="fa-solid fa-water larger-icon pe-2"></i> <span class="navy-text"><%= @dive_site.dive_type %></span></h5>
+        </div>
+        <div class="col-4">
+          <h5 class="fw-bold"><i class="fa-solid fa-water-ladder larger-icon pe-2"></i> <span class="navy-text"><%= @dive_site.level %></span></h5>
+        </div>
+        <div class="col-4">
+          <h5 class="fw-bold"><i class="fa-solid fa-arrow-down-long larger-icon pe-2"></i><span class="navy-text">30 metres</h5>
+        </div>
+
+      </div>
+
     </div>
     <div class="col-6">
       <h4 class="fw-bold pb-5">Features other divers have seen at this site:</h4>
