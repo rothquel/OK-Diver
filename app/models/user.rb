@@ -10,4 +10,6 @@ class User < ApplicationRecord
 
   # Array to define content of level # Cap = constante
   PROFICIENCY = %w[beginner intermediate professional]
+
+  acts_as_favoritor
 end

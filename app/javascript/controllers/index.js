@@ -24,3 +24,6 @@ application.register("sign-up", SignUpController)
 
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
+
+import ToggleFavoriteController from "./toggle_favorite_controller"
+application.register("toggle-favorite", ToggleFavoriteController)

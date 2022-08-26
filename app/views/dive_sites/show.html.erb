@@ -4,16 +4,21 @@
 <h1><%= @dive_site.name %></h1>
 </div>
 
-<div class="show-card-section">
+<div class="show-card-section" data-controller="toggle-favorite">
   <div class="container py-5">
     <div class="row justify-content-between pb-3">
       <div class="col">
         <p><i class="fa-solid fa-star star-color"></i> 5.0 ・ <%= pluralize @dive_site.reviews.count, "review" %> ・ <%= @dive_site.city %>, <%= dive_site_country %>
       </div>
       <div class="col text-end">
-        <i class="fa-solid fa-arrow-up-from-bracket"></i> Share ・ <i class="fa-solid fa-anchor"></i> Log ・ <i class="fa-solid fa-heart"></i> Save
+        <i class="fa-solid fa-arrow-up-from-bracket"></i> Share ・ <i class="fa-solid fa-anchor"></i> Log ・
+        <i data-dive-site-id="<%=@dive_site.id%>" data-toggle-favorite-target="item" data-action="click->toggle-favorite#update" class= "<%= current_user.favorited?(@dive_site) ? 'fa-solid ' : 'fa-regular' %> fa-heart"></i> Save
       </div>
+<%# <i class="fa-solid fa-anchor"></i> %>
     </div>
+
+    <%# ***Faire la logique couleur des coeurs avec un IF %>
+
 
     <div class="row justify-content-between g-5">
       <div class="col-6">
