@@ -1,14 +1,33 @@
- <% dive_sites.each do |dive_site| %>
-    <div>
-    <% if dive_site.photo.attached? %>
-      <%= cl_image_tag dive_site.photo.key, height: 300, width: 400, crop: :fill  %><br>
-    <% else %>
-      <img src="<%= dive_site.image %>" width="300">
-    <% end %>
-      <%= dive_site.name %><br>
-      <%= dive_site.country %><br>
-      <%= dive_site.description %><br>
-      <%= dive_site.dive_type %><br>
-      <%= link_to "Learn More", dive_site_path(dive_site) %>
+ <div class="row">
+    <% dive_sites.each do |dive_site| %>
+   <div class="col-3 card-index mb-3">
+      <% if dive_site.photo.present? %>
+        <%= cl_image_tag dive_site.photo.key, height: 300, width: 400, crop: :fill  %>
+      <% else %>
+        <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" width="400">
+      <% end %>
+      <%# heart %>
+        <button class="heart-icon">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+      <div class="card-index-infos p-3">
+        <div>
+          <p><%= dive_site.city %>, <%= dive_site.country %></p>
+          <h2><%= dive_site.name %></h2>
+          <%= link_to "Learn More", dive_site_path(dive_site) %>
+          <div>
+            <%# Stars %>
+            <p><%= dive_site.reviews.count %> reviews</p>
+          </div>
+        </div>
+        <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
+        <ul class="card-index-tags mb-3">
+          <li class="tag">Ship's Wreck</li>
+          <li class="tag">Ship's Wreck</li>
+          <li class="tag">Ship's Wreck</li>
+        </ul>
+      </div>
+    </div>
     </div>
   <% end %>
+ </div>

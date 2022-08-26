@@ -1,5 +1,3 @@
-
-
 <div data-controller="dive-sites-filters">
 
   <%= form_with url: dive_sites_path, method: :get, html: {class: "d-flex", data: {dive_sites_filters_target: "form"}}  do |form| %>
@@ -50,7 +48,33 @@
 
   <%#  Partial dive-sites %>
   <div data-dive-sites-filters-target="diveSites">
-    <%= render 'dive_sites_list', dive_sites: @dive_sites %>
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-6">
+      <div class="row">
+        <%= render 'dive_sites_list', dive_sites: @dive_sites %>
+      </div>
+    </div>
+    <div class="col-6">
+      <div style="width: 100%; height: 600px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-dive-sites-filters-target="mapRefresh"
+        <%# Custom "action type" %>
+        data-action="dive-sites-filters:refreshMap->map#refreshMapAjax">
+    </div>
+
+    </div>
+  </div>
+
+
+
+
+
+</div>
+
   </div>
 
   <div class="index-map-cards-container">
@@ -78,13 +102,6 @@
       </div>
     </div>
     <%# Partial of maps (upcoming) %>
-    <div style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-      data-dive-sites-filters-target="mapRefresh"
-      <%# Custom "action type" %>
-      data-action="dive-sites-filters:refreshMap->map#refreshMapAjax">
-    </div>
+
   </div>
 </div>
