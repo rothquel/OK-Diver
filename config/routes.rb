@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   get 'create-log/', to: 'pages#index_or_show'
   get 'profile/:id', to: 'pages#profile', as: :profile
 
+  resources :reviews, only: [:edit, :update, :destroy]
+
   resources :dive_sites, only: [:new, :create, :index, :show], path: '/dive-sites' do
-    resources :reviews, only: [:new, :create, :edit, :update, :destroy]
+    resources :reviews, only: [:new, :create]
     resources :logs, only: [:new, :create, :edit, :update]
   end
   resources :logs, only: [:index, :show]

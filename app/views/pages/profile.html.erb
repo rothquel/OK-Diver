@@ -1,37 +1,64 @@
-<div class="container py-5">
-  <div>
-    <% if @user.photo.present? %>
-      <%= cl_image_tag @user.photo.key, class: "profile-avatar" %>
-    <% else %>
-      <%= image_tag "diver.png", class: "profile-avatar"%>
-    <% end %>
-    <% if @user.id == current_user.id %>
-      <%= link_to "Edit", edit_user_registration_path(@user) %>
-    <% end %>
-  </div>
-
-  <div>
-    <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-    <% home_country = ISO3166::Country.new(@user.country) %>
-    <h4><%= home_country %></h4>
-  </div>
-
-  <div>
-    <p><strong>Joined OK Diver:</strong> <%= @user.created_at.strftime('%B %Y') %>
-    <p><strong>Dive logs:</strong> <%= @user.logs.count %>
-    <p><strong>Dive sites created:</strong> <%= @user.dive_sites.count %>
-  </div>
-
-  <% if @user.certified? %>
-  <div>
-    <h3>Certification details:</h3>
-    <p><strong>Certification body:</strong> <%= @user.certification_body %></p>
-    <p><strong>Certified since:</strong> <%= @user.certification_date.strftime('%B %Y') %></p>
-    <p><strong>Certification level:</strong> <%= @user.certification_level %></p>
-    <p><strong>Student number:</strong> <%= @user.student_number %></p>
-    <p><strong>Date of birth:</strong> <%= @user.birthdate %></p>
-  </div>
+<div class="profile-banner">
+  <% if @user.id == current_user.id %>
+    <h1>My profile</h1>
+  <% else %>
+    <h1>Diver profile</h1>
   <% end %>
+</div>
+
+<div class="container py-5 mt-5">
+  <div class="profile-top">
+
+    <div>
+      <% if @user.photo.present? %>
+        <%= cl_image_tag @user.photo.key, class: "profile-avatar" %><br>
+      <% else %>
+        <%= image_tag "diver.png", class: "profile-avatar"%><br>
+      <% end %>
+      <% if @user.id == current_user.id %>
+        <%= link_to "Edit", edit_user_registration_path(@user) %>
+      <% end %>
+    </div>
+
+    <div class="name-bar">
+      <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+      <% home_country = ISO3166::Country.new(@user.country) %>
+      <h4><%= home_country %></h4>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col stats">
+          <p>Joined OK Diver:</p>
+          <h3><%= @user.created_at.strftime('%B %Y') %></h3>
+        </div>
+        <div class="col stats">
+          <p>Logged<br>dives:</p>
+          <h3><%= @user.logs.count %></h3>
+        </div>
+        <div class="col stats">
+          <p>Dive sites created:</p>
+          <h3><%= @user.dive_sites.count %></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <% if @user.id == current_user.id %>
+      <% if @user.certified? %>
+        <div class="profile-top mt-5 pb-3">
+          <h3 class="pb-3">Certification details:</h3>
+          <p id="tiny-text">(Only you can see these)</p>
+          <p><strong>Certification body:</strong> <%= @user.certification_body %></p>
+          <p><strong>Certified since:</strong> <%= @user.certification_date.strftime('%B %Y') %></p>
+          <p><strong>Certification level:</strong> <%= @user.certification_level %></p>
+          <p><strong>Student number:</strong> <%= @user.student_number %></p>
+          <p><strong>Date of birth:</strong> <%= @user.birthdate %></p>
+        </div>
+        <% end %>
+      <% end %>
+
+
 </div>
 
 <% if @user.logs.present? %>

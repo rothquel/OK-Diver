@@ -1,13 +1,61 @@
 // all our buttons
 
-.tag_button {
+.tag {
   height: 40px;
-  width: 120px;
+  min-width: 120px;
   border-radius: 8px;
-  padding: 10px, 16px, 10px, 16px;
-  text-align: center;
+  gap: 10px;
   background-color: #E5F1F8;
   color: #023E8A;
   border-color: #023E8A;
   border-style: solid;
+  font-family: $body-font;
+}
+
+.tag:hover {
+  background-color: #023E8A;
+  color: $white;
+  border-color: #023E8A;
+}
+
+.register-button {
+  // height: 60px;
+  background: #023E8A;
+  color: white;
+  box-shadow: 0px 4px 15px #023E8A;
+  border-radius: 8px;
+  padding: 10px 16px;
+  gap: 10px;
+  // display: flex;
+  // justify-content: space-between;
+  text-align: center;
+  color: $white;
+  text-decoration: none;
+  font-family: $headers-font;
+  font-weight: 600;
+}
+
+.register-button:hover {
+  color: white;
+}
+
+
+.explore-button {
+  // height: 60px;
+  background: #FF9E00;
+  box-shadow: 0px 4px 15px #FF9E00;
+  border-radius: 8px;
+  padding: 10px 16px;
+  gap: 10px;
+  text-align: center;
+  color: $white;
+  text-decoration: none;
+  font-family: $headers-font;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+.explore-button:hover {
+  color: white;
 }

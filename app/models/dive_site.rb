@@ -14,7 +14,7 @@ class DiveSite < ApplicationRecord
   # Array to define content of level # Cap = constante
   PROFICIENCY = %w[Beginner Intermediate Advanced Professional]
   # Array to define options of dive type # Cap = constante
-  TYPE = %w[Reef\ diving Wall\ diving Wreck\ diving Cave\ diving Night\ diving Drift\ diving]
+  TYPE = %w[Reef\ diving Wall\ diving Wreck\ diving Cave\ diving Night\ diving Drift\ diving Freshwater]
   # Array to define options of TAGS # Cap = constante
 
   # favoritable

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_25_175710) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_25_210845) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,6 +45,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_25_175710) do
   create_table "dive_site_tags", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "dive_site_id", null: false
+    t.bigint "tag_id", null: false
+    t.index ["dive_site_id"], name: "index_dive_site_tags_on_dive_site_id"
+    t.index ["tag_id"], name: "index_dive_site_tags_on_tag_id"
   end
 
   create_table "dive_sites", force: :cascade do |t|
@@ -144,6 +148,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_25_175710) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "dive_site_tags", "dive_sites"
+  add_foreign_key "dive_site_tags", "tags"
   add_foreign_key "logs", "dive_sites"
   add_foreign_key "logs", "users"
   add_foreign_key "reviews", "dive_sites"
