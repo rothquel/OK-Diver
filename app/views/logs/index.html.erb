@@ -1,26 +1,42 @@
-<h1>Here are all your logs</h1>
-
-<% @my_logs.each do |log| %>
-<div>
-  <% if log.photo.present? %>%
-    <%= cl_image_tag log.photo.key, height: 300, width: 400, crop: :fill %>
-  <% else %>
-    <% if log.dive_site.photo.present? %>%
-      <%= cl_image_tag log.dive_site.photo.key, height: 300, width: 400, crop: :fill %>
-    <% else %>
-      <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" width="400">
-    <% end %>
-  <% end %>
-    <p>Dive number: <%= log.dive_number %></p>
-    <p>Date <%= log.date %></p>
-    <p>City: <%= log.dive_site.city %></p>
-    <% site_country = ISO3166::Country.new(log.dive_site.country) %>
-    <p>Country: <%= site_country %></p>
-    <%= link_to "View log", log_path(log) %>
+<div class="container py-5">
+  <h2 class="text-center fw-bold">My logs</h2>
 </div>
-<% end %>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<div class="row">
+  <div class="col-6">
+    <div class="container">
+      <div class="row">
+         <% @my_logs.each do |log| %>
+          <% dive_site_country = ISO3166::Country.new(log.dive_site.country) %>
+          <div class="col-6">
+            <div class="card mb-3">
+              <% if log.photo.present? %>
+                <%= cl_image_tag log.photo.key, class: "card-img-top" %>
+              <% else %>
+                <% if log.dive_site.photo.present? %>
+                  <%= cl_image_tag log.dive_site.photo.key, class: "card-img-top" %>
+                <% else %>
+                  <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" class="card-img-top">
+                <% end %>
+              <% end %>
+              <div class="card-body">
+                <p class="card-text"><%= log.dive_site.city %>, <%= dive_site_country %>
+                <h5 class="card-title fw-bold">Log at <%= log.dive_site.name %></h5>
+                <%# < class="card-text">Dive number <%= log.dive_number %>
+                <p class="card-text">Date: <%= log.date %></p>
+                <h5><%= link_to "View log", log_path(log), class: "btn btn-warning text-white fw-bold" %></h5>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+</div>
