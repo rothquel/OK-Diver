@@ -26,7 +26,7 @@ export default class extends Controller {
       },
       body: 'test'
     })
-    .then((response) => )
+    .then((response) => response.json() )
     .then((data) => {
 
       this.itemTarget.classList.toggle('fa-solid')
