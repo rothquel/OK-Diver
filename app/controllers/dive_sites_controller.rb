@@ -47,6 +47,11 @@ class DiveSitesController < ApplicationController
     end
   end
 
+  def wishlist
+    # @my_favorites = current_user.all_favorites
+    @favorite_dive_sites = current_user.favorited_by_type('DiveSite')
+  end
+
   def show
     @dive_site = DiveSite.find(params[:id])
 
@@ -83,6 +88,7 @@ class DiveSitesController < ApplicationController
   def toggle_favorite
     @dive_site = DiveSite.find_by(id: params[:id])
     current_user.favorited?(@dive_site) ? current_user.unfavorite(@dive_site) : current_user.favorite(@dive_site)
+    head :ok
   end
 
   private

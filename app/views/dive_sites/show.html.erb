@@ -11,9 +11,10 @@
         <p><i class="fa-solid fa-star star-color"></i> 5.0 ・ <%= pluralize @dive_site.reviews.count, "review" %> ・ <%= @dive_site.city %>, <%= dive_site_country %>
       </div>
       <div class="col text-end">
-        <i class="fa-solid fa-arrow-up-from-bracket"></i> Share ・ <i class=""></i> Log ・
-        <i data-toggle-favorite-target="item", data-action="toggle->toggle-favorite#TBC">insert-in-list#send, class="fa-solid <%= current_user.favorited?(@dive_site) ? 'fa-solid fa-anchor' : 'fa-thin fa-heart' %>"></i> Save
+        <i class="fa-solid fa-arrow-up-from-bracket"></i> Share ・ <i class="fa-solid fa-anchor"></i> Log ・
+        <i data-dive-site-id="<%=@dive_site.id%>" data-toggle-favorite-target="item" data-action="click->toggle-favorite#update" class= "<%= current_user.favorited?(@dive_site) ? 'fa-solid ' : 'fa-light' %> fa-heart"></i> Save
       </div>
+<%# <i class="fa-solid fa-anchor"></i> %>
     </div>
 
     <%# ***Faire la logique couleur des coeurs avec un IF %>
