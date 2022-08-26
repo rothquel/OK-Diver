@@ -1,4 +1,8 @@
-<div class="col-xs-12 col-sm-6">
+
+<div class="top-bar">
+<h1>My Wishlist</h1>
+</div>
+
  <% @favorite_dive_sites.each do |dive_site| %>
     <div>
     <% if dive_site.photo.attached? %>
@@ -11,6 +15,7 @@
       <%= dive_site.description %><br>
       <%= dive_site.dive_type %><br>
       <%= link_to "Learn More", dive_site_path(dive_site) %>
+      <%= link_to "Remove", toggle_favorite_dive_site_path(dive_site), class: "d-block", data: {turbo_method: :post, turbo_confirm: "Are you sure?"} %>
+
     </div>
   <% end %>
-</div>

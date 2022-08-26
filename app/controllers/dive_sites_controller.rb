@@ -88,7 +88,12 @@ class DiveSitesController < ApplicationController
   def toggle_favorite
     @dive_site = DiveSite.find_by(id: params[:id])
     current_user.favorited?(@dive_site) ? current_user.unfavorite(@dive_site) : current_user.favorite(@dive_site)
-    head :ok
+    # head :ok
+    # raise
+    respond_to do |format|
+      format.html { redirect_to wishlist_path }
+      format.json
+    end
   end
 
   private
