@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
     resources :logs, only: [:new, :create, :edit, :update]
   end
+
   # custom wishlist page
   get 'wishlist', to: 'dive_sites#wishlist'
 
