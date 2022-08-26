@@ -18,37 +18,18 @@
     <div class="row justify-content-between g-5">
       <div class="col-6">
         <% if @dive_site.photo.attached? %>
-          <%= cl_image_tag @dive_site.photo.key, height: 400 %>
+          <%= cl_image_tag @dive_site.photo.key, height: 400, width: 600 %>
         <% else %>
-          <img src="<%= @dive_site.image %>" height="400">
+          <% if @dive_site.image.present? %>
+            <img src="<%= @dive_site.image %>" height="400" width="100%">
+          <% else %>
+            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" height="400" width="100%">
+          <% end %>
         <% end %>
-        <div class="row g-5 pt-5 justify-content-evenly">
-          <div class="col">
-            <% if @dive_site.photo.attached? %>
-              <%= cl_image_tag @dive_site.photo.key, height: 100 %>
-            <% else %>
-              <img src="<%= @dive_site.image %>" height="100">
-            <% end %>
-          </div>
-          <div class="col">
-            <% if @dive_site.photo.attached? %>
-              <%= cl_image_tag @dive_site.photo.key, height: 100 %>
-            <% else %>
-              <img src="<%= @dive_site.image %>" height="100">
-            <% end %>
-          </div>
-          <div class="col">
-            <% if @dive_site.photo.attached? %>
-              <%= cl_image_tag @dive_site.photo.key, height: 100 %>
-            <% else %>
-              <img src="<%= @dive_site.image %>" height="100">
-            <% end %>
-          </div>
-        </div>
       </div>
 
       <div class="col-6">
-        <div style="width: 100%; height: 550px;"
+        <div style="width: 100%; height: 400px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
@@ -66,7 +47,19 @@
   <div class="row">
     <div class="col-6">
       <h2 class="fw-bold pb-5">Description of the site</h2>
-      <p><%= @dive_site.description %>
+      <p class="pb-5"><%= @dive_site.description %>
+      <div class="row">
+        <div class="col">
+          <h5 class="fw-bold"><i class="fa-solid fa-water larger-icon pe-2"></i> <span class="navy-text"><%= @dive_site.dive_type %></span></h5>
+        </div>
+        <div class="col">
+          <h5 class="fw-bold"><i class="fa-solid fa-water-ladder larger-icon pe-2"></i> <span class="navy-text"><%= @dive_site.level %></span></h5>
+        </div>
+        <div class="col">
+          <h5 class="fw-bold"><i class="fa-solid fa-arrow-down-long larger-icon pe-2"></i><span class="navy-text">30 metres</h5>
+        </div>
+      </div>
+
     </div>
     <div class="col-6">
       <h4 class="fw-bold pb-5">Features other divers have seen at this site:</h4>
@@ -79,31 +72,40 @@
 </div>
 
 <div class="container">
-      <h2 class="fw-bold pb-5">Feedback of the site (<%= pluralize @dive_site.reviews.count, "review" %>)</h2>
+      <h2 class="fw-bold">Feedback of the site (<%= pluralize @dive_site.reviews.count, "review" %>)</h2>
+      <p class="pb-3">Don't take our word for it. Trust the diver community.</p>
   <div class="row">
     <% @dive_site.reviews.each do |review|  %>
-      <div class="col">
+      <div class="col-4">
         <div class="review-card">
-          <% if review.user.photo.present? %>
-            <%= cl_image_tag review.user.photo.key, class: "review-avatar" %><br>
-          <% else %>
-            <%= image_tag "diver.png", class: "review-avatar"%><br>
-          <% end %>
-          <% count = 0 %>
-            <% 5.times do %>
-              <% if review.rating > count %>
-                <i class="fa-solid fa-star star-color"></i>
-              <% else %>
-                <i class="fa-regular fa-star star-color"></i>
+          <div class="row">
+            <div class="col">
+              <%= link_to profile_path(review.user.id) do %>
+                <% if review.user.photo.present? %>
+                  <%= cl_image_tag review.user.photo.key, class: "review-avatar" %><br>
+                <% else %>
+                  <%= image_tag "diver.png", class: "review-avatar"%><br>
+                <% end %>
               <% end %>
-                <% count += 1 %>
-            <% end %>
-          <h3><%= link_to "#{review.user.first_name} #{review.user.last_name}", profile_path(review.user.id) %></h3>
-          <h6>Highlights:</h6> <p><%= review.highlight %></p>
-          <h6>Tips:</h6> <p><%= review.tips %></p>
+            </div>
+            <div class="col">
+              <% count = 0 %>
+              <% 5.times do %>
+                <% if review.rating > count %>
+                  <i class="fa-solid fa-star star-color"></i>
+                <% else %>
+                  <i class="fa-regular fa-star star-color"></i>
+                <% end %>
+                  <% count += 1 %>
+              <% end %>
+            </div>
+          </div>
+        <h4 class="pt-4 pb-2 text-dark"><%= link_to "#{review.user.first_name} #{review.user.last_name}", profile_path(review.user.id) %></h4>
+        <h6 class="fw-bold">Highlights:</h6> <p><%= review.highlight %></p>
+        <h6  class="fw-bold">Tips:</h6> <p><%= review.tips %></p>
+        <p class="pb-3">Reviewed on <%= review.created_at.strftime('%b %d %Y') %></p>
           <% if review.user.id == current_user.id %>
-            <%= link_to "Edit your review", edit_review_path(review) %>
-            <%= link_to "Delete this review", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <%= link_to "Edit", edit_review_path(review) %> ・ <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           <% end %>
         </div>
       </div>
