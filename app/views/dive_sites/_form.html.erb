@@ -1,5 +1,5 @@
 <div data-controller="create-site-map"
-data-create-site-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  data-create-site-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   <%= simple_form_for @dive_site do |f| %>
   <p>If you know the GPS co-ordinates of your dive enter them here, or pinpoint your dive site on the map below</p>
     <%= f.input :latitude, input_html: { data: { create_site_map_target: "latitude" } } %>
