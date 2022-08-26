@@ -24,7 +24,7 @@ class DiveSitesController < ApplicationController
       {
         lat: dive_site.latitude,
         lng: dive_site.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {dive_site: dive_site})
+        info_window: render_to_string(partial: "info_window", formats: :html, locals: {dive_site: dive_site})
       }
     end
       # List of favorited dive_site
