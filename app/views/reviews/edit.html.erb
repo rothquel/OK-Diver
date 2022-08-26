@@ -1,2 +1,5 @@
-<h1>Edit your review for <%= @review.dive_site.name %> (<%= @review.dive_site.country %>)</h1>
-<%= render "form", log: @log %>
+<div class="container py-5">
+  <% dive_site_country = ISO3166::Country.new(@review.dive_site.country) %>
+  <h3 class="text-center fw-bold">Edit your review for <%= @review.dive_site.name %> (<%= dive_site_country %>)</h3>
+  <%= render "form", log: @log %>
+</div>

@@ -1,4 +1,5 @@
- <% dive_sites.each do |dive_site| %>
+<div class="col-xs-12 col-sm-6">
+ <% @favorite_dive_sites.each do |dive_site| %>
     <div>
     <% if dive_site.photo.attached? %>
       <%= cl_image_tag dive_site.photo.key, height: 300, width: 400, crop: :fill  %><br>
@@ -12,3 +13,4 @@
       <%= link_to "Learn More", dive_site_path(dive_site) %>
     </div>
   <% end %>
+</div>

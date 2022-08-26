@@ -1,15 +1,20 @@
 // all our buttons
 
 .tag {
-  height: 40px;
-  min-width: 120px;
+  list-style: none;
+  text-align: center;
+  // height: 40px;
+  // min-width: 120px;
   border-radius: 8px;
+  // margin-left: 3pxr;
   gap: 10px;
   background-color: #E5F1F8;
   color: #023E8A;
   border-color: #023E8A;
   border-style: solid;
   font-family: $body-font;
+  font-size: 14px;
+  // display: flex;
 }
 
 .tag:hover {
@@ -99,4 +104,23 @@
   background-color: $white;
   color: $black;
   border-color: #023E8A;
+
+.card-index .heart-icon {
+  position: absolute;
+  left: 87.04%;
+  right: 4.45%;
+  top: 3.53%;
+  bottom: 90.22%;
+  border: none;
+  background: transparent;
+}
+
+.heart-icon i {
+  left: 87.04%;
+  right: 4.45%;
+  top: 3.53%;
+  bottom: 90.22%;
+  background: #FFD1A2;
+  border: 2px solid #F49037;
+  // border-radius: 8px;
 }
