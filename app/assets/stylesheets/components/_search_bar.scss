@@ -1,0 +1,55 @@
+// not done yet
+
+.group-left {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-control {
+  background-color: transparent;
+}
+
+.input-group-text {
+  background-color: transparent;
+}
+
+.nav-link {
+  font-family: $headers-font;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  color: #1A1A1A;
+}
+
+.search-icon-button {
+  border: none;
+  background-color: transparent;
+}
+
+#input-box {
+  border: none;
+  border-radius: $border-radius;
+  background-color: transparent;
+}
+
+.fa-search {
+  color: #023E8A;
+}
+
+#input-box::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #023E8A;
+}
+
+.search-box {
+  border-radius: $border-radius;
+  // border: 1px solid #1A1A1A;
+  padding: 4px;
+  background: rgba(2, 62, 138, 0.1);
+}
+
+.margin-right-7px {
+  margin-right: 7px;
+}

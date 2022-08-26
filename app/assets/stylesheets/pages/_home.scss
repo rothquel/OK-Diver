@@ -1,1 +1,72 @@
 // Specific CSS for your home-page
+.card-product-infos h2 {
+  font-size: 28px !important;
+  padding-bottom: 20px;
+}
+
+
+.subheading {
+  margin: 0 auto;
+  display: flex;
+  font-size: 45px;
+  padding: 45px;
+  text-align: center;
+  color: $black;
+  font-family: $headers-font;
+  justify-content: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.details {
+  font-size: 15px;
+  color: black;
+}
+
+.card-product {
+  padding-top: 100px;
+  border-radius: 4px;
+  background: white;
+  display: flex;
+  align-items: center;
+  color: rgb(42, 41, 41);
+  // margin: 0px 0px 0px 10px!important;
+  height: 100%;
+  width: 100%;
+}
+
+
+.bottom-picture {
+  height: 600px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+
+.container-homepage{
+  padding: 0 60px 0 60px;
+}
+
+
+.bottom-container {
+padding-bottom: 60px;
+}
+
+.card-product-infos {
+  padding: 30px !important;
+}
+
+.picture-box {
+margin-bottom: 32px !important;
+margin-top: 32px !important;
+overflow: hidden;
+}
+
+.bp-10 {
+  margin-top: 10px;
+}
+
+a {
+  text-decoration: none !important;
+}
