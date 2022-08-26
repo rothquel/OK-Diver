@@ -31,7 +31,7 @@ export default class extends Controller {
 
       this.itemTarget.classList.toggle('fa-solid')
 
-      this.itemTarget.classList.toggle('fa-light')
+      this.itemTarget.classList.toggle('fa-regular')
 
     })
   }
