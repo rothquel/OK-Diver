@@ -31,10 +31,6 @@
   justify-content: space-between;
 }
 
-.form-control {
-  background-color: transparent;
-}
-
 .input-group-text {
   background-color: transparent;
 }
@@ -92,4 +88,17 @@
 .form-control{
   border: none;
   width: 400px;
+  background-color: transparent;
+  color: #1A1A1A;
+}
+
+.search-box .form-control:hover {
+  background-color: #E7ECF4 !important;
+  border: none;
+}
+
+
+.form-control:focus {
+  background-color: #E7ECF4 !important;
+  color: #1A1A1A;
 }
