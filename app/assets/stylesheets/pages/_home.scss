@@ -41,6 +41,7 @@
   background-size: cover;
   background-position: center;
   overflow: hidden;
+  position: relative;
 }
 
 
@@ -70,3 +71,20 @@ overflow: hidden;
 a {
   text-decoration: none !important;
 }
+
+.call-to-action-link {
+  position: absolute;
+  top: 400px;
+  left: 250px;
+}
+
+// .destination-card {
+//   width:150px;
+//   height:150px;
+//   margin-bottom: 10px;
+//   background-size: cover;
+//   background-position: center;
+//   overflow:auto;
+//   position: relative;
+//   border-radius: 8px;
+// }
