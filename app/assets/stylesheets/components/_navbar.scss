@@ -4,6 +4,7 @@
   display: flex;
   flex-wrap: inherit;
   align-items: center;
+  padding: 28px 12px 28px 12px;
 
 }
 
@@ -49,6 +50,7 @@
 .search-icon-button {
   border: none;
   background-color: transparent;
+  margin-left: 8px;
 }
 
 #input-box {
@@ -61,8 +63,14 @@
   color: #023E8A;
 }
 
-#input-box::-webkit-input-placeholder {
+#query::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  /* identical to box height, or 14px */
   color: #023E8A;
 }
 
@@ -75,4 +83,13 @@
 
 .margin-right-7px {
   margin-right: 7px;
+}
+
+.hidden {
+  display: none;
+}
+
+.form-control{
+  border: none;
+  width: 400px;
 }

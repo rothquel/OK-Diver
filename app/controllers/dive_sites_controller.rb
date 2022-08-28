@@ -3,21 +3,26 @@ class DiveSitesController < ApplicationController
   before_action :authenticate_user!, only: :toggle_favorite
 
   def index
-    # Thx to lazy load, active record will update dive_sites in accordance
-    # raise
+    # Searchbar
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR country ILIKE :query"
+      @dive_sites = DiveSite.where(sql_query, query: "%#{params[:query]}%")
+    else
+      # Thx to lazy load, active record will update dive_sites in accordance
+      @dive_sites = DiveSite.all
 
-    @dive_sites = DiveSite.all
-    if params[:country].present?
-      @dive_sites = @dive_sites.where("country ILIKE ?", "%#{params[:country]}%")
-    end
-    if params[:city].present?
-      @dive_sites = @dive_sites.where("city ILIKE ?", "%#{params[:city]}%")
-    end
-    if params[:dive_type].present?
-      @dive_sites = @dive_sites.where(dive_type: params[:dive_type])
-    end
-    if params[:level].present?
-      @dive_sites = @dive_sites.where(level: params[:level])
+      if params[:country].present?
+        @dive_sites = @dive_sites.where("country ILIKE ?", "%#{params[:country]}%")
+      end
+      if params[:city].present?
+        @dive_sites = @dive_sites.where("city ILIKE ?", "%#{params[:city]}%")
+      end
+      if params[:dive_type].present?
+        @dive_sites = @dive_sites.where(dive_type: params[:dive_type])
+      end
+      if params[:level].present?
+        @dive_sites = @dive_sites.where(level: params[:level])
+      end
     end
 
     @markers = @dive_sites.geocoded.map do |dive_site|
@@ -27,10 +32,10 @@ class DiveSitesController < ApplicationController
         info_window: render_to_string(partial: "info_window", formats: :html, locals: {dive_site: dive_site})
       }
     end
-      # List of favorited dive_site
-      if user_signed_in?
-        @favorite_dive_sites = current_user.favorited_by_type('DiveSite')
-      end
+    # List of favorited dive_site
+    if user_signed_in?
+      @favorite_dive_sites = current_user.favorited_by_type('DiveSite')
+    end
 
     # Implementing ajax in search
     respond_to do |format|

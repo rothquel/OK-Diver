@@ -6,21 +6,29 @@
           <%= image_tag "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661355934/logoblack_oxqiqy.png", style: "width:150px" %>
         <% end %>
       </div>
-      <div class="search-box">
-        <form class="example" action="action_page.php">
-          <button class="search-icon-button"type="submit">
-            <i class="fa fa-search"></i>
-          </button>
-          <input id="input-box" type="text" placeholder="Find a dive site..." name="search">
-        </form>
-      </div>
+
+      <%# SEARCH BAR %>
+<%= form_with url: dive_sites_path, method: :get, class: "d-flex search-box" do %>
+  <button class="search-icon-button"type="submit">
+  <i class="fa fa-search"></i> </button>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find the best dive site..."
+  %>
+
+  <%= submit_tag "Search", name: nil, class: "hidden" %>
+<% end %>
+<%# END OF SEARCH BAR? %>
     </div>
+
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav override-bs-nav-link-padding-y me-auto">
+      <ul class="navbar-nav override-bs-nav-link-padding-y me-auto align-items-center gap-1">
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Log a dive", create_log_path, class: "nav-link" %>
@@ -29,7 +37,7 @@
             <%= link_to "Wishlist", wishlist_path, class: "nav-link" %>
           </li>
           <li>
-            <%= link_to "Explore", dive_sites_path, class: "explore-button " %>
+            <%= link_to "Explore", dive_sites_path, class: "explore-button" %>
           </li>
           <li class="nav-item dropdown">
             <% if current_user.photo.present? %>
