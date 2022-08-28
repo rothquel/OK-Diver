@@ -104,5 +104,24 @@ list-style: none;
 // Icon heart
 
 .icon-wishlist{
+position: absolute;
+top: 4%;
+right: 5%;
+}
 
+.fa-heart .fa-solid {
+  color: #F49037;
+}
+
+.fa-heart .fa-regular {
+  color: #FFD1A2;
+}
+
+.icon-wishlist .fa-solid {
+  color: #F49037;
+}
+
+.icon-wishlist .fa-regular {
+  color: #F49037;
+  color: #FFD1A2;
 }

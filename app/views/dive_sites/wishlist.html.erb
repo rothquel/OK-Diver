@@ -77,9 +77,7 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img class="img-wishlist d-block" style="width: 500px" src="https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/4_llxfib.jpg" alt="First slide">
-          <i class="icon-wishlist fa-solid fa-heart"></i>
-
-          <div class="icon-wishlist"><i data-dive-site-id="<%=dive_site.id%>" data-toggle-favorite-target="item" data-action="click->toggle-favorite#update" class= "<%= current_user.favorited?(dive_site) ? 'fa-solid ' : 'fa-regular' %> fa-heart"></i>
+          <div class="icon-wishlist"><i data-dive-site-id="<%=dive_site.id%>" data-toggle-favorite-target="item" data-action="click->toggle-favorite#update" class= "fa-xl <%= current_user.favorited?(dive_site) ? 'fa-solid' : 'fa-regular' %> fa-heart"></i>
 </div>
         </div>
         <div class="carousel-item">
