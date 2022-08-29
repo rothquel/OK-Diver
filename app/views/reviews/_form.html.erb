@@ -1,8 +1,10 @@
-<%= simple_form_for [@dive_site, @review] do |f| %>
-  <%= f.input :rating, collection: 0..5, input_html: {data: {controller: "star-rating"}} %>
-  <%= f.input :highlight %>
-  <%= f.input :tips %>
-  <div class="text-center">
-    <%= f.submit "Submit review", class: "btn btn-primary" %>
-  </div>
-<% end %>
+<div style="width:800px">
+  <%= simple_form_for [@dive_site, @review] do |f| %>
+    <%= f.input :rating, collection: 0..5, input_html: {data: {controller: "star-rating"}} %>
+    <%= f.input :highlight %>
+    <%= f.input :tips %>
+    <div class="text-end py-5">
+      <%= f.submit "Submit review", class: 'register-button' %>
+    </div>
+  <% end %>
+</div>
