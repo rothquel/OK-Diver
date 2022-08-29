@@ -16,7 +16,26 @@ class DiveSite < ApplicationRecord
   # Array to define options of dive type # Cap = constante
   TYPE = %w[Reef\ diving Wall\ diving Wreck\ diving Cave\ diving Night\ diving Drift\ diving Freshwater]
   # Array to define options of TAGS # Cap = constante
+  TAGS = %w[
+    Underwater\ fauna
+    Underwater\ flora
+    Phytoplankton
+    Red\ algae
+    Kelp
+    Seagrass
+    Sargassum
+    Sharks
+    Ship's\ wreck
+    Barrier\ Reef
+    Pipefish
+    Lionfish
+    Ghost\ Pipefish
+    Seahorse
+    Comet\ Goldfish
+    ]
+  # Array to define options of TAGS # Cap = constante
 
   # favoritable
   acts_as_favoritable
+
 end

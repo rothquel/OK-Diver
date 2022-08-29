@@ -60,8 +60,8 @@ class DiveSitesController < ApplicationController
   end
 
   def show
+    @dive_sites = DiveSite.all
     @dive_site = DiveSite.find(params[:id])
-
     if @dive_site.latitude.nil?
       latitude = 45.501690
       longitude = -73.567253
@@ -106,6 +106,6 @@ class DiveSitesController < ApplicationController
   private
 
   def dive_site_params
-    params.require(:dive_site).permit(:name, :description, :country, :dive_type, :level, :city, :latitude, :longitude, :photo)
+    params.require(:dive_site).permit(:name, :description, :country, :dive_type, :level, :city, :latitude, :longitude, :photo, :tags)
   end
 end
