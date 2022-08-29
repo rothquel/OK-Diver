@@ -11,7 +11,7 @@
 
     <div>
       <% if @user.photo.present? %>
-        <%= cl_image_tag @user.photo.key, class: "profile-avatar" %><br>
+        <%= cl_image_tag @user.photo.key, :height=>600, :width=>600, :crop=>"fill", class: "profile-avatar" %><br>
       <% else %>
         <%= image_tag "diver.png", class: "profile-avatar"%><br>
       <% end %>
