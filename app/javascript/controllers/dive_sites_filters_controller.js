@@ -1,13 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
+import TomSelect from "tom-select"
 
 // Connects to data-controller="dive-sites-filters"
 export default class extends Controller {
-  static targets = ["form", "country", "city", "diveType", "level", "diveSites", "mapRefresh"]
-
-  // connect() {
-  //   console.log(this.formTarget)
-  //   console.log(this.inputTarget)
-  //  }
+  static targets = ["form", "country", "city", "diveType", "level", "diveSites", "mapRefresh", "tags"]
+  connect() {
+    this.#initTomSelect();
+   }
 
   update(event) {
     event.preventDefault()
@@ -27,4 +26,13 @@ export default class extends Controller {
         })
       })
     }
+
+    #initTomSelect () {
+      new TomSelect("#tags",{
+        persist: false,
+        createOnBlur: true,
+        create: false
+      });
+    }
+
 }

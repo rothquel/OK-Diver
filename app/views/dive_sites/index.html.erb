@@ -44,10 +44,18 @@
   <%# TAGS MULTIPLE ON HOLD %>
   <%= select_tag :tags, options_from_collection_for_select(Tag.all, 'id', 'name'), include_blank: false, multiple: true,
   class: "form-control tag-field",
-  prompt: 'Specialties'%>
+  style: "width: 600px",
+  prompt: 'What do you want to see?',
+  data: {
+                dive_sites_filters_target: "tags",
+                # action: "change->dive-sites-filters#initTomSelect"
+              }
+              %>
+
     <%= submit_tag "Search", class: "search-btn" %>
     </div>
   <% end %>
+
 
   <%#  Partial dive-sites %>
   <div data-dive-sites-filters-target="diveSites">

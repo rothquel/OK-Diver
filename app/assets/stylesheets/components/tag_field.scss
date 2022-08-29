@@ -7,7 +7,7 @@
   width: 179px;
   height: 52px;
 
-  font-family: 'Poppins';
+font-family: 'Poppins';
 font-style: normal;
 font-weight: 300;
 font-size: 20px;
@@ -20,7 +20,7 @@ text-align: center;
 text-transform: capitalize;
 
 color: #4D545E;
-  text-align: center;
+text-align: center;
 }
 
 .search-btn {
@@ -29,4 +29,60 @@ color: #4D545E;
 
 .margin-auto-0 {
   margin: 40px auto 20px auto;
+}
+
+
+.tag-field-specialties {
+  width: 179px;
+  height: 52px;
+}
+
+.ts-control {
+  height: 100%;
+  border: 0;
+  width: 100%;
+}
+
+
+.ts-wrapper .form-control .tag-field .multi .has-items {
+  width: 560px !important;
+  // height:
+}
+
+.ts-control>input {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 8px;
+  color: #4D545E;
+
+}
+
+
+.ts-dropdown {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 8px;
+  color: #4D545E;
+}
+
+
+.ts-dropdown [data-selectable].option  {
+  margin-bottom: 12px;
+}
+
+
+.ts-wrapper.multi .ts-control>div  {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  color: #4D545E;
+  background-color: #E5F1F8;
+  text-align: center;
+  padding: 6px 10px 6px 10px;
+  border-radius: 8px;
 }
