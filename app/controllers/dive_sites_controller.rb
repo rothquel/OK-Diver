@@ -52,6 +52,7 @@ class DiveSitesController < ApplicationController
         }
       end
     end
+    # raise
   end
 
   def wishlist
