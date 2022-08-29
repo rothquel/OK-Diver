@@ -26,7 +26,7 @@
     <div class="row justify-content-between g-5">
       <div class="col-6">
         <% if @dive_site.photo.attached? %>
-          <%= cl_image_tag @dive_site.photo.key, height: 400, width: 600 %>
+          <%= cl_image_tag @dive_site.photo.key, :height=>300, :width=>300, :crop=>"fill" %>
         <% else %>
           <% if @dive_site.image.present? %>
             <img src="<%= @dive_site.image %>" height="400" width="100%">
