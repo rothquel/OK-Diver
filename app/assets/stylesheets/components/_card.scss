@@ -9,6 +9,7 @@
   justify-content: left;
   max-height: 600px;
   justify-content: space-between;
+  border-radius: 8px;
 }
 
 .card-index > img {
@@ -35,9 +36,10 @@
 }
 
 .card-index p {
-  font-size: 12px;
+  font-size: 13px;
   opacity: .7;
   margin: 0;
+  color: black;
 }
 
 .card-index-alignment {
