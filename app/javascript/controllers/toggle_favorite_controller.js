@@ -26,8 +26,7 @@ export default class extends Controller {
       },
       body: 'test'
     })
-    .then((response) => console.log('diveSiteId'))
-    .then((data) => {
+    .then(() => {
 
       this.itemTarget.classList.toggle('fa-solid')
 

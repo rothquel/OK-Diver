@@ -1,4 +1,9 @@
-<div class="col-xs-12 col-sm-6">
+
+<div class="top-bar">
+<h1>My Wishlist</h1>
+</div>
+
+<div class="container">
  <% @favorite_dive_sites.each do |dive_site| %>
     <div>
     <% if dive_site.photo.attached? %>
@@ -11,6 +16,88 @@
       <%= dive_site.description %><br>
       <%= dive_site.dive_type %><br>
       <%= link_to "Learn More", dive_site_path(dive_site) %>
+      <%= link_to "Remove", toggle_favorite_dive_site_path(dive_site), class: "d-block", data: {turbo_method: :post, turbo_confirm: "Are you sure?"} %>
+
     </div>
   <% end %>
+
+<br>
+<br>
+<% @favorite_dive_sites.each do |dive_site| %>
+<div class="card-box flex-d">
+  <div class="card-content--box">
+  <%# flex-d bootstrap not working here (?) %>
+    <div class="flex-d card-content--location">
+      <p><%= dive_site.country %>, <%= dive_site.city %></p>
+    </div>
+      <H2><%= dive_site.name %></H2>
+
+
+      <div class="flex-d reviews-box">
+      <div class="stars-wishlist">
+      <%# Build logic of stars : if else?? %>
+      <i class="star-icon fa-solid fa-star"></i>
+      <i class="star-icon fa-solid fa-star"></i>
+      <i class="star-icon fa-solid fa-star"></i>
+      <i class="star-icon fa-solid fa-star"></i>
+      <i class="star-icon fa-solid fa-star"></i>
+      </div>
+        <p class="review-numbers">5 | 13 reviews</p>
+      </div>
+
+
+      <div class="main-content">
+        <p><%= dive_site.description %></p>
+        <div class="tags-box">
+          <ul class="d-flex gap-2">
+          <li><button> Ship's wreck</button></li>
+
+        <%# <% if dive_site.dive_site_tags? %>
+            <%# <li><button> <%= dive_site.tags.first.name</button></li> %>
+            <%# <li><button> Ship's wreck</button></li> %>
+            <%# <li><button> Ship's wreck</button></li> %>
+        <%# else %>
+        <%# end %>
+          </ul>
+        </div>
+      </div>
+  </div>
+
+
+  <%# SLIDER ONGOING %>
+  <div class="img-box">
+    <%# <img src="https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/4_llxfib.jpg" alt=""> %>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="img-wishlist d-block" style="width: 500px" src="https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/4_llxfib.jpg" alt="First slide">
+          <div class="icon-wishlist"><i data-dive-site-id="<%=dive_site.id%>" data-toggle-favorite-target="item" data-action="click->toggle-favorite#update" class= "fa-xl <%= current_user.favorited?(dive_site) ? 'fa-solid' : 'fa-regular' %> fa-heart"></i>
+</div>
+        </div>
+        <div class="carousel-item">
+          <img class="img-wishlist d-block w-100" style="width: 500px" src="https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/7_bvxtqs.jpg" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="img-wishlist d-block w-100" style="width: 500px" src="https://res.cloudinary.com/cloudinary972/image/upload/v1660320604/awnha4hz6bkazusyajxw.jpg" alt="Third slide">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</div>
+<% end %>
+
 </div>

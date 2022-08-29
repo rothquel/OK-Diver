@@ -7,7 +7,7 @@
   width: 450px;
   align-items: flex-start;
   justify-content: left;
-  max-height: 450px;
+  max-height: 600px;
   justify-content: space-between;
 }
 
@@ -31,7 +31,7 @@
   color: black;
   margin: 0;
   margin-top: 3px;
-  margin-bottom: 7px;
+  margin-bottom: 0px;
 }
 
 .card-index p {
@@ -40,7 +40,10 @@
   margin: 0;
 }
 
-
+.card-index-alignment {
+  display: flex;
+  justify-content: space-between;
+}
 .card-index .card-index-infos {
   padding: 16px;
   // display: flex;

@@ -1,41 +1,40 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :photo, as: :file %>
-    <%= f.input :first_name,
-                required: true,
-                input_html: { autocomplete: "first-name" } %>
-    <%= f.input :last_name,
-                required: true,
-                input_html: { autocomplete: "last-name" } %>
-    <%= f.input :birthdate, html5: true,
-                required: false,
-                input_html: { autocomplete: "birth-date" } %>
-    <%= f.input :country,
-                required: false,
-                input_html: { autocomplete: "country" } %>
-    <div data-controller="sign-up">
-      <%= f.input :certified,
+<div class="container py-5">
+  <h2 class="text-center fw-bold">Sign up</h2>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" }%>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :photo, as: :file %>
+      <%= f.input :first_name,
+                  required: true,
+                  input_html: { autocomplete: "first-name" } %>
+      <%= f.input :last_name,
+                  required: true,
+                  input_html: { autocomplete: "last-name" } %>
+      <%= f.input :birthdate, html5: true,
                   required: false,
-                  as: :boolean, checked_value: 1, unchecked_value: 0,
-                  input_html: {
-                    autocomplete: "Are you a certified diver?",
-                    data: { action: "click->sign-up#toggleInputs" }
-                    } %>
+                  input_html: { autocomplete: "birth-date" } %>
+      <%= f.input :country,
+                  required: false,
+                  input_html: { autocomplete: "country" } %>
+      <div data-controller="sign-up">
+        <%= f.input :certified,
+                    required: false,
+                    as: :boolean, checked_value: 1, unchecked_value: 0,
+                    input_html: {
+                      autocomplete: "Are you a certified diver?",
+                      data: { action: "click->sign-up#toggleInputs" }
+                      } %>
         <div data-sign-up-target="inputs" class="d-none">
           <%= f.input :certification_date,
                       required: false,
@@ -52,12 +51,11 @@
                       required: false,
                       input_html: { autocomplete: "The student number on your certification card" } %>
         </div>
+      </div>
     </div>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <%= render "devise/shared/links" %>
+</div>

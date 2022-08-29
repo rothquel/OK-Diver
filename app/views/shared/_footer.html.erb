@@ -1,0 +1,16 @@
+<footer>
+  <div class="d-flex align-items-center justify-content-center footer-box">
+    <img style="width:150px" src="https://res.cloudinary.com/cloudinary972/image/upload/v1661707981/okdiver-logo_ka3fbk.png" alt="">
+    <ul class="d-flex align-items-center justify-content-center footer-nav">
+      <li><a class="text-white" href="https://www.okdiver.com/dive-sites">Explore</a></li>
+      <% if user_signed_in? %>
+        <li><a class="text-white" href="https://www.okdiver.com/create-log">Log a dive</a></li>
+        <% else %>
+          <li><a class="text-white" href="https://www.okdiver.com/users/sign_up">Sign up</a></li>
+          <li><a class="text-white" href="https://www.okdiver.com/users/sign_in">Log in</a></li>
+          <li><a class="text-white" href="http://127.0.0.1:3000/users/sign_in">Log a dive</a></li>
+      <% end %>
+    </ul>
+    <p>Copyright © 2022. Ok Diver. All rights reserved.</p>
+  </div>
+</footer>
