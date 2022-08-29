@@ -13,6 +13,8 @@ export default class extends Controller {
 
   update(event) {
     event.preventDefault()
+    // event.stopPropagation()
+
     console.log("TODO: send request in AJAX")
 
     // Injecter l'id
@@ -43,7 +45,7 @@ export default class extends Controller {
         </div>`
       } else {
         this.newDiv.innerHTML = `<div id="alert-popup" class="alert alert-info alert-dismissible fade show m-1" role="alert">
-        <p> testing test</p>
+        <p>You have removed this dive site from your wishlist.</p>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
         </button>
         </div>`
