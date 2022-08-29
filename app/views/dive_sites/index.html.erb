@@ -32,6 +32,7 @@
                 action: "change->dive-sites-filters#update"
               }%>
 
+<div>
   <%= select_tag :level, options_for_select(DiveSite::PROFICIENCY),
   class: "tag-field",
   prompt: 'Difficulty', selected: nil,
@@ -40,6 +41,7 @@
                 action: "change->dive-sites-filters#update"
               }
               %>
+</div>
 
   <%# TAGS MULTIPLE ON HOLD %>
   <%= select_tag :tags, options_from_collection_for_select(Tag.all, 'id', 'name'), include_blank: false, multiple: true,

@@ -6,6 +6,8 @@ export default class extends Controller {
   static targets = ["form", "country", "city", "diveType", "level", "diveSites", "mapRefresh", "tags"]
   connect() {
     this.#initTomSelect();
+    this.#arrow();
+
    }
 
   update(event) {
@@ -34,5 +36,15 @@ export default class extends Controller {
         create: false
       });
     }
+
+    #arrow () {
+    new TomSelect("#tbd",{
+      create: false,
+      sortField: {
+        field: "text",
+        direction: "asc"
+      }
+    });
+  }
 
 }

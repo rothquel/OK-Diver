@@ -7,20 +7,20 @@
   width: 179px;
   height: 52px;
 
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 300;
-font-size: 20px;
-line-height: 8px;
-/* or 40% */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  // line-height: 8px;
+  /* or 40% */
 
-display: flex;
-align-items: center;
-text-align: center;
-text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: capitalize;
 
-color: #4D545E;
-text-align: center;
+  color: #4D545E;
+  text-align: center;
 }
 
 .search-btn {
@@ -85,4 +85,32 @@ text-align: center;
   text-align: center;
   padding: 6px 10px 6px 10px;
   border-radius: 8px;
+}
+
+#level.tag-field,
+#dive_type.tag-field,
+#country.tag-field {
+  // border-right-width: 20px;
+  // border-color: fff;
+  // border-right-color: rgba(247, 247, 247, 0.25);
+}
+
+// select {
+//   appearance: none;
+// }
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Some browsers will not display the caret when using calc, so we put the fallback first */
+  background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") white no-repeat 98.5% !important; /* !important used for overriding all other customisations */
+  background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") white no-repeat calc(100% - 10px) !important; /* Better placement regardless of input width */
+}
+/*For IE*/
+select::-ms-expand { display: none; }
+
+#country.tag-field input {
+  // background-image: url(https://res.cloudinary.com/cloudinary972/image/upload/v1661787636/Screen_Shot_2022-08-29_at_11.40.16_AM_tppsdw.png);
+// background: none;
+background-image: none;
 }
