@@ -1,0 +1,32 @@
+.tag-field {
+  background: #FFFFFF;
+  /* Gray 500 */
+
+  border: 1px solid #4D545E;
+  border-radius: 8px;
+  width: 179px;
+  height: 52px;
+
+  font-family: 'Poppins';
+font-style: normal;
+font-weight: 300;
+font-size: 20px;
+line-height: 8px;
+/* or 40% */
+
+display: flex;
+align-items: center;
+text-align: center;
+text-transform: capitalize;
+
+color: #4D545E;
+  text-align: center;
+}
+
+.search-btn {
+  display: none;
+}
+
+.margin-auto-0 {
+  margin: 40px auto 20px auto;
+}
