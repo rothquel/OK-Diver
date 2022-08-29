@@ -35,16 +35,19 @@
 
       <div class="flex-d reviews-box">
       <div class="stars-wishlist">
-      <%# Build logic of stars : if else?? %>
-      <i class="star-icon fa-solid fa-star"></i>
-      <i class="star-icon fa-solid fa-star"></i>
-      <i class="star-icon fa-solid fa-star"></i>
-      <i class="star-icon fa-solid fa-star"></i>
-      <i class="star-icon fa-solid fa-star"></i>
+        <%# Build logic of stars : if else?? %>
+        <% dive_site.average_rating.times do %>
+          <i class="star-icon fa-solid fa-star"></i>
+        <% end %>
+        <% (5 - dive_site.average_rating).times do %>
+          <i class="star-icon fa-regular fa-star"></i>
+        <% end %>
+        <p class="review-numbers"> <%= dive_site.average_rating %>  | <%=dive_site.reviews.count %> reviews</p>
+
       </div>
-        <p class="review-numbers">5 | 13 reviews</p>
       </div>
 
+      <%# Average_rating * full stars + (5 - Average_rating) * Empty stars %>
 
       <div class="main-content">
         <p><%= dive_site.description %></p>
@@ -52,12 +55,13 @@
           <ul class="d-flex gap-2">
           <li><button> Ship's wreck</button></li>
 
-        <%# <% if dive_site.dive_site_tags? %>
-            <%# <li><button> <%= dive_site.tags.first.name</button></li> %>
-            <%# <li><button> Ship's wreck</button></li> %>
-            <%# <li><button> Ship's wreck</button></li> %>
-        <%# else %>
-        <%# end %>
+<%# Faire une loop à la place %>
+        <% if !dive_site.tags.empty? %>
+          <li><button> <%= dive_site.tags.first.name%></button></li>
+          <li><button> <%= dive_site.tags.first.name%></button></li>
+
+        <% else %>
+        <% end %>
           </ul>
         </div>
       </div>

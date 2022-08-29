@@ -19,4 +19,9 @@ class DiveSite < ApplicationRecord
 
   # favoritable
   acts_as_favoritable
+
+  # Scope
+  def average_rating
+    reviews.average(:rating).to_i || 0
+  end
 end
