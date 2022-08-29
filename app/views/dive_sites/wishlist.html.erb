@@ -1,4 +1,3 @@
-
 <div class="top-bar">
   <h1>My Wishlist</h1>
 </div>
@@ -38,11 +37,11 @@
             <ul class="d-flex gap-2">
         <%# Faire une loop à la place %>
         <% @favorite_dive_sites.each do |dive_site| %>
-          <% if !dive_site.tags.empty? %>
-            <li class="tag"><%= dive_site.tags.first.name%></li>
-          <% else %>
-          <% end %>
-        <% end %>
+                <% if dive_site.tags.each do |tag| %>
+                  <li class="tag"><%= tag.name%></li>
+                <% end %>
+              <% end %>
+            <% end %>
 
             </ul>
           </div>
