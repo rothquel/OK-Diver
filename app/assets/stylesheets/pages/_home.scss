@@ -1,9 +1,35 @@
 // Specific CSS for your home-page
-.card-product-infos h2 {
-  font-size: 28px !important;
-  padding-bottom: 20px;
+.card {
+  background-color: #023E8A;
+  color: white;
+  font-family: $body-font;
+  height:auto;
+  border-radius: 8px !important;
 }
 
+#card-1 {
+  background-color: $light-blue;
+  border-radius: 0px 0px 8px 8px;
+}
+
+#card-2 {
+  background-color: $blue;
+  border-radius: 0px 0px 8px 8px;
+}
+
+#card-3 {
+  background-color: $navy-blue;
+  border-radius: 0px 0px 8px 8px;
+}
+
+#card-4 {
+  background-color: $typo_dark_blue;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.card-img-top {
+  height: 250px;
+}
 
 .subheading {
   margin: 0 auto;
@@ -17,23 +43,6 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-.details {
-  font-size: 15px;
-  color: black;
-}
-
-.card-product {
-  padding-top: 100px;
-  border-radius: 4px;
-  background: white;
-  display: flex;
-  align-items: center;
-  color: rgb(42, 41, 41);
-  // margin: 0px 0px 0px 10px!important;
-  height: 100%;
-  width: 100%;
-}
-
 
 .bottom-picture {
   height: 600px;
@@ -41,50 +50,28 @@
   background-size: cover;
   background-position: center;
   overflow: hidden;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-
-.container-homepage{
-  padding: 0 60px 0 60px;
-}
-
-
-.bottom-container {
-padding-bottom: 60px;
-}
-
-.card-product-infos {
-  padding: 30px !important;
+.bottom-container-homepage{
+  padding: 0 60px;
+  text-align: center;
+  // align-items: center;
 }
 
 .picture-box {
-margin-bottom: 32px !important;
-margin-top: 32px !important;
 overflow: hidden;
+max-width: 500px;
 }
 
-.bp-10 {
-  margin-top: 10px;
-}
 
 a {
   text-decoration: none !important;
+  color: white;
 }
 
 .call-to-action-link {
-  position: absolute;
-  top: 400px;
-  left: 250px;
+  margin-bottom: 100px;
 }
-
-// .destination-card {
-//   width:150px;
-//   height:150px;
-//   margin-bottom: 10px;
-//   background-size: cover;
-//   background-position: center;
-//   overflow:auto;
-//   position: relative;
-//   border-radius: 8px;
-// }
