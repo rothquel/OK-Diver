@@ -93,8 +93,8 @@
 </div>
 
 <div class="container">
-      <h2 class="fw-bold">Feedback of the site (<%= pluralize @dive_site.reviews.count, "review" %>)</h2>
-      <p class="pb-3">Don't take our word for it. Trust the diver community.</p>
+  <h2 class="fw-bold">Feedback of the site (<%= pluralize @dive_site.reviews.count, "review" %>)</h2>
+  <p class="pb-3">Don't take our word for it. Trust the diver community.</p>
   <div class="row">
     <% @dive_site.reviews.each do |review|  %>
       <div class="col-3 mb-3">
@@ -121,19 +121,18 @@
               <% end %>
             </div>
           </div>
-        <h4 class="pt-4 pb-2 text-dark"><%= link_to "#{review.user.first_name} #{review.user.last_name}", profile_path(review.user.id) %></h4>
-        <h6 class="fw-bold">Highlights:</h6> <p><%= review.highlight %></p>
-        <h6  class="fw-bold">Tips:</h6> <p><%= review.tips %></p>
-        <p class="pb-3">Reviewed on <%= review.created_at.strftime('%b %d %Y') %></p>
-          <% if review.user.id == current_user.id %>
-            <%= link_to "Edit", edit_review_path(review) %> ・ <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-          <% end %>
+          <h4 class="pt-4 pb-2 text-dark"><%= link_to "#{review.user.first_name} #{review.user.last_name}", profile_path(review.user.id) %></h4>
+          <h6 class="fw-bold">Highlights:</h6> <p><%= review.highlight %></p>
+          <h6  class="fw-bold">Tips:</h6> <p><%= review.tips %></p>
+          <p class="pb-3">Reviewed on <%= review.created_at.strftime('%b %d %Y') %></p>
+            <% if review.user.id == current_user.id %>
+              <%= link_to "Edit", edit_review_path(review) %> ・ <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <% end %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
 <div class="container py-5">
   <h2 class="fw-bold pb-5">Other great dive sites in <%= dive_site_country %>:</h2>
   <div class="row">
@@ -160,3 +159,4 @@
     <% end %>
   </div>
 </div>
+

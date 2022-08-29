@@ -8,7 +8,6 @@
 
 <div class="container py-5 mt-5">
   <div class="profile-top">
-
     <div>
       <% if @user.photo.present? %>
         <%= cl_image_tag @user.photo.key, :height=>600, :width=>600, :crop=>"fill", class: "profile-avatar" %><br>
@@ -19,13 +18,11 @@
         <%= link_to "Edit", edit_user_registration_path %>
       <% end %>
     </div>
-
     <div class="name-bar">
       <h2><%= @user.first_name %> <%= @user.last_name %></h2>
       <% home_country = ISO3166::Country.new(@user.country) %>
       <h4><%= home_country %></h4>
     </div>
-
     <div class="container">
       <div class="row">
         <div class="col stats">
@@ -43,22 +40,19 @@
       </div>
     </div>
   </div>
-
-    <% if @user.id == current_user.id %>
-      <% if @user.certified? %>
-        <div class="profile-top mt-5 pb-3">
-          <h3 class="pb-3">Certification details:</h3>
-          <p id="tiny-text">(Only you can see these)</p>
-          <p><strong>Certification body:</strong> <%= @user.certification_body %></p>
-          <p><strong>Certified since:</strong> <%= @user.certification_date.strftime('%B %Y') %></p>
-          <p><strong>Certification level:</strong> <%= @user.certification_level %></p>
-          <p><strong>Student number:</strong> <%= @user.student_number %></p>
-          <p><strong>Date of birth:</strong> <%= @user.birthdate %></p>
-        </div>
-        <% end %>
-      <% end %>
-
-
+  <% if @user.id == current_user.id %>
+    <% if @user.certified? %>
+      <div class="profile-top mt-5 pb-3">
+        <h3 class="pb-3">Certification details:</h3>
+        <p id="tiny-text">(Only you can see these)</p>
+        <p><strong>Certification body:</strong> <%= @user.certification_body %></p>
+        <p><strong>Certified since:</strong> <%= @user.certification_date.strftime('%B %Y') %></p>
+        <p><strong>Certification level:</strong> <%= @user.certification_level %></p>
+        <p><strong>Student number:</strong> <%= @user.student_number %></p>
+        <p><strong>Date of birth:</strong> <%= @user.birthdate %></p>
+      </div>
+    <% end %>
+  <% end %>
 </div>
 
 <% if @user.logs.present? %>
@@ -70,41 +64,44 @@
       <h2><%= @user.first_name %>'s dives:<h2>
       <% end %>
     </div>
+    <div class="row">
+      <div class="col-5">
+        <div class="overflow-auto">
+            <% @user.logs.each do |log| %>
+              <div class="col-3 card-index mb-3">
+                <%# teamfrontend - put the card in here %>
+                <% if log.photo.present? %>
+                  <%= cl_image_tag log.photo.key, :height=>400, :width=>600, :crop=>"fill", :quality=>100 %><br>
+                <% else %>
+                  <% if log.dive_site.photo.present? %>
+                    <img src="<%= log.dive_site.photo.key %>" height="400" width="100%">
+                  <% else %>
+                    <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" height="100" width="100%">
+                  <% end %>
+                <% end %>
 
-    <div>
-      <% @user.logs.each do |log| %>
-        <div>
-          <%# teamfrontend - put the card in here %>
-          <% if log.photo.present? %>%
-            <%= cl_image_tag log.photo.key, height: 300, width: 400, crop: :fill %><br>
-          <% else %>
-            <% if log.dive_site.photo.present? %>
-              <%= cl_image_tag log.dive_site.photo.key, height: 100 %>
-            <% else %>
-              <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" height="100">
+                <% site_country = ISO3166::Country.new(log.dive_site.country) %>
+                <%= log.dive_site.city %>, <%= site_country %><br>
+                <%= log.dive_site.name %><br>
+                <%= log.date.strftime('%b %d %Y') %><br>
+                <% length_seconds = log.time_out - log.time_in %>
+                <% length = length_seconds / 60 %>
+                length: <%= length.to_i %> minutes<br>
+                Depth: <%= log.depth %> feet<br>
+                <% if @user.id == current_user.id %>
+                  <%= link_to "View log", log_path(log.id) %>
+                <% end %>
+              </div>
             <% end %>
-          <% end %>
-
-          <% site_country = ISO3166::Country.new(log.dive_site.country) %>
-          <%= log.dive_site.city %>, <%= site_country %><br>
-          <%= log.dive_site.name %><br>
-          <%= log.date.strftime('%b %d %Y') %><br>
-          <% length_seconds = log.time_out - log.time_in %>
-          <% length = length_seconds / 60 %>
-          length: <%= length.to_i %> minutes<br>
-          Depth: <%= log.depth %> feet<br>
-          <% if @user.id == current_user.id %>
-            <%= link_to "View log", log_path(log.id) %>
-          <% end %>
         </div>
-      <% end %>
-    <div>
-
-  <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-
+      </div>
+      <div class="col-7">
+        <div style="width: 100%; height: 600px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
