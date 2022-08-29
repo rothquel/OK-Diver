@@ -10,9 +10,17 @@
       <% end %>
     <% end %>
       <%# heart %>
-      <button class="heart-icon">
-        <i class="fa-regular fa-heart fa-2x"></i>
+      <button class="heart-icon" data-controller="toggle-favorite">
+        <% if user_signed_in? %>
+          <i data-dive-site-id="<%=dive_site.id%>" data-toggle-favorite-target="item" data-action="click->toggle-favorite#update" class="<%= current_user.favorited?(dive_site) ? 'fa-solid ' : 'fa-regular' %> fa-heart fa-2x"></i>
+        <% else %>
+          <i class="fa-solid fa-heart fa-2x"></i>
+        <% end %>
       </button>
+
+      <%# <button class="heart-icon">
+        <i class="fa-solid fa-heart fa-2x"></i>
+      </button> %>
       <div class="card-index-infos p-3">
         <div class="card-index-alignment">
           <div>
