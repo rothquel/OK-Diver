@@ -95,12 +95,14 @@ class DiveSitesController < ApplicationController
 
   def toggle_favorite
     @dive_site = DiveSite.find_by(id: params[:id])
-    current_user.favorited?(@dive_site) ? current_user.unfavorite(@dive_site) : current_user.favorite(@dive_site)
+    is_favorited = current_user.favorited?(@dive_site)
+
+    is_favorited ? current_user.unfavorite(@dive_site) : current_user.favorite(@dive_site)
     # head :ok
     # raise
     respond_to do |format|
       format.html { redirect_to wishlist_path }
-      format.json
+      format.json { render json: { toggle: is_favorited ? 'unfavorite' : 'favorite' } }
     end
   end
 
