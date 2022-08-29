@@ -14,7 +14,6 @@
         <i class="fa-solid fa-arrow-up-from-bracket"></i> Share ・ <i class="fa-solid fa-anchor"></i> Log ・
         <i data-dive-site-id="<%=@dive_site.id%>" data-toggle-favorite-target="item" data-action="click->toggle-favorite#update" class= "<%= current_user.favorited?(@dive_site) ? 'fa-solid ' : 'fa-regular' %> fa-heart"></i> Save
       </div>
-<%# <i class="fa-solid fa-anchor"></i> %>
     </div>
 
     <%# ***Faire la logique couleur des coeurs avec un IF %>
