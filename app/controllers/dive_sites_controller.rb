@@ -61,8 +61,8 @@ class DiveSitesController < ApplicationController
   end
 
   def show
+    @dive_sites = DiveSite.all
     @dive_site = DiveSite.find(params[:id])
-
     if @dive_site.latitude.nil?
       latitude = 45.501690
       longitude = -73.567253
@@ -95,18 +95,20 @@ class DiveSitesController < ApplicationController
 
   def toggle_favorite
     @dive_site = DiveSite.find_by(id: params[:id])
-    current_user.favorited?(@dive_site) ? current_user.unfavorite(@dive_site) : current_user.favorite(@dive_site)
+    is_favorited = current_user.favorited?(@dive_site)
+
+    is_favorited ? current_user.unfavorite(@dive_site) : current_user.favorite(@dive_site)
     # head :ok
     # raise
     respond_to do |format|
       format.html { redirect_to wishlist_path }
-      format.json
+      format.json { render json: { toggle: is_favorited ? 'unfavorite' : 'favorite' } }
     end
   end
 
   private
 
   def dive_site_params
-    params.require(:dive_site).permit(:name, :description, :country, :dive_type, :level, :city, :latitude, :longitude, :photo)
+    params.require(:dive_site).permit(:name, :description, :country, :dive_type, :level, :city, :latitude, :longitude, :photo, :tags)
   end
 end
