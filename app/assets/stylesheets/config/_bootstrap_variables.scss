@@ -26,3 +26,18 @@ $border-radius-sm: 8px;
 .override-bs-nav-link-padding-y {
   --bs-nav-link-padding-y: 0.0rem !important;
 }
+
+a {
+  color: white;
+  text-decoration: none;
+  outline: none !important;
+}
+
+
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 0 !important;
+}

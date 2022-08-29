@@ -14,6 +14,7 @@
   border-style: solid;
   font-family: $body-font;
   font-size: 14px;
+  padding: 4px;
   // display: flex;
 }
 
@@ -29,7 +30,7 @@
   color: white;
   box-shadow: 0px 4px 15px #023E8A;
   border-radius: 8px;
-  padding: 10px 16px;
+  padding: 16px 28px;
   gap: 10px;
   // display: flex;
   // justify-content: space-between;
@@ -38,6 +39,8 @@
   text-decoration: none;
   font-family: $headers-font;
   font-weight: 600;
+  width: 160px;
+
 }
 
 .register-button:hover {
@@ -48,18 +51,36 @@
 .explore-button {
   // height: 60px;
   background: #FF9E00;
+  width: 160px;
   box-shadow: 0px 4px 15px #FF9E00;
   border-radius: 8px;
-  padding: 10px 16px;
+  padding: 12px 14px;
   gap: 10px;
   text-align: center;
+  justify-content: center;
   color: $white;
   text-decoration: none;
   font-family: $headers-font;
   font-weight: 600;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
   z-index: 1;
+  font-size: 18px;
+}
+
+
+.explore-button a {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 27px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+
 }
 
 .explore-button:hover {
@@ -108,20 +129,16 @@
 
 .card-index .heart-icon {
   position: absolute;
-  left: 87.04%;
-  right: 4.45%;
+  left: 82%;
   top: 3.53%;
   bottom: 90.22%;
   border: none;
   background: transparent;
 }
 
-.heart-icon i {
-  left: 87.04%;
-  right: 4.45%;
-  top: 3.53%;
-  bottom: 90.22%;
-  background: #FFD1A2;
-  border: 2px solid #F49037;
+.fa-heart {
+  // background: #FFD1A2;
+  color: #FF9E00;
+  // border: 2px solid #F49037;
   // border-radius: 8px;
 }
