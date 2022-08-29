@@ -1,7 +1,7 @@
 <% if dive_site.photo.attached? %>
-  <%= cl_image_tag dive_site.photo.key, height: 150, width: 200, crop: :fill  %><br>
+  <%= cl_image_tag dive_site.photo.key, :height=>150, :width=>200, :crop=>"fill" %><br>
 <% else %>
-  <img src="<%= dive_site.image %>" width="200">
+  <img src="<%= dive_site.image %>" width="200" height="150">
 <% end %>
 <h2><%= dive_site.name %></h2>
 <p><%= dive_site.country %></p>

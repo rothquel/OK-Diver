@@ -11,12 +11,12 @@
           <div class="col-6">
             <div class="card mb-3">
               <% if log.photo.present? %>
-                <%= cl_image_tag log.photo.key, class: "card-img-top" %>
+                <%= cl_image_tag log.photo.key, :height=>400, :width=>600, :crop=>"fill", :quality=>100 class: "card-img-top" %>
               <% else %>
                 <% if log.dive_site.photo.present? %>
-                  <%= cl_image_tag log.dive_site.photo.key, class: "card-img-top" %>
+                  <%= cl_image_tag log.dive_site.photo.key, :height=>400, :width=>600, :crop=>"fill", :quality=>100 class: "card-img-top" %>
                 <% else %>
-                  <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" class="card-img-top">
+                  <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" height="400" width="600" class="card-img-top">
                 <% end %>
               <% end %>
               <div class="card-body">
