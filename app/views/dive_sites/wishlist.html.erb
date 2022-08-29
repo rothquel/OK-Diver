@@ -3,25 +3,7 @@
 <h1>My Wishlist</h1>
 </div>
 
-<div class="container">
- <% @favorite_dive_sites.each do |dive_site| %>
-    <div>
-    <% if dive_site.photo.attached? %>
-      <%= cl_image_tag dive_site.photo.key, height: 300, width: 400, crop: :fill  %><br>
-    <% else %>
-      <img src="<%= dive_site.image %>" width="300">
-    <% end %>
-      <%= dive_site.name %><br>
-      <%= dive_site.country %><br>
-      <%= dive_site.description %><br>
-      <%= dive_site.dive_type %><br>
-      <%= link_to "Learn More", dive_site_path(dive_site) %>
-      <%= link_to "Remove", toggle_favorite_dive_site_path(dive_site), class: "d-block", data: {turbo_method: :post, turbo_confirm: "Are you sure?"} %>
-
-    </div>
-  <% end %>
-
-<br>
+<div class="container py-5">
 <br>
 <% @favorite_dive_sites.each do |dive_site| %>
 <div class="card-box flex-d">
@@ -33,31 +15,33 @@
       <H2><%= dive_site.name %></H2>
 
 
-      <div class="flex-d reviews-box">
-      <div class="stars-wishlist">
-      <%# Build logic of stars : if else?? %>
-      <i class="star-icon fa-solid fa-star"></i>
-      <i class="star-icon fa-solid fa-star"></i>
-      <i class="star-icon fa-solid fa-star"></i>
-      <i class="star-icon fa-solid fa-star"></i>
-      <i class="star-icon fa-solid fa-star"></i>
-      </div>
-        <p class="review-numbers">5 | 13 reviews</p>
+      <div class=" reviews-box">
+        <div class="stars-wishlist d-flex gap-2">
+        <% dive_site.average_rating.times do %>
+          <i class="star-icon fa-solid fa-star"></i>
+        <% end %>
+        <% (5 - dive_site.average_rating).times do %>
+          <i class="star-icon fa-regular fa-star"></i>
+        <% end %>
+        <p class="review-numbers"> <%= dive_site.average_rating %>  | <%=dive_site.reviews.count %> reviews</p>
+
+        </div>
       </div>
 
+      <%# Average_rating * full stars + (5 - Average_rating) * Empty stars %>
 
       <div class="main-content">
         <p><%= dive_site.description %></p>
         <div class="tags-box">
           <ul class="d-flex gap-2">
-          <li><button> Ship's wreck</button></li>
+      <%# Faire une loop à la place %>
+      <% @favorite_dive_sites.each do |dive_site| %>
+        <% if !dive_site.tags.empty? %>
+          <li class="tag"><%= dive_site.tags.first.name%></li>
+        <% else %>
+        <% end %>
+      <% end %>
 
-        <%# <% if dive_site.dive_site_tags? %>
-            <%# <li><button> <%= dive_site.tags.first.name</button></li> %>
-            <%# <li><button> Ship's wreck</button></li> %>
-            <%# <li><button> Ship's wreck</button></li> %>
-        <%# else %>
-        <%# end %>
           </ul>
         </div>
       </div>
@@ -100,4 +84,5 @@
 </div>
 <% end %>
 
+</div>
 </div>
