@@ -49,18 +49,23 @@
   style: "width: 600px",
   prompt: 'What do you want to see?',
   data: {
-                dive_sites_filters_target: "tags",
-                # action: "change->dive-sites-filters#initTomSelect"
-              }
-              %>
+    controller: "tom-select", tom_select_options_value: {tags: true},
+    action: "change->dive-sites-filters#update"
 
-    <%= submit_tag "Search", class: "search-btn" %>
+    }  %>
+
+  <%# # {
+  #               # dive_sites_filters_target: "tags",
+  #             } %>
+
+
+  <%= submit_tag "Search", class: "search-btn" %>
     </div>
   <% end %>
 
 
   <%#  Partial dive-sites %>
-  <div data-dive-sites-filters-target="diveSites">
+  <div data-dive-sites-filters-target="diveSites" data-tom-select-target="diveSites" >
 
 <div class="container py-5">
   <div class="row">
@@ -82,10 +87,5 @@
     </div>
   </div>
 
-
-
-
-
-</div>
-
   </div>
+</div>
