@@ -2,6 +2,7 @@ require "open-uri"
 
 DiveSiteTag.delete_all
 Tag.delete_all
+Review.delete_all
 Log.delete_all
 DiveSite.delete_all
 puts "Database cleared"
