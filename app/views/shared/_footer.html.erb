@@ -1,16 +1,17 @@
 <footer>
-  <div class="d-flex align-items-center justify-content-center footer-box">
+  <div class="d-flex align-items-center footer-box">
     <img style="width:150px" src="https://res.cloudinary.com/cloudinary972/image/upload/v1661707981/okdiver-logo_ka3fbk.png" alt="">
     <ul class="d-flex align-items-center justify-content-center footer-nav">
-      <li><a class="text-white" href="https://www.okdiver.com/dive-sites">Explore</a></li>
-      <% if user_signed_in? %>
-        <li><a class="text-white" href="https://www.okdiver.com/create-log">Log a dive</a></li>
-        <% else %>
-          <li><a class="text-white" href="https://www.okdiver.com/users/sign_up">Sign up</a></li>
-          <li><a class="text-white" href="https://www.okdiver.com/users/sign_in">Log in</a></li>
-          <li><a class="text-white" href="http://127.0.0.1:3000/users/sign_in">Log a dive</a></li>
-      <% end %>
+      <div class="footer-links d-flex gap-4">
+        <a href="#"><i class="fab fa-github fa-lg"></i></a>
+        <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
+        <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+      </div>
     </ul>
-    <p>Copyright © 2022. Ok Diver. All rights reserved.</p>
+      <div class="copyright">
+        <p>Copyright © 2022. Ok Diver. All rights reserved.</p>
+      </div>
   </div>
 </footer>
