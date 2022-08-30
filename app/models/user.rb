@@ -13,4 +13,16 @@ class User < ApplicationRecord
 
   acts_as_favoritor
   acts_as_messageable
+
+  def name
+    return "You should add method :name in your Messageable model"
+  end
+
+  def mailboxer_email(_object)
+    #Check if an email should be sent for that object
+    #if true
+    # return "define_email@on_your.model"
+    #if false
+    return nil
+  end
 end
