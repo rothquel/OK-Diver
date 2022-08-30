@@ -1,9 +1,64 @@
+require "open-uri"
+
 DiveSiteTag.delete_all
 Tag.delete_all
-Review.delete_all
-Log.delete_all
 DiveSite.delete_all
 puts "Database cleared"
+
+file_1_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/5_n7yjbh.jpg")
+file_1_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/9_lweg5x.jpg")
+file_1_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/8_a8guix.jpg")
+file_1_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/7_bvxtqs.jpg")
+file_2_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/6_rqfjly.jpg")
+file_2_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/7_bvxtqs.jpg")
+file_2_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/2_f0csjk.jpg")
+file_2_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/1_opdhrb.jpg")
+file_3_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/3_i0hnmc.jpg")
+file_3_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/4_llxfib.jpg")
+file_3_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661460002/IMG_9033-scaled_bhfwlc.webp")
+file_3_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891782/52_y2yxpl.jpg")
+file_4_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891783/30_f5jxyx.jpg")
+file_4_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891782/32_boupk2.jpg")
+file_4_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891783/31_jjfqr8.jpg")
+file_4_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891782/33_ntdy3y.jpg")
+file_5_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891783/50_dqt7fs.jpg")
+file_5_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891783/28_nri5zp.jpg")
+file_5_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891783/26_ot1t5s.jpg")
+file_5_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891783/29_qkot4q.jpg")
+file_6_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891783/27_opwbmd.jpg")
+file_6_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891783/25_xaraon.jpg")
+file_6_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891784/22_pg0mks.jpg")
+file_6_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891783/24_szccsf.jpg")
+file_7_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891784/23_xwv0n7.jpg")
+file_7_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891784/49_gzwvj5.jpg")
+file_7_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891784/21_mu2w3n.jpg")
+file_7_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891784/18_daagha.jpg")
+file_8_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891784/19_vs1lry.jpg")
+file_8_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891784/20_edgnt5.jpg")
+file_8_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891784/47_nvgowi.jpg")
+file_8_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891784/51_e9qqou.jpg")
+file_9_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891784/54_zpqna5.jpg")
+file_9_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891784/46_sfgvyk.jpg")
+file_9_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891785/17_yjls6w.jpg")
+file_9_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891785/15_frf85t.jpg")
+file_10_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891785/45_gsjst7.jpg")
+file_10_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891785/16_hiazn6.jpg")
+file_10_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891785/14_wu8rmh.jpg")
+file_10_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891785/13_qicpjd.jpg")
+file_11_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891785/48_m8plbc.jpg")
+file_11_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891785/10_r0zcjj.jpg")
+file_11_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891785/11_dmpphj.jpg")
+file_11_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/12_kp7cil.jpg")
+file_12_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/41_cwkivk.jpg")
+file_12_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/7_ygl7hq.jpg")
+file_12_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/8_thrswa.jpg")
+file_12_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/44_fjie9p.jpg")
+file_13_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/40_exhazp.jpg")
+file_13_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891787/6_k7jqzp.jpg")
+file_13_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/5_h2cdtj.jpg")
+file_13_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891787/2_qn1iba.jpg")
+
+
 
 site1 = DiveSite.new(
   name: "Balabag Shipwreck",
@@ -17,6 +72,12 @@ site1 = DiveSite.new(
   image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661290402/development/nx8vege6bpurgk0r2k3kzt8xhryz.jpg"
 )
 site1.save!
+site1.photos.attach(io: file_1_1, filename: "okdiver-image.png", content_type: "image/png")
+site1.photos.attach(io: file_1_2, filename: "okdiver-2.png", content_type: "image/png")
+site1.photos.attach(io: file_1_3, filename: "okdiver-3.png", content_type: "image/png")
+site1.photos.attach(io: file_1_4, filename: "okdiver-4.png", content_type: "image/png")
+site1.save!
+
 puts "#{site1.name} created"
 
 site2 = DiveSite.new(
@@ -31,6 +92,11 @@ site2 = DiveSite.new(
   image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661285538/development/q05ueyrfzlp9atiw99tjj16b1b7f.jpg"
 )
 site2.save!
+site2.photos.attach(io: file_2_1, filename: "okdiver-image.png", content_type: "image/png")
+site2.photos.attach(io: file_2_2, filename: "okdiver-2.png", content_type: "image/png")
+site2.photos.attach(io: file_2_3, filename: "okdiver-3.png", content_type: "image/png")
+site2.photos.attach(io: file_2_4, filename: "okdiver-4.png", content_type: "image/png")
+site2.save!
 puts "#{site2.name} created"
 
 site3 = DiveSite.new(
@@ -44,6 +110,11 @@ site3 = DiveSite.new(
   level: DiveSite::PROFICIENCY[1],
   image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661219744/development/xi7rpzkhdyh35zte0rwqb8blz8ik.jpg"
 )
+site3.save!
+site3.photos.attach(io: file_3_1, filename: "okdiver-image.png", content_type: "image/png")
+site3.photos.attach(io: file_3_2, filename: "okdiver-2.png", content_type: "image/png")
+site3.photos.attach(io: file_3_3, filename: "okdiver-3.png", content_type: "image/png")
+site3.photos.attach(io: file_3_4, filename: "okdiver-4.png", content_type: "image/png")
 site3.save!
 puts "#{site3.name} created"
 
@@ -60,6 +131,11 @@ site4 = DiveSite.new(
   image: "https://res.cloudinary.com/cloudinary972/image/upload/v1661460002/IMG_9033-scaled_bhfwlc.webp"
 )
 site4.save!
+site4.photos.attach(io: file_4_1, filename: "okdiver-image.png", content_type: "image/png")
+site4.photos.attach(io: file_4_2, filename: "okdiver-2.png", content_type: "image/png")
+site4.photos.attach(io: file_4_3, filename: "okdiver-3.png", content_type: "image/png")
+site4.photos.attach(io: file_4_4, filename: "okdiver-4.png", content_type: "image/png")
+site4.save!
 puts "#{site4.name} created"
 
 
@@ -74,6 +150,11 @@ site5 = DiveSite.new(
   level: DiveSite::PROFICIENCY[3],
   image: "https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/3_i0hnmc.jpg"
 )
+site5.save!
+site5.photos.attach(io: file_5_1, filename: "okdiver-image.png", content_type: "image/png")
+site5.photos.attach(io: file_5_2, filename: "okdiver-2.png", content_type: "image/png")
+site5.photos.attach(io: file_5_3, filename: "okdiver-3.png", content_type: "image/png")
+site5.photos.attach(io: file_5_4, filename: "okdiver-4.png", content_type: "image/png")
 site5.save!
 puts "#{site5.name} created"
 
@@ -90,6 +171,11 @@ site6 = DiveSite.new(
   image: "https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/4_llxfib.jpg"
 )
 site6.save!
+site6.photos.attach(io: file_6_1, filename: "okdiver-image.png", content_type: "image/png")
+site6.photos.attach(io: file_6_2, filename: "okdiver-2.png", content_type: "image/png")
+site6.photos.attach(io: file_6_3, filename: "okdiver-3.png", content_type: "image/png")
+site6.photos.attach(io: file_6_4, filename: "okdiver-4.png", content_type: "image/png")
+site6.save!
 puts "#{site6.name} created"
 
 site7 = DiveSite.new(
@@ -103,6 +189,11 @@ site7 = DiveSite.new(
   level: DiveSite::PROFICIENCY[2],
   image: "https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/7_bvxtqs.jpg"
 )
+site7.save!
+site7.photos.attach(io: file_7_1, filename: "okdiver-image.png", content_type: "image/png")
+site7.photos.attach(io: file_7_2, filename: "okdiver-2.png", content_type: "image/png")
+site7.photos.attach(io: file_7_3, filename: "okdiver-3.png", content_type: "image/png")
+site7.photos.attach(io: file_7_4, filename: "okdiver-4.png", content_type: "image/png")
 site7.save!
 puts "#{site7.name} created"
 
@@ -118,6 +209,11 @@ site8 = DiveSite.new(
   image: "https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/1_opdhrb.jpg"
 )
 site8.save!
+site8.photos.attach(io: file_8_1, filename: "okdiver-image.png", content_type: "image/png")
+site8.photos.attach(io: file_8_2, filename: "okdiver-2.png", content_type: "image/png")
+site8.photos.attach(io: file_8_3, filename: "okdiver-3.png", content_type: "image/png")
+site8.photos.attach(io: file_8_4, filename: "okdiver-4.png", content_type: "image/png")
+site8.save!
 puts "#{site8.name} created"
 
 site9 = DiveSite.new(
@@ -131,6 +227,11 @@ site9 = DiveSite.new(
   level: DiveSite::PROFICIENCY[2],
   image: "https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/9_lweg5x.jpg"
 )
+site9.save!
+site9.photos.attach(io: file_9_1, filename: "okdiver-image.png", content_type: "image/png")
+site9.photos.attach(io: file_9_2, filename: "okdiver-2.png", content_type: "image/png")
+site9.photos.attach(io: file_9_3, filename: "okdiver-3.png", content_type: "image/png")
+site9.photos.attach(io: file_9_4, filename: "okdiver-4.png", content_type: "image/png")
 site9.save!
 puts "#{site9.name} created"
 
@@ -146,6 +247,11 @@ site10 = DiveSite.new(
   image: "https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/9_lweg5x.jpg"
 )
 site10.save!
+site10.photos.attach(io: file_10_1, filename: "okdiver-image.png", content_type: "image/png")
+site10.photos.attach(io: file_10_2, filename: "okdiver-2.png", content_type: "image/png")
+site10.photos.attach(io: file_10_3, filename: "okdiver-3.png", content_type: "image/png")
+site10.photos.attach(io: file_10_4, filename: "okdiver-4.png", content_type: "image/png")
+site10.save!
 puts "#{site10.name} created"
 
 site11 = DiveSite.new(
@@ -159,6 +265,11 @@ site11 = DiveSite.new(
   level: DiveSite::PROFICIENCY[1],
   image: "https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/5_n7yjbh.jpg"
 )
+site11.save!
+site11.photos.attach(io: file_11_1, filename: "okdiver-image.png", content_type: "image/png")
+site11.photos.attach(io: file_11_2, filename: "okdiver-2.png", content_type: "image/png")
+site11.photos.attach(io: file_11_3, filename: "okdiver-3.png", content_type: "image/png")
+site11.photos.attach(io: file_11_4, filename: "okdiver-4.png", content_type: "image/png")
 site11.save!
 puts "#{site11.name} created"
 
@@ -174,6 +285,11 @@ site12 = DiveSite.new(
   image: "https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/6_rqfjly.jpg"
 )
 site12.save!
+site12.photos.attach(io: file_12_1, filename: "okdiver-image.png", content_type: "image/png")
+site12.photos.attach(io: file_12_2, filename: "okdiver-2.png", content_type: "image/png")
+site12.photos.attach(io: file_12_3, filename: "okdiver-3.png", content_type: "image/png")
+site12.photos.attach(io: file_12_4, filename: "okdiver-4.png", content_type: "image/png")
+site12.save!
 puts "#{site12.name} created"
 
 site13 = DiveSite.new(
@@ -188,6 +304,12 @@ site13 = DiveSite.new(
   image: "https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/4_llxfib.jpg"
 )
 site13.save!
+site13.photos.attach(io: file_13_1, filename: "okdiver-image.png", content_type: "image/png")
+site13.photos.attach(io: file_13_2, filename: "okdiver-2.png", content_type: "image/png")
+site13.photos.attach(io: file_13_3, filename: "okdiver-3.png", content_type: "image/png")
+site13.photos.attach(io: file_13_4, filename: "okdiver-4.png", content_type: "image/png")
+site13.save!
+
 puts "#{site13.name} created"
 
 tag_names = %w[
@@ -206,6 +328,9 @@ Lionfish
 Ghost\ Pipefish
 Seahorse
 Comet\ Goldfish
+Whales
+Temperate diving
+Tropical diving
 ]
 
 tag_names.each do |name|
