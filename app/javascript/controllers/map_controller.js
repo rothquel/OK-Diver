@@ -59,7 +59,8 @@ export default class extends Controller {
 
   #clearMarkers() {
     this.markersValue.length = 0
-    this.markerTargets.forEach(marker => marker.remove())
+    document.querySelectorAll('.mapboxgl-marker').forEach(marker => marker.remove())
+    // this.markerTargets.forEach(marker => marker.remove())
   }
 }
 //
