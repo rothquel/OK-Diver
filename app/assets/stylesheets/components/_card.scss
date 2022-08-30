@@ -4,12 +4,15 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   position: relative;
   margin-bottom: 3px;
-  width: 450px;
+  width: 100%;
   align-items: flex-start;
   justify-content: left;
   max-height: 600px;
   justify-content: space-between;
   border-radius: 8px;
+  padding: 0 !important;
+  margin-left: 10px;
+
 }
 
 .card-index > img {
@@ -67,8 +70,9 @@
   flex-direction: row;
   padding: 0px;
   // align-items: flex-start;
-  justify-content: space-between;
+  // justify-content: center;
   margin-top: 20px;
+  column-gap: 12px;
 }
 
 // wishlist card by marving

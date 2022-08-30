@@ -12,10 +12,12 @@
   color: #023E8A;
   // border-color: #023E8A;
   // border-style: solid;
-  border:none;
+  border: 1px solid #023d8a31;
+  border-radius: 8px;
+  // border:none;
   font-family: $body-font;
   font-size: 14px;
-  padding: 4px;
+  padding: 8px 12px 8px 12px;
   // display: flex;
 }
 
@@ -70,15 +72,15 @@
 }
 
 .explore-button a {
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-line-height: 27px;
-/* identical to box height */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
 
 
-color: #FFFFFF;
+  color: #FFFFFF;
 
 }
 
@@ -130,7 +132,7 @@ color: #FFFFFF;
 .card-index .heart-icon {
   position: absolute;
   left: 90%;
-  top: 1%;
+  top: 2%;
   bottom: 90.22%;
   border: none;
   background: transparent;
@@ -138,7 +140,7 @@ color: #FFFFFF;
 
 .fa-heart {
   // background: #FFD1A2;
-  color: #ff9d00a9;
+  color: #F49037;
   // border: 2px solid #FF9E00;
   // border-radius: 8px;
 }
