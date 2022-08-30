@@ -22,8 +22,14 @@ application.register("map", MapController)
 import SignUpController from "./sign_up_controller"
 application.register("sign-up", SignUpController)
 
+import DepthSliderController from "./depth_slider_controller"
+application.register("depth-slider", DepthSliderController)
+
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
 
 import ToggleFavoriteController from "./toggle_favorite_controller"
 application.register("toggle-favorite", ToggleFavoriteController)
+
+import WaterSliderController from "./water_slider_controller"
+application.register("water-slider", WaterSliderController)
