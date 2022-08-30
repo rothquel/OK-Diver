@@ -1,0 +1,17 @@
+<div class="container py-5">
+  <h2>New conversation</h2>
+
+  <%= form_tag conversations_path, method: :post do %>
+    <div>
+      <%= hidden_field_tag :user_id, params[:user_id] %>
+    </div>
+    <div>
+      <%= text_field_tag :subject, nil, placeholder: "Subject" %>
+    </div>
+    <div>
+      <%= text_area_tag :body, nil, placeholder: "Body" %>
+    </div>
+    <%= submit_tag %>
+  <% end %>
+
+</div>
