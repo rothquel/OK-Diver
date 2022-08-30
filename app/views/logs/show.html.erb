@@ -1,30 +1,38 @@
-<div class="header">
-
-</div>
-<div>
-  <h2 class="text-center fw-bold pb-3"> Your dive #<%= current_user.logs.size %> at <%= @log.dive_site %></h2>
-  <div>
-    <p>Dive date: <%= @log.date %></p>
-    <p>Dive site name: <%= link_to @log.dive_site.name, dive_site_path(@log.dive_site) %></p>
-    <p>Dive depth: <%= @log.depth %></p>
-    <p>Dive time in: <%= @log.time_in %></p>
-    <p>Dive time out: <%= @log.time_out %></p>
-    <p>Dive water temperature: <%= @log.water_temp %></p>
-    <p>Dive comments: <%= @log.comments %></p>
-  </div>
-  <div>
-    <% if @log.photo.present? %>
-      <%= cl_image_tag @log.photo.key, :height=>400, :width=>600, :crop=>"fill", :quality=>100 %><br>
-    <% else %>
-      <% if @log.dive_site.photo.present? %>%
-        <%= cl_image_tag @log.dive_site.photo.key,  :height=>400, :width=>600, :crop=>"fill", :quality=>100 %>
+<div class="header"></div>
+<div class="container pb-8">
+  <div class="show-log-card">
+    <h2 class="text-center fw-bold py-3"> Your dive #<%= current_user.logs.size %> at <%= @log.dive_site.name %></h2>
+    <%# <p class="d-flex justify-content-center">Dive site name: <%= link_to @log.dive_site.name, dive_site_path(@log.dive_site) %></p>
+    <div class="d-flex justify-content-center">
+      <div class="row">
+        <div class="d-flex justify-content-between" style="width: 600px">
+          <div class="col-5 flex-grow-1 border">
+            <p>Dive date: <%= @log.date %></p>
+            <p>Dive depth: <%= @log.depth %></p>
+            <p>Dive water temperature: <%= @log.water_temp %></p>
+          </div>
+          <div class="col-5 flex-grow-1 border">
+            <p>Dive time in: <%= @log.time_in %></p>
+            <p>Dive time out: <%= @log.time_out %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="d-flex justify-content-center">Dive comments: <%= @log.comments %></p>
+    <div class="show-log-pic d-flex justify-content-center">
+      <% if @log.photo.present? %>
+        <%= cl_image_tag @log.photo.key, :height=>400, :width=>600, :crop=>"fill", :quality=>100 %><br>
       <% else %>
-        <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" width="600" height="600">
+        <% if @log.dive_site.photo.present? %>%
+          <%= cl_image_tag @log.dive_site.photo.key,  :height=>400, :width=>600, :crop=>"fill", :quality=>100 %>
+        <% else %>
+          <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" width="600" height="600">
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-  <div>
-    <%= link_to "Edit log", edit_dive_site_log_path(@log), class:"explore-button" %>
-    <%= link_to "Back to all my logs", logs_path, class:"explore-button" %>
+    </div>
+    <div class="d-flex justify-content-center my-3">
+      <%= link_to "Edit log", edit_dive_site_log_path(@log), class:"explore-button" %>
+      <%= link_to "Back to my logs", logs_path, class:"explore-button bl-3" %>
+    </div>
   </div>
 </div>
