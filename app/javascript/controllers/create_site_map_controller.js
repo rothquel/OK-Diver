@@ -27,6 +27,8 @@ export default class extends Controller {
       this.#addMarkerToMap(event)
     });
 
+    this.map.addControl(new mapboxgl.NavigationControl());
+
   }
 
   #addMarkerToMap(event) {
