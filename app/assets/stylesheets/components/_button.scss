@@ -31,7 +31,7 @@
   box-shadow: 0px 4px 15px #023E8A;
   border-radius: 8px;
   padding: 16px 28px;
-  gap: 10px;
+  // gap: 10px;
   // display: flex;
   // justify-content: space-between;
   text-align: center;
@@ -39,8 +39,7 @@
   text-decoration: none;
   font-family: $headers-font;
   font-weight: 600;
-  width: 160px;
-
+  min-width: 160px;
 }
 
 .register-button:hover {
@@ -118,6 +117,7 @@ color: #FFFFFF;
   border-style: solid;
   font-family: $body-font;
   font-size: 35px;
+  padding: 10px;
 }
 
 .tag-white:hover {
@@ -128,8 +128,8 @@ color: #FFFFFF;
 
 .card-index .heart-icon {
   position: absolute;
-  left: 82%;
-  top: 3.53%;
+  left: 90%;
+  top: 1%;
   bottom: 90.22%;
   border: none;
   background: transparent;
@@ -137,7 +137,11 @@ color: #FFFFFF;
 
 .fa-heart {
   // background: #FFD1A2;
-  color: #FF9E00;
-  // border: 2px solid #F49037;
+  color: #ff9d00a9;
+  // border: 2px solid #FF9E00;
   // border-radius: 8px;
+}
+
+.fa-heart::after {
+  color: #FF9E00;
 }

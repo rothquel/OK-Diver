@@ -7,43 +7,67 @@
     <%= video_tag "video.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, id: "video-banner" %>
   </div>
 </div>
-<div class="container-homepage">
-  <div class="container-fluid bg-white pb-5 box">
-    <h4 class="subheading">Inspiration for your next dive</h4>
-    <%# <div class="row px-5 featured-box">
-        <div class="col text-center">
-          <img src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1660667117/1752922_bpt8qr.png" style="width:60px;margin-bottom:  10px;">
-        <p class="details">Browse all our experiences and pick the one that tickles your fancy.</p>
+<div class="bottom-container-homepage">
+  <div class="">
+    <h4 class="subheading my-5">Inspiration for your next dive</h4>
+      <div class="row d-flex justify-content-around">
+        <div class="col-3">
+          <div class="card border-light">
+            <img class="card-img-top" src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1661727336/nazarizal-mohammad-k5Z2AhnRwT8-unsplash_tcjffq.jpg" alt="Card image cap">
+            <div class="card-body" id="card-1">
+              <h5 class="card-title">Hawaii</h5>
+              <p class="card-text">7800 km away</p>
+              <%= link_to "Explore", dive_sites_path%>
+            </div>
+          </div>
         </div>
-        <div class="col text-center">
-          <img src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1660691858/791475_d8e5wz.png" style="width:60px;margin-bottom:  10px;">
-        <p class="details">Set a date and make your appointment</p>
+        <div class="col-3">
+          <div class="card border-light" >
+            <img class="card-img-top" src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1661790580/francesco-ungaro-lkFDqeMPlmI-unsplash_odxaju.jpg" alt="Card image cap">
+            <div class="card-body" id="card-2">
+              <h5 class="card-title">Martinique</h5>
+              <p class="card-text">3625 km away</p>
+              <%= link_to "Explore", dive_sites_path%>
+            </div>
+          </div>
         </div>
-        <div class="col text-center">
-          <img src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1660667187/3554643_e82nui.png" style="width:60px;margin-bottom:  10px;">
-        <p class="details">Meet up with abuela for your authentic experience</p>
+        <div class="col-3">
+          <div class="card border-light">
+            <img class="card-img-top" src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1661790390/federico-burgalassi-fqp8XPjIDeM-unsplash_udpeye.jpg" alt="Card image cap">
+            <div class="card-body" id="card-3">
+              <h5 class="card-title">Colombia</h5>
+              <p class="card-text">4549 km away</p>
+              <%= link_to "Explore", dive_sites_path%>
+            </div>
+          </div>
         </div>
-        <div class="col text-center">
-          <img src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1660667187/3554643_e82nui.png" style="width:60px;margin-bottom:  10px;">
-        <p class="details">Meet up with abuela for your authentic experience</p>
+        <div class="col-3">
+          <div class="card border-light" >
+            <img class="card-img-top" src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1661790193/chase-baker-yvb8NrIhIFI-unsplash_ypoopi.jpg" alt="Card image cap">
+            <div class="card-body" id="card-4">
+              <h5 class="card-title">Saguenay</h5>
+              <p class="card-text">450 km away</p>
+              <%= link_to "Explore", dive_sites_path%>
+            </div>
+          </div>
         </div>
-    </div> %>
+      </div>
   </div>
-  <h4 class="subheading">Discover the world through scuba diving</h4>
-
-  <div class="d-flex justify-content-between gap-4">
+<hr class="mt-5"/>
+<h4 class="subheading mb-1">Discover the world through scuba diving</h4>
+  <div class="d-flex justify-content-around gap-3 mb-5">
     <div class="col-6 picture-box">
       <div class="bottom-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://res.cloudinary.com/dbb3sntqk/image/upload/v1661537450/mael-balland-s2_f4ijsGHs-unsplash_p3xt9h.jpg)">
-      <div class="text-center">
-        <%= link_to "Explore", dive_sites_path, class: "tag-white"%>
-      </div>
+        <div class="call-to-action-link">
+          <%= link_to "Explore", dive_sites_path, class: "tag-white"%>
+        </div>
       </div>
     </div>
     <div class="col-6 picture-box">
       <div class="bottom-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://res.cloudinary.com/dbb3sntqk/image/upload/v1661537444/frans-daniels-AY1UVjZCI4Q-unsplash_rcnchi.jpg)">
-      <div class="text-center">
-        <%= link_to "Log a dive", create_log_path, class: "tag-white"%>
-      </div>
+        <div class="call-to-action-link">
+          <%= link_to "Log a dive", create_log_path, class: "tag-white"%>
+        </div>
       </div>
     </div>
   </div>

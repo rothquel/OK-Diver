@@ -1,19 +1,33 @@
-        <%= simple_form_for [@dive_site, @log] do |f| %>
-        <%= f.input :date, html5: true %>
-        <%#= f.association :dive_site %>
-        <%#= f.input :dive_site, selected: @dive_site %>
-        <%= f.input :depth %>
-        <%= f.input :time_in %>
-        <%= f.input :time_out %>
-        <%= f.input :air_temp %>
-        <%= f.input :water_temp %>
-        <%= f.input :bar_start %>
-        <%= f.input :bar_end %>
-        <%= f.input :wet_suit %>
-        <%= f.input :weight %>
-        <%= f.input :visibility %>
-        <%= f.input :comments %>
-        <%= f.input :dive_center %>
-        <%= f.input :photo, as: :file %>
-        <%= f.submit class: 'btn btn-primary' %>
-      <% end %>
+<div style="width:800px">
+  <%= simple_form_for [@dive_site, @log] do |f| %>
+  <div class="row">
+    <div class="col-6">
+      <%= f.input :date, html5: true %>
+    </div>
+    <div class="col-6">
+      <%= f.input :photo, as: :file %>
+    </div>
+  </div>
+ <div data-controller="depth-slider">
+  <%= f.label :depth, 'Max Depth:' %> <span class='fw-bold' data-depth-slider-target="depth"></span>
+  <%= f.input :depth, label: false, as: :range, input_html:{ min:"0", max:"45", 'data-depth-slider-target':"sliderStartDepth", 'data-action':"change->depth-slider#updateDepth" }%>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <%= f.input :time_in %>
+    </div>
+    <div class="col-6">
+      <%= f.input :time_out %>
+    </div>
+  </div>
+  <div data-controller="water-slider">
+  <%= f.label :water_temp, 'Water Temperature:' %> <span class='fw-bold' data-water-slider-target="waterTemp"></span>
+  <%= f.input :water_temp, label: false, as: :range, input_html:{ min:"0", max:"45", 'data-water-slider-target':"sliderStartTemp", 'data-action':"change->water-slider#update" }%>
+  </div>
+  <%= f.input :comments %>
+
+  <div class="text-end py-5">
+    <%= f.submit class: 'register-button' %>
+  </div>
+  <% end %>
+</div>

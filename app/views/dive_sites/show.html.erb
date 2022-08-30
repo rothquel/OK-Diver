@@ -1,17 +1,29 @@
 <% dive_site_country = ISO3166::Country.new(@dive_site.country) %>
+<% def average_rating %>
+<% if @dive_site.reviews.count == 0 %>
+  <% review_count = 1 %>
+<% else %>
+  <% review_count = @dive_site.reviews.count %>
+<% end %>
+  <% score = 0 %>
+<% @dive_site.reviews.each do |review| %>
+  <% score += review.rating %>
+<% end %>
+  <%= score / review_count %>
+<% end %>
 
 <div class="top-bar">
-<h1><%= @dive_site.name %></h1>
+  <h1><%= @dive_site.name %></h1>
 </div>
 
 <div class="show-card-section" data-controller="toggle-favorite">
   <div class="container py-5">
     <div class="row justify-content-between pb-3">
       <div class="col fs-5">
-        <p><i class="fa-solid fa-star star-color"></i> 5.0 ・ <%= pluralize @dive_site.reviews.count, "review" %> ・ <%= @dive_site.city %>, <%= dive_site_country %>
+        <p><i class="fa-solid fa-star star-color"></i> <%= average_rating %> ・ <%= pluralize @dive_site.reviews.count, "review" %> ・ <%= @dive_site.city %>, <%= dive_site_country %>
       </div>
       <div class="col text-end fs-5">
-        <i class="fa-solid fa-arrow-up-from-bracket"></i> Share ・ <i class="fa-solid fa-anchor"></i> <%= link_to "Log a dive here", new_dive_site_log_path(@dive_site) %> ・
+        <i class="fa-solid fa-anchor"></i> <%= link_to "Log a dive here", new_dive_site_log_path(@dive_site), class: "text-decoration-underline text-dark" %> ・
         <% if user_signed_in? %>
           <i data-dive-site-id="<%=@dive_site.id%>" data-toggle-favorite-target="item" data-action="click->toggle-favorite#update" class="<%= current_user.favorited?(@dive_site) ? 'fa-solid ' : 'fa-regular' %> fa-heart"></i> Save
         <% else %>
@@ -31,13 +43,24 @@
           <% if @dive_site.image.present? %>
             <img src="<%= @dive_site.image %>" height="400" width="600">
           <% else %>
-            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" height="400" width="600">
+            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" class="img-fluid">
           <% end %>
         <% end %>
+        <div class="row justify-content-between pt-5">
+          <div class="col-4">
+            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865527/subtle-cinematics-O5Fr1BZ-aR4-unsplash_eos7kz.jpg" class="three-images">
+          </div>
+          <div class="col-4">
+            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865511/sebastian-pena-lambarri-44r12Ck_CoI-unsplash_hojhwv.jpg" class="three-images">
+          </div>
+          <div class="col-4">
+            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865503/jesse-schoff-Ph2KtIqKs7c-unsplash_gn4rrz.jpg" class="three-images">
+          </div>
+        </div>
       </div>
 
       <div class="col-6">
-        <div style="width: 100%; height: 400px;"
+        <div style="width: 100%; height: 550px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
@@ -71,6 +94,7 @@
     </div>
     <div class="col-6">
       <h4 class="fw-bold pb-5">Features other divers have seen at this site:</h4>
+      <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" height="400" width="600">
     </div>
 
 
@@ -80,11 +104,11 @@
 </div>
 
 <div class="container">
-      <h2 class="fw-bold">Feedback of the site (<%= pluralize @dive_site.reviews.count, "review" %>)</h2>
-      <p class="pb-3">Don't take our word for it. Trust the diver community.</p>
+  <h2 class="fw-bold">Feedback of the site (<%= pluralize @dive_site.reviews.count, "review" %>)</h2>
+  <p class="pb-3">Don't take our word for it. Trust the diver community.</p>
   <div class="row">
     <% @dive_site.reviews.each do |review|  %>
-      <div class="col-4">
+      <div class="col-3 mb-3">
         <div class="review-card">
           <div class="row">
             <div class="col">
@@ -108,18 +132,41 @@
               <% end %>
             </div>
           </div>
-        <h4 class="pt-4 pb-2 text-dark"><%= link_to "#{review.user.first_name} #{review.user.last_name}", profile_path(review.user.id) %></h4>
-        <h6 class="fw-bold">Highlights:</h6> <p><%= review.highlight %></p>
-        <h6  class="fw-bold">Tips:</h6> <p><%= review.tips %></p>
-        <p class="pb-3">Reviewed on <%= review.created_at.strftime('%b %d %Y') %></p>
-          <% if review.user.id == current_user.id %>
-            <%= link_to "Edit", edit_review_path(review) %> ・ <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-          <% end %>
+          <h4 class="pt-4 pb-2 text-dark"><%= link_to "#{review.user.first_name} #{review.user.last_name}", profile_path(review.user.id) %></h4>
+          <h6 class="fw-bold">Highlights:</h6> <p><%= review.highlight %></p>
+          <h6  class="fw-bold">Tips:</h6> <p><%= review.tips %></p>
+          <p class="pb-3">Reviewed on <%= review.created_at.strftime('%b %d %Y') %></p>
+            <% if review.user.id == current_user.id %>
+              <%= link_to "Edit", edit_review_path(review) %> ・ <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <% end %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
-
+<div class="container py-5">
+  <h2 class="fw-bold pb-5">Other great dive sites in <%= dive_site_country %>:</h2>
+  <div class="row">
+    <% close_sites = @dive_sites.where(country: @dive_site.country) %>
+    <% close_sites.each do |dive_site| %>
+      <div class="col-3">
+        <div class="card">
+          <% if dive_site.photo.attached? %>
+            <%= cl_image_tag dive_site.photo.key, class: "card-img-top close-sites-image" %>
+          <% else %>
+            <% if dive_site.image.present? %>
+              <img src="<%= dive_site.image %>", class="card-img-top close-sites-image">
+            <% else %>
+              <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" class="card-img-top close-sites-image">
+            <% end %>
+          <% end %>
+          <div class="card-body">
+            <h3 class="card-title fw-bold"><%= dive_site.name %></h3>
+            <p class="card-text"><%= dive_site.description %></p>
+            <%= link_to "Learn More", dive_site_path(dive_site), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

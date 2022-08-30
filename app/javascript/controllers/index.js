@@ -22,6 +22,9 @@ application.register("map", MapController)
 import SignUpController from "./sign_up_controller"
 application.register("sign-up", SignUpController)
 
+import DepthSliderController from "./depth_slider_controller"
+application.register("depth-slider", DepthSliderController)
+
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
 
@@ -30,3 +33,6 @@ application.register("toggle-favorite", ToggleFavoriteController)
 
 import TomSelectController from "./tom_select_controller"
 application.register("tom-select", TomSelectController)
+
+import WaterSliderController from "./water_slider_controller"
+application.register("water-slider", WaterSliderController)
