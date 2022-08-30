@@ -7,13 +7,28 @@
       <div class="row">
         <div class="d-flex justify-content-between" style="width: 600px">
           <div class="col-5 flex-grow-1 border">
-            <p>Dive date: <%= @log.date %></p>
-            <p>Dive depth: <%= @log.depth %></p>
-            <p>Dive water temperature: <%= @log.water_temp %></p>
+            <div class="cal-icon d-flex">
+              <i class="fa-regular fa-calendar"></i>
+              <p>Dive date: <%= @log.date %></p>
+            </div>
+            <div>
+              <i class="fa-regular fa-arrow-down"></i>
+              <p>Dive depth: <%= @log.depth %></p>
+            </div>
+            <div>
+              <i class="fa-regular fa-temperature-half"></i>
+              <p>Dive water temperature: <%= @log.water_temp %></p>
+            </div>
           </div>
           <div class="col-5 flex-grow-1 border">
-            <p>Dive time in: <%= @log.time_in %></p>
-            <p>Dive time out: <%= @log.time_out %></p>
+            <div>
+              <i class="fa-regular fa-clock"></i>
+              <p>Dive time in: <%= @log.time_in %></p>
+            </div>
+            <div>
+              <i class="fa-regular fa-clock"></i>
+              <p>Dive time out: <%= @log.time_out %></p>
+            </div>
           </div>
         </div>
       </div>
