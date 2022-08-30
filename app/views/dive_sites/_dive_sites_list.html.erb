@@ -29,9 +29,10 @@
         </div>
         <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
         <ul class="card-index-tags mb-3">
-          <li class="tag">Ship's Wreck</li>
-          <li class="tag">Ship's Wreck</li>
-          <li class="tag">Ship's Wreck</li>
+          <% if dive_site.tags.each do |tag| %>
+                  <li class="tag"><%= tag.name%></li>
+                <% end %>
+              <% end %>
         </ul>
       </div>
   </div>
