@@ -91,6 +91,9 @@ list-style: none;
 
 .tags-box {
   margin-top: 30px;
+  position: sticky;
+  z-index: 1030;
+  top:112px;
 }
 
 // SLIDER
@@ -109,7 +112,7 @@ position: relative;
 
 .icon-wishlist{
 position: absolute;
-top: 5%;
+top: 2%;
 right: 4%;
 z-index: 999;
 padding: 16px;
