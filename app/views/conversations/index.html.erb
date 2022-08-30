@@ -1,12 +1,12 @@
 <div class="container py-5">
-  <h2>All conversations</h2>
+  <h2 class="text-center pb-5 fw-bold">All conversations</h2>
 
+    <ul class="list-group">
   <% @conversations.each do |conversation| %>
-    <div>
-      <%= link_to conversation.subject, conversation_path(conversation) %>
-    </div>
+    <li class="list-group-item">
+      <h3 class="pt-3"><%= link_to conversation.subject, conversation_path(conversation) %></h3>
+      <p><%= conversation.created_at.strftime("%d %b %Y %l:%M %p") %>
+    </li>
   <% end %>
-
-  <%= link_to "New conversation", new_conversation_path %>
-
+    </ul>
 </div>
