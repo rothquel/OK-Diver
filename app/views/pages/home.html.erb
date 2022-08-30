@@ -1,7 +1,14 @@
 <div class="section">
   <div class="hero-box">
-    <h1>Not sure where to go? Perfect</h1>
-    <%= link_to "Explore", dive_sites_path, class: "explore-button-hero"%>
+    <h1>Not sure where to dive next? Perfect.</h1>
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+  <div class="search-form-control form-group w-75 mt-5" style="margin:0 auto">
+    <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="I'm looking for...">
+    <button name="button" type="submit" class="explore-button-hero">
+     <%= link_to "EXPLORE NOW", dive_sites_path%>
+    </button>
+  </div>
+<% end %>
   </div>
   <div class="video-container">
     <%= video_tag "video.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, id: "video-banner" %>
@@ -17,7 +24,6 @@
             <div class="card-body" id="card-1">
               <h5 class="card-title">Hawaii</h5>
               <p class="card-text">7800 km away</p>
-              <%= link_to "Explore", dive_sites_path%>
             </div>
           </div>
         </div>
@@ -27,7 +33,6 @@
             <div class="card-body" id="card-2">
               <h5 class="card-title">Martinique</h5>
               <p class="card-text">3625 km away</p>
-              <%= link_to "Explore", dive_sites_path%>
             </div>
           </div>
         </div>
@@ -37,7 +42,6 @@
             <div class="card-body" id="card-3">
               <h5 class="card-title">Colombia</h5>
               <p class="card-text">4549 km away</p>
-              <%= link_to "Explore", dive_sites_path%>
             </div>
           </div>
         </div>
@@ -47,15 +51,14 @@
             <div class="card-body" id="card-4">
               <h5 class="card-title">Saguenay</h5>
               <p class="card-text">450 km away</p>
-              <%= link_to "Explore", dive_sites_path%>
             </div>
           </div>
         </div>
       </div>
   </div>
-<hr class="mt-5"/>
+<hr class="border-bottom mt-5"/>
 <h4 class="subheading mb-1">Discover the world through scuba diving</h4>
-  <div class="d-flex justify-content-around gap-3 mb-5">
+  <div class="d-flex justify-content-around mb-5">
     <div class="col-6 picture-box">
       <div class="bottom-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://res.cloudinary.com/dbb3sntqk/image/upload/v1661537450/mael-balland-s2_f4ijsGHs-unsplash_p3xt9h.jpg)">
         <div class="call-to-action-link">

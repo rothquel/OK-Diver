@@ -77,56 +77,81 @@
 
 // wishlist card by marving
 .card-box {
-  display: flex;
-  width: 100%;
-  height: 80%;
-  background: #FFFFFF;
-  /* Gray 200 */
+display: flex;
+width: 100%;
+height: 80%;
+background: #FFFFFF;
+/* Gray 200 */
 
-  border: 1px solid #D0D4D9;
-  border-radius: 8px;
-  padding-left: 38px;
-  }
+border: 1px solid #D0D4D9;
+border-radius: 8px;
+padding-left: 38px;
+}
 
-  .card-content--box {
-    padding-top: 38px;
-  }
+.card-content--box {
+  padding-top: 38px;
+}
 
-  .card-box p {
-    margin-bottom: 4px;
-    width: 80%;
-    font-family: 'Lora';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-    /* or 120% */
-
-
-    /* Gray 500 */
-
-    color: #4D545E;
-  }
-  .card-box  h2 {
-  font-family: 'Poppins';
+.card-box p {
+  margin-bottom: 4px;
+  width: 80%;
+  font-family: 'Lora';
   font-style: normal;
-  font-weight: 700;
-  font-size: 39.81px;
-  line-height: 56px;
-  margin-bottom: 20px;
-  /* identical to box height, or 141% */
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  /* or 120% */
 
 
   /* Gray 500 */
 
   color: #4D545E;
-  }
+}
+.card-box  h2 {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 39.81px;
+line-height: 56px;
+margin-bottom: 20px;
+/* identical to box height, or 141% */
 
-  .card-content--location {
-    display: flex;
-    color: #4D545E;
-  }
 
-  .border-radius{
+/* Gray 500 */
+
+color: #4D545E;
+}
+
+
+  .border-radius {
     border-radius: 8px;
   }
+
+.card-content--location {
+  display: flex;
+  color: #4D545E;
+}
+
+//showpage log
+.show-log-card {
+  display: block;
+  // position: absolute;
+  // transform: translateY(-20%);
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: #4D545E;
+  border-radius: 8px;
+  width: 800px;
+  height: auto;
+  // top: 40%;
+  // left: 19%;
+  // transform: translateY(-20%);
+  margin-top: -10%;
+  margin-bottom: 20px;
+  padding-bottom: 7px;
+}
+
+.show-log-pic > img {
+  border-radius: 8px;
+}
