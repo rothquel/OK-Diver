@@ -1,29 +1,30 @@
-<h1>Log number <%= current_user.logs.size %> </h1>
+<div class="header">
 
-<% if @log.photo.present? %>
-  <%= cl_image_tag @log.photo.key, :height=>400, :width=>600, :crop=>"fill", :quality=>100 %><br>
-<% else %>
-    <% if @log.dive_site.photo.present? %>%
-      <%= cl_image_tag @log.dive_site.photo.key,  :height=>400, :width=>600, :crop=>"fill", :quality=>100 %>
+</div>
+<div>
+  <h2 class="text-center fw-bold pb-3"> Your dive #<%= current_user.logs.size %> at <%= @log.dive_site %></h2>
+  <div>
+    <p>Dive date: <%= @log.date %></p>
+    <p>Dive site name: <%= link_to @log.dive_site.name, dive_site_path(@log.dive_site) %></p>
+    <p>Dive depth: <%= @log.depth %></p>
+    <p>Dive time in: <%= @log.time_in %></p>
+    <p>Dive time out: <%= @log.time_out %></p>
+    <p>Dive water temperature: <%= @log.water_temp %></p>
+    <p>Dive comments: <%= @log.comments %></p>
+  </div>
+  <div>
+    <% if @log.photo.present? %>
+      <%= cl_image_tag @log.photo.key, :height=>400, :width=>600, :crop=>"fill", :quality=>100 %><br>
     <% else %>
-      <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" width="600" height="600">
+      <% if @log.dive_site.photo.present? %>%
+        <%= cl_image_tag @log.dive_site.photo.key,  :height=>400, :width=>600, :crop=>"fill", :quality=>100 %>
+      <% else %>
+        <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" width="600" height="600">
+      <% end %>
     <% end %>
-<% end %>
-
-  <p>Dive date: <%= @log.date %></p>
-  <p>Dive site name: <%= link_to @log.dive_site.name, dive_site_path(@log.dive_site) %></p>
-  <p>Dive depth: <%= @log.depth %></p>
-  <p>Dive time in: <%= @log.time_in %></p>
-  <p>Dive time out: <%= @log.time_out %></p>
-  <p>Dive air temperature: <%= @log.air_temp %></p>
-  <p>Dive water temperature: <%= @log.water_temp %></p>
-  <p>Dive bar start: <%= @log.bar_start %></p>
-  <p>Dive bar end: <%= @log.bar_end %></p>
-  <p>Dive wetsuit: <%= @log.wet_suit %></p>
-  <p>Dive weight: <%= @log.weight %></p>
-  <p>Dive visibility: <%= @log.visibility %></p>
-  <p>Dive comments: <%= @log.comments %></p>
-  <p>Dive center name: <%= @log.dive_center %></p>
-
-  <%= link_to "Edit log", edit_dive_site_log_path(@log) %>
-  <%= link_to "Back to all my logs", logs_path %>
+  </div>
+  <div>
+    <%= link_to "Edit log", edit_dive_site_log_path(@log), class:"explore-button" %>
+    <%= link_to "Back to all my logs", logs_path, class:"explore-button" %>
+  </div>
+</div>
