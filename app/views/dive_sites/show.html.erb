@@ -37,16 +37,27 @@
 
     <div class="row justify-content-between g-5">
       <div class="col-6">
-        <% if @dive_site.photo.attached? %>
-          <%= cl_image_tag @dive_site.photo.key, :height=>400, :width=>600, :crop=>"fill" %>
+        <% if @dive_site.photos.attached? %>
+          <%= cl_image_tag @dive_site.photos.first.key, :height=>400, :width=>600, :crop=>"fill" %>
+          <div class="row justify-content-between pt-5">
+          <div class="col-4">
+          <%= cl_image_tag @dive_site.photos.second.key, class: "three-images", :crop=>"fill" %>
+            <%# <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865527/subtle-cinematics-O5Fr1BZ-aR4-unsplash_eos7kz.jpg" class="three-images"> %>
+          </div>
+          <div class="col-4">
+            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865511/sebastian-pena-lambarri-44r12Ck_CoI-unsplash_hojhwv.jpg" class="three-images">
+          </div>
+          <div class="col-4">
+            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865503/jesse-schoff-Ph2KtIqKs7c-unsplash_gn4rrz.jpg" class="three-images">
+          </div>
+        </div>
         <% else %>
           <% if @dive_site.image.present? %>
             <img src="<%= @dive_site.image %>" height="400" width="600">
+
           <% else %>
             <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" class="img-fluid">
-          <% end %>
-        <% end %>
-        <div class="row justify-content-between pt-5">
+            <div class="row justify-content-between pt-5">
           <div class="col-4">
             <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865527/subtle-cinematics-O5Fr1BZ-aR4-unsplash_eos7kz.jpg" class="three-images">
           </div>
@@ -57,6 +68,9 @@
             <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865503/jesse-schoff-Ph2KtIqKs7c-unsplash_gn4rrz.jpg" class="three-images">
           </div>
         </div>
+          <% end %>
+        <% end %>
+
       </div>
 
       <div class="col-6">
@@ -151,8 +165,8 @@
     <% close_sites.each do |dive_site| %>
       <div class="col-3">
         <div class="card">
-          <% if dive_site.photo.attached? %>
-            <%= cl_image_tag dive_site.photo.key, class: "card-img-top close-sites-image" %>
+          <% if dive_site.photos.attached? %>
+            <%= cl_image_tag dive_site.photos.first.key, class: "card-img-top close-sites-image" %>
           <% else %>
             <% if dive_site.image.present? %>
               <img src="<%= dive_site.image %>", class="card-img-top close-sites-image">

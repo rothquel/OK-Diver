@@ -5,7 +5,7 @@
       <%= f.input :date, html5: true %>
     </div>
     <div class="col-6">
-      <%= f.input :photo, as: :file %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
   </div>
  <div data-controller="depth-slider">

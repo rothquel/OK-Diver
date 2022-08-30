@@ -1,9 +1,14 @@
+require "open-uri"
+
 DiveSiteTag.delete_all
 Tag.delete_all
 Review.delete_all
 Log.delete_all
 DiveSite.delete_all
 puts "Database cleared"
+
+file1_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/5_n7yjbh.jpg")
+file1_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1660320205/cld-sample-5.jpg")
 
 site1 = DiveSite.new(
   name: "Balabag Shipwreck",
@@ -17,6 +22,10 @@ site1 = DiveSite.new(
   image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661290402/development/nx8vege6bpurgk0r2k3kzt8xhryz.jpg"
 )
 site1.save!
+site1.photos.attach(io: file1_1, filename: "nes.png", content_type: "image/png")
+site1.photos.attach(io: file1_2, filename: "nes.png", content_type: "image/png")
+site1.save!
+
 puts "#{site1.name} created"
 
 site2 = DiveSite.new(
