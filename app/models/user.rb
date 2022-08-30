@@ -12,4 +12,5 @@ class User < ApplicationRecord
   PROFICIENCY = %w[beginner intermediate professional]
 
   acts_as_favoritor
+  acts_as_messageable
 end
