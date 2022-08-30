@@ -8,8 +8,7 @@ export default class extends Controller {
 
   update(event) {
     event.preventDefault()
-    const url = `${this.formTarget.action}?country=${this.countryTarget.value}&city=${this.cityTarget.value}&dive_type=${this.diveTypeTarget.value}&level=${this.levelTarget.value}&tags=${this.tagsTarget.value}`
-    console.log(this.tagsTarget);
+    const url = `${this.formTarget.action}?country=${this.countryTarget.value}&city=${this.cityTarget.value}&dive_type=${this.diveTypeTarget.value}&level=${this.levelTarget.value}${this.#getTagsValues()}`
     fetch(url, {headers: {"Accept": "application/json"}})
       .then(response => response.json())
       .then((data) => {
@@ -25,5 +24,9 @@ export default class extends Controller {
       })
     }
 
+    #getTagsValues() {
+      const values = Array.from(document.querySelectorAll('.ts-control .item'))
+      return values.map(value => `&tags[]=${parseInt(value.getAttribute('data-value'), 10)}`).join('')
+    }
 
 }

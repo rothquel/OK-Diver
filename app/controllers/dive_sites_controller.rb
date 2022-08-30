@@ -24,7 +24,8 @@ class DiveSitesController < ApplicationController
         @dive_sites = @dive_sites.where(level: params[:level])
       end
       if params[:tags].present?
-        @dive_sites = @dive_sites.joins(:tags).where(tags: { id: params[:tags] })
+        # tags = params[:tags].split(',')
+        @dive_sites = @dive_sites.joins(:tags).where(tags: { id: params[:tags].map(&:to_i) })
       end
     end
 
