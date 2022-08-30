@@ -16,6 +16,8 @@
       <% end %>
       <% if @user.id == current_user.id %>
         <%= link_to "Edit", edit_user_registration_path %>
+      <% else %>
+        <%= link_to "New conversation", new_conversation_path(:user_id => @user.id ) %>
       <% end %>
     </div>
     <div class="name-bar">

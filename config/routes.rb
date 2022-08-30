@@ -28,6 +28,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :conversations do
+    resources :messages
+  end
   # get 'dive-sites/', to: 'appointments#my_agent_appointments'
 
 end

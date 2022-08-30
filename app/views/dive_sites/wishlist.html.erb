@@ -51,7 +51,7 @@
 
     <%# SLIDER ONGOING %>
     <div class="img-box overflow-hidden">
-      <div class="icon-wishlist"><i data-dive-site-id="<%=dive_site.id%>" data-toggle-favorite-target="item" data-action="click->toggle-favorite#update" class= "fa-xl <%= current_user.favorited?(dive_site) ? 'fa-solid' : 'fa-regular' %> fa-heart"></i></div>
+      <div class="icon-wishlist"><i data-dive-site-id="<%=dive_site.id%>" data-toggle-favorite-target="item" data-action="click->toggle-favorite#update" class= "fa-2x <%= current_user.favorited?(dive_site) ? 'fa-solid' : 'fa-regular' %> fa-heart"></i></div>
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -91,30 +91,3 @@
 
   <% end %>
 </div>
-
-
-
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://res.cloudinary.com/cloudinary972/image/upload/v1660320604/awnha4hz6bkazusyajxw.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://res.cloudinary.com/cloudinary972/image/upload/v1660320604/awnha4hz6bkazusyajxw.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://res.cloudinary.com/cloudinary972/image/upload/v1660320604/awnha4hz6bkazusyajxw.jpg" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-
-<%#  %>

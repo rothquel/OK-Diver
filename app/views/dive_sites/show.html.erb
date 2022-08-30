@@ -43,13 +43,24 @@
           <% if @dive_site.image.present? %>
             <img src="<%= @dive_site.image %>" height="400" width="600">
           <% else %>
-            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" height="400" width="600">
+            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" class="img-fluid">
           <% end %>
         <% end %>
+        <div class="row justify-content-between pt-5">
+          <div class="col-4">
+            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865527/subtle-cinematics-O5Fr1BZ-aR4-unsplash_eos7kz.jpg" class="three-images">
+          </div>
+          <div class="col-4">
+            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865511/sebastian-pena-lambarri-44r12Ck_CoI-unsplash_hojhwv.jpg" class="three-images">
+          </div>
+          <div class="col-4">
+            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865503/jesse-schoff-Ph2KtIqKs7c-unsplash_gn4rrz.jpg" class="three-images">
+          </div>
+        </div>
       </div>
 
       <div class="col-6">
-        <div style="width: 100%; height: 400px;"
+        <div style="width: 100%; height: 550px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
@@ -159,4 +170,3 @@
     <% end %>
   </div>
 </div>
-
