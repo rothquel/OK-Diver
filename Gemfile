@@ -42,6 +42,9 @@ gem "geocoder"
 # countries
 gem "countries"
 
+# mailboxer
+gem 'mailboxer', github: 'mailboxer/mailboxer'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

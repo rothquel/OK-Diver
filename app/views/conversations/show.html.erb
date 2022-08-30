@@ -1,0 +1,18 @@
+<div class="container py-5">
+  <h2><%= @conversation.subject %></h2>
+  <% @conversation.receipts_for(current_user).each do |receipt| %>
+    <div>
+      <h5>(<%= receipt.message.created_at.strftime("%d %b %Y %l:%M %p") %>) <%= receipt.message.sender.first_name %> <%= receipt.message.sender.last_name %> said:</h5>
+      <p><%= receipt.message.body %></p>
+    </div>
+
+  <% end %>
+
+  <%= form_tag conversation_messages_path(@conversation), method: :post do %>
+    <%= text_area_tag :body %>
+    <%= submit_tag %>
+  <% end %>
+
+
+
+</div>
