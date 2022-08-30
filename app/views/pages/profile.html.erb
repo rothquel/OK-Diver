@@ -17,7 +17,7 @@
       <% if @user.id == current_user.id %>
         <%= link_to "Edit", edit_user_registration_path %>
       <% else %>
-        <%= link_to "New conversation", new_conversation_path(:user_id => @user.id ) %>
+        <%= link_to "Send a message", new_conversation_path(:user_id => @user.id ) %>
       <% end %>
     </div>
     <div class="name-bar">
@@ -91,7 +91,7 @@
                     <p><%= log.date.strftime('%b %d %Y') %></p>
                     <p><% length_seconds = log.time_out - log.time_in %></p>
                     <p><% length = length_seconds / 60 %></p>
-                    <p>length: <%= length.to_i %> minutes</p>
+                    <p>Length: <%= length.to_i %> minutes</p>
                     <p>Depth: <%= log.depth %> feet</p>
                   </div>
                   <div>

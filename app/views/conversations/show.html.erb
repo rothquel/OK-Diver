@@ -1,18 +1,27 @@
 <div class="container py-5">
-  <h2><%= @conversation.subject %></h2>
-  <% @conversation.receipts_for(current_user).each do |receipt| %>
+<%= link_to "<<< Back to all conversations", conversations_path %>
+  <h2 class="text-center fw-bold pb-5"><%= @conversation.subject %></h2>
+  <div class="list-group mb-5">
+    <% @conversation.receipts_for(current_user).order(created_at: :desc).each do |receipt| %>
+    <a class="list-group-item list-group-item-action py-3" aria-current="true">
+      <div class="d-flex w-100">
+        <h5 class="mb-3 message-highlight"><%= receipt.message.sender.first_name %> <%= receipt.message.sender.last_name %> said:</h5>
+      </div>
+      <p class="mb-3"><%= receipt.message.body %></p>
+      <small><%= receipt.message.created_at.strftime("%d %b %Y %l:%M %p") %></small>
+    </a>
+    <% end %>
+  </div>
+
+  <%= form_tag conversation_messages_path(@conversation), method: :post do %>
     <div>
-      <h5>(<%= receipt.message.created_at.strftime("%d %b %Y %l:%M %p") %>) <%= receipt.message.sender.first_name %> <%= receipt.message.sender.last_name %> said:</h5>
-      <p><%= receipt.message.body %></p>
+      <%= text_area_tag :body, nil, placeholder: "Reply...", class: 'form-control' %>
+    </div>
+    <div class="row pt-3 text-end">
+      <div>
+        <%= submit_tag "submit", class: "btn btn-primary"%>
+      </div>
     </div>
 
   <% end %>
-
-  <%= form_tag conversation_messages_path(@conversation), method: :post do %>
-    <%= text_area_tag :body %>
-    <%= submit_tag %>
-  <% end %>
-
-
-
 </div>

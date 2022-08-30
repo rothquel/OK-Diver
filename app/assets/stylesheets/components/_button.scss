@@ -10,11 +10,14 @@
   gap: 10px;
   background-color: #E5F1F8;
   color: #023E8A;
-  border-color: #023E8A;
-  border-style: solid;
+  // border-color: #023E8A;
+  // border-style: solid;
+  border: 1px solid #023d8a31;
+  border-radius: 8px;
+  // border:none;
   font-family: $body-font;
   font-size: 14px;
-  padding: 4px;
+  padding: 8px 12px 8px 12px;
   // display: flex;
 }
 
@@ -131,7 +134,7 @@
 .card-index .heart-icon {
   position: absolute;
   left: 90%;
-  top: 1%;
+  top: 2%;
   bottom: 90.22%;
   border: none;
   background: transparent;
@@ -139,11 +142,33 @@
 
 .fa-heart {
   // background: #FFD1A2;
-  color: #ff9d00a9;
+  color: #F49037;
   // border: 2px solid #FF9E00;
   // border-radius: 8px;
 }
 
 .fa-heart::after {
   color: #FF9E00;
+}
+
+.button-white {
+  border-radius: 8px;
+  gap: 10px;
+  background-color: $white;
+  color: #023E8A;
+  border-color: #023E8A;
+  border-style: solid;
+  font-family: $headers-font;
+  font-size: 18px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.button-white:hover {
+  background-color: $white;
+  color: $black;
+  border-color: #023E8A;
 }
