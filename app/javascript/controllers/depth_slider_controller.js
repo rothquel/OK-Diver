@@ -7,6 +7,6 @@ export default class extends Controller {
   }
 
   updateDepth(event) {
-    this.depthTarget.innerHTML = `${event.target.value}°c`
+    this.depthTarget.innerHTML = `${event.target.value} m`
    }
 }
