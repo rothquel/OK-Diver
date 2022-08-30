@@ -3,7 +3,7 @@
 
   <% @conversations.each do |conversation| %>
     <div>
-      <%= link_to conversation.subject.user, conversation_path(conversation) %>
+      <%= link_to conversation.subject, conversation_path(conversation) %>
     </div>
   <% end %>
 
