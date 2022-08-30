@@ -4,18 +4,15 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["form", "country", "city", "diveType", "level", "diveSites", "mapRefresh", "tags"]
   connect() {
-    // console.log(`test value:${this.mapRefreshTarget}`);
   }
 
   update(event) {
     event.preventDefault()
-    // console.log(`country: ${this.countryTarget.value}`)
-    const url = `${this.formTarget.action}?country=${this.countryTarget.value}&city=${this.cityTarget.value}&dive_type=${this.diveTypeTarget.value}&level=${this.levelTarget.value}`
-
+    const url = `${this.formTarget.action}?country=${this.countryTarget.value}&city=${this.cityTarget.value}&dive_type=${this.diveTypeTarget.value}&level=${this.levelTarget.value}&tags=${this.tagsTarget.value}`
+    console.log(this.tagsTarget);
     fetch(url, {headers: {"Accept": "application/json"}})
       .then(response => response.json())
       .then((data) => {
-        console.log(this.mapRefreshTarget);
         this.diveSitesTarget.innerHTML = data.dive_sites
 
         // Inject updated markers list into the map's DOM in place of the initial one
