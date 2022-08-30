@@ -42,12 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_145149) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "chatrooms", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "dive_site_tags", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -167,16 +161,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_145149) do
     t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.string "content"
-    t.bigint "chatroom_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -212,7 +196,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_145149) do
     t.string "certification_body"
     t.string "certification_level"
     t.string "student_number"
-    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -226,8 +209,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_145149) do
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
-  add_foreign_key "messages", "chatrooms"
-  add_foreign_key "messages", "users"
   add_foreign_key "reviews", "dive_sites"
   add_foreign_key "reviews", "users"
 end

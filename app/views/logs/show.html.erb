@@ -1,7 +1,7 @@
 <div class="header"></div>
 <div class="container pb-8">
   <div class="show-log-card">
-    <h2 class="text-center fw-bold py-3"> Your dive #<%= current_user.logs.size %> at <%= @log.dive_site.name %></h2>
+    <h2 class="text-center fw-bold py-5"> Your dive #<%= current_user.logs.size %> at <%= @log.dive_site.name %></h2>
     <%# <p class="d-flex justify-content-center">Dive site name: <%= link_to @log.dive_site.name, dive_site_path(@log.dive_site) %></p>
     <div class="d-flex justify-content-center">
       <div class="row">
@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <p class="d-flex justify-content-center">Dive comments: <%= @log.comments %></p>
+    <p class="d-flex justify-content-center py-4">Dive comments: <%= @log.comments %></p>
     <div class="show-log-pic d-flex justify-content-center">
       <% if @log.photo.present? %>
         <%= cl_image_tag @log.photo.key, :height=>400, :width=>600, :crop=>"fill", :quality=>100 %><br>
@@ -30,9 +30,9 @@
         <% end %>
       <% end %>
     </div>
-    <div class="d-flex justify-content-center my-3">
-      <%= link_to "Edit log", edit_dive_site_log_path(@log), class:"explore-button" %>
-      <%= link_to "Back to my logs", logs_path, class:"explore-button bl-3" %>
+    <div class="d-flex justify-content-evenly my-3">
+      <%= link_to "Edit log", edit_dive_site_log_path(@log), class:"button-white" %>
+      <%= link_to "Back to my logs", logs_path, class:"button-white" %>
     </div>
   </div>
 </div>

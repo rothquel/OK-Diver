@@ -144,11 +144,9 @@ color: #4D545E;
   // transform: translateY(-20%);
   margin-top: -10%;
   margin-bottom: 20px;
+  padding-bottom: 7px;
 }
 
-.spacer {
-  height: 50px;
-
-  /* margin: 20px 0 -50px 0; use this if you want #container to have a 'bottom padding', in this case of 20px */
-  // background: transparent; /* you'll need this if #container's parent element has a different background from #container itself */
+.show-log-pic > img {
+  border-radius: 8px;
 }
