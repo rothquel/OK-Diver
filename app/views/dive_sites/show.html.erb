@@ -136,9 +136,11 @@
           <h6 class="fw-bold">Highlights:</h6> <p><%= review.highlight %></p>
           <h6  class="fw-bold">Tips:</h6> <p><%= review.tips %></p>
           <p class="pb-3">Reviewed on <%= review.created_at.strftime('%b %d %Y') %></p>
+          <% if user_signed_in? %>
             <% if review.user.id == current_user.id %>
               <%= link_to "Edit", edit_review_path(review) %> ・ <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             <% end %>
+          <% end %>
         </div>
       </div>
     <% end %>
