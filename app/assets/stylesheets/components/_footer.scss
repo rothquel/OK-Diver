@@ -24,6 +24,10 @@ padding: 0px 40px 0px 40px;
   color: #FFE6BF;
 }
 
+.footer-links a {
+  color: white;
+}
+
 .footer-nav {
   list-style: none;
   padding: 34px 34px 34px 34px;
@@ -37,6 +41,10 @@ background-position: 0 100%;
 background-size: auto 6px;
 background-repeat: repeat-x;
 text-decoration: none;
+}
+
+.copyright {
+  margin-left: 585px;
 }
 
 .fab {
