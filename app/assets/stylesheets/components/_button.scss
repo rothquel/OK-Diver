@@ -123,9 +123,12 @@
   border-style: none;
   transition: all 0.5s;
   max-height: 50px;
-  color: #FFFFFF
+  color: #FFFFFF !important;
 }
 
+.a-forcing {
+  color: #FFFFFF !important;
+}
 .explore-button-hero a:hover {
   color: #FFFFFF !important;
 }
