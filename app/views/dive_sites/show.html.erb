@@ -1,4 +1,4 @@
-<% dive_site_country_iso = ISO3166::CountryIso.new(@dive_site.country) %>
+<% dive_site_country_iso = ISO3166::Country.new(@dive_site.country_iso) %>
 <% def average_rating%>
 <% if @dive_site.reviews.count == 0 %>
   <% review_count = 1 %>
@@ -168,7 +168,7 @@
   </div>
 </div>
 <div class="container py-5">
-  <h2 class="fw-bold pb-5">Other great dive sites in <%= dive_site_country %>:</h2>
+  <h2 class="fw-bold pb-5">Other great dive sites in <%= dive_site_country_iso %>:</h2>
   <div class="row">
     <% close_sites = @dive_sites.where(country: @dive_site.country) %>
     <% close_sites.each do |dive_site| %>
