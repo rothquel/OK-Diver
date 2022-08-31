@@ -1,5 +1,9 @@
+<div class="top-bar mb-logs">
+    <h1>All conversations</h1>
+</div>
+
 <div class="container py-5">
-  <h2 class="text-center pb-5 fw-bold">All conversations</h2>
+  <%# <h2 class="text-center pb-5 fw-bold">All conversations</h2> %>
 
     <ul class="list-group">
   <% @conversations.order(created_at: :desc).each do |conversation| %>
