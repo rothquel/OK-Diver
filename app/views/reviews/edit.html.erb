@@ -1,5 +1,7 @@
 <div class="container py-5">
-  <% dive_site_country = ISO3166::Country.new(@review.dive_site.country_iso) %>
-  <h3 class="text-center fw-bold">Edit your review for <%= @review.dive_site.name %> (<%= dive_site_country %>)</h3>
-  <%= render "form", log: @log %>
+  <% dive_site_country = ISO3166::Country.new(@review.dive_site.country) %>
+  <h3 class="text-center fw-bold">Edit your review for <%= @review.dive_site.name %> <%= dive_site_country %></h3>
+  <div class="d-flex justify-content-center">
+    <%= render "form", log: @log %>
+  </div>
 </div>

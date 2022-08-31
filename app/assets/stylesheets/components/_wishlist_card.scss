@@ -18,7 +18,7 @@ margin: 80px auto;
 .card-box p {
   margin-bottom: 4px;
   width: 80%;
-  font-family: 'Lora';
+  font-family: 'Lato';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -151,4 +151,16 @@ padding: 16px;
 
 .carousel-item img {
   border-radius: 8px !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+a.wishlist-link{
+transition: 0.3s;
+}
+a.wishlist-link:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;  display: block;
+  border-radius: 8px;
 }

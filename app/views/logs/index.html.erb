@@ -7,7 +7,11 @@
     <div class="container">
       <div class="row">
          <% @my_logs.each do |log| %>
-          <% dive_site_country = ISO3166::Country.new(log.dive_site.country_iso) %>
+            <% if log.dive_site.country.length == 2 %>
+              <% dive_site_country = ISO3166::Country.new(log.dive_site.country) %>
+            <% else %>
+              <% dive_site_country = ISO3166::Country.new(log.dive_site.country_iso) %>
+            <% end %>
           <div class="col-6">
             <div class="card mb-3">
               <% if log.photo.present? %>

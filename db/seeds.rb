@@ -327,13 +327,13 @@ puts "#{site13.name} created"
 
 tag_names = %w[
 Underwater\ fauna
-underwater\ flora
-phytoplankton
-red\ algae
-kelp
-seagrass
-sargassum
-sharks
+Underwater\ flora
+Phytoplankton
+Red\ algae
+Kelp
+Seagrass
+Sargassum
+Sharks
 Ship's\ wreck
 Barrier\ Reef
 Pipefish
