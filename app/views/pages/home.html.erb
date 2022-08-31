@@ -2,7 +2,7 @@
   <div class="hero-box">
     <h1>Not sure where to dive next? Perfect.</h1>
     <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-  <div class="search-form-control form-group w-75 mt-5" style="margin:0 auto">
+  <div class="search-form-control form-group w-75 mt-2 d-flex align-items-center" style="margin:0 auto">
     <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="I'm looking for...">
     <button name="button" type="submit" class="explore-button-hero">
      <%= link_to "EXPLORE NOW", dive_sites_path%>
@@ -19,6 +19,7 @@
     <h4 class="subheading my-5">Inspiration for your next dive</h4>
       <div class="row d-flex justify-content-around">
         <div class="col-3">
+        <a href="https://www.okdiver.com/dive-sites?country=hawaii&city=&dive_type=&level=&commit=Search">
           <div class="card border-light">
             <img class="card-img-top" src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1661727336/nazarizal-mohammad-k5Z2AhnRwT8-unsplash_tcjffq.jpg" alt="Card image cap">
             <div class="card-body" id="card-1">
@@ -26,49 +27,59 @@
               <p class="card-text">7800 km away</p>
             </div>
           </div>
+          </a>
         </div>
         <div class="col-3">
-          <div class="card border-light" >
-            <img class="card-img-top" src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1661790580/francesco-ungaro-lkFDqeMPlmI-unsplash_odxaju.jpg" alt="Card image cap">
-            <div class="card-body" id="card-2">
-              <h5 class="card-title">Martinique</h5>
-              <p class="card-text">3625 km away</p>
+          <a href="https://www.okdiver.com/dive-sites?country=martinique&city=&dive_type=&level=&commit=Search">
+            <div class="card border-light" >
+              <img class="card-img-top" src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1661790580/francesco-ungaro-lkFDqeMPlmI-unsplash_odxaju.jpg" alt="Card image cap">
+              <div class="card-body" id="card-2">
+                <h5 class="card-title">Martinique</h5>
+                <p class="card-text">3625 km away</p>
+              </div>
             </div>
-          </div>
+          </a>
+
         </div>
         <div class="col-3">
-          <div class="card border-light">
-            <img class="card-img-top" src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1661790390/federico-burgalassi-fqp8XPjIDeM-unsplash_udpeye.jpg" alt="Card image cap">
-            <div class="card-body" id="card-3">
-              <h5 class="card-title">Colombia</h5>
-              <p class="card-text">4549 km away</p>
+          <a href="https://www.okdiver.com/dive-sites?country=colombia&city=&dive_type=&level=&commit=Search">
+            <div class="card border-light">
+              <img class="card-img-top" src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1661790390/federico-burgalassi-fqp8XPjIDeM-unsplash_udpeye.jpg" alt="Card image cap">
+              <div class="card-body" id="card-3">
+                <h5 class="card-title">Colombia</h5>
+                <p class="card-text">4549 km away</p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
         <div class="col-3">
-          <div class="card border-light" >
-            <img class="card-img-top" src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1661790193/chase-baker-yvb8NrIhIFI-unsplash_ypoopi.jpg" alt="Card image cap">
-            <div class="card-body" id="card-4">
-              <h5 class="card-title">Saguenay</h5>
-              <p class="card-text">450 km away</p>
+          <a href="https://www.okdiver.com/dive-sites?country=saguenay&city=&dive_type=&level=&commit=Search">
+            <div class="card border-light" >
+              <img class="card-img-top" src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1661790193/chase-baker-yvb8NrIhIFI-unsplash_ypoopi.jpg" alt="Card image cap">
+              <div class="card-body" id="card-4">
+                <h5 class="card-title">Saguenay</h5>
+                <p class="card-text">450 km away</p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
   </div>
 <hr class="border-bottom mt-5"/>
-<h4 class="subheading mb-1">Discover the world through scuba diving</h4>
-  <div class="d-flex justify-content-around mb-5">
+<h4 class="subheading featured-box mb-1">Discover the world through scuba diving</h4>
+  <div class="d-flex justify-content-center gap-5 mb-20">
     <div class="col-6 picture-box">
-      <div class="bottom-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://res.cloudinary.com/dbb3sntqk/image/upload/v1661537450/mael-balland-s2_f4ijsGHs-unsplash_p3xt9h.jpg)">
-        <div class="call-to-action-link">
-          <%= link_to "Explore", dive_sites_path, class: "tag-white"%>
+      <div class="bottom-picture d-flex align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://res.cloudinary.com/cloudinary972/image/upload/v1661918123/explore-site_d520sx.png)">
+          <div class="call-to-action-link d-flex">
+            <H3 class="featured-title">Explore diving sites</H3>
+            <%= link_to "Explore", dive_sites_path, class: "tag-white"%>
         </div>
       </div>
     </div>
     <div class="col-6 picture-box">
-      <div class="bottom-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://res.cloudinary.com/dbb3sntqk/image/upload/v1661537444/frans-daniels-AY1UVjZCI4Q-unsplash_rcnchi.jpg)">
-        <div class="call-to-action-link">
+      <div class="bottom-picture d-flex align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://res.cloudinary.com/cloudinary972/image/upload/v1661918855/v2-moto_lctglt.png)">
+        <div class="call-to-action-link d-flex">
+          <H3 class="featured-title">Create your digital dive log</H3>
           <%= link_to "Log a dive", create_log_path, class: "tag-white"%>
         </div>
       </div>

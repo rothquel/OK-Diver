@@ -63,7 +63,7 @@ color: #4D545E;
 color: #FF9E00;
 }
 .review-numbers{
-font-family: 'Lora';
+font-family: 'Lato', sans-serif;
 font-style: normal;
 font-weight: 400;
 font-size: 16px;
@@ -79,6 +79,9 @@ color: #4D545E;
 }
 
 
+.main-content {
+  max-width: 700px;
+}
 .main-content ul{
   padding: 0!important;
   margin-top: 0;
@@ -91,9 +94,14 @@ list-style: none;
 
 .tags-box {
   margin-top: 30px;
-  position: sticky;
-  z-index: 1030;
-  top:112px;
+//   position: sticky;
+//   z-index: 1030;
+//   top:112px;
+max-width: 700px;
+}
+
+.tags-box ul {
+  max-width: 700px;
 }
 
 // SLIDER
@@ -103,6 +111,10 @@ list-style: none;
   height: 100%;
 }
 
+.img-wishlist-card {
+  height: 100%;
+  width: 500px;
+}
 .img-box {
 position: relative;
 }

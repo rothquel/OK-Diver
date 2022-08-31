@@ -50,7 +50,7 @@
   justify-content: space-between;
 }
 .card-index .card-index-infos {
-  padding: 16px;
+  padding: 26px !important;
   // display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -71,7 +71,7 @@
   padding: 0px;
   // align-items: flex-start;
   // justify-content: center;
-  margin-top: 20px;
+  margin-top: 36px;
   column-gap: 12px;
 }
 
@@ -95,7 +95,7 @@ padding-left: 38px;
 .card-box p {
   margin-bottom: 4px;
   width: 80%;
-  font-family: 'Lora';
+  font-family: 'Lato', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -121,6 +121,11 @@ margin-bottom: 20px;
 
 color: #4D545E;
 }
+
+
+  .border-radius {
+    border-radius: 8px;
+  }
 
 .card-content--location {
   display: flex;
