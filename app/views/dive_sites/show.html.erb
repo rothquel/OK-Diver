@@ -183,7 +183,7 @@
     <% close_sites = @dive_sites.where(country: @dive_site.country)[0..3] %>
     <% close_sites.each do |dive_site| %>
       <div class="col-3">
-        <div class="card">
+        <div class="card-index-format">
           <% if dive_site.photos.attached? %>
             <%= cl_image_tag dive_site.photos.first.key, class: "card-img-top close-sites-image" %>
           <% else %>
@@ -193,10 +193,16 @@
               <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" class="card-img-top close-sites-image">
             <% end %>
           <% end %>
-          <div class="card-body" style="height: 150px">
-            <h3 class="card-title fw-bold"><%= dive_site.name %></h3>
-            <p class="card-text"><%= dive_site.description.first(10) %></p>
-            <%= link_to "Learn More", dive_site_path(dive_site), class: "tag" %>
+          <div class="card-index-infos card-index-format-infos">
+            <div class="card-index-alignment pb-2">
+              <div>
+                <h2><%= dive_site.name %></h2>
+                <p><%= dive_site.description.first(50)... %></p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end" id="card-index-format-button">
+              <%= link_to "Learn More", dive_site_path(dive_site), class: "explore-button m-0", id: "font-size" %>
+            </div>
           </div>
         </div>
       </div>
