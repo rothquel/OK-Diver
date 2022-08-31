@@ -22,6 +22,11 @@
     <div class="fullpage">
       <%= yield %>
     </div>
-    <%= render "shared/footer" %>
+
+    <%# if ['create-log', '/logs/new' ].exclude?('current') %>
+
+    <% if !want_sidebar %>
+      <%= render "shared/footer" %>
+    <% end %>
   </body>
 </html>
