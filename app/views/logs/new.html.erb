@@ -1,6 +1,6 @@
 <div class="container py-5">
   <% dive_site_country = ISO3166::Country.new(@dive_site.country) %>
-  <h2 class="text-center fw-bold pb-3">Log your dive at "<%= @dive_site.name %>" (<%= dive_site_country %>)</h2>
+  <h2 class="text-center fw-bold pb-3">Log your dive at <%= @dive_site.name %> in <%= dive_site_country %></h2>
   <h4 class="text-center fw-light pb-3"> Dive Site > <span class="current_spot">Log Details</span> > Review</h4>
   <p class="text-center fw-normal pb-3">Details of your dive number <%= current_user.logs.size + 1 %> </p>
   <div class="d-flex justify-content-center">
