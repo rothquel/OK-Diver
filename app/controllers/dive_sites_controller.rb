@@ -4,8 +4,9 @@ class DiveSitesController < ApplicationController
 
   def index
     # Searchbar
+    # raise
     if params[:query].present?
-      sql_query = "name ILIKE :query OR country ILIKE :query"
+      sql_query = "country ILIKE :query"
       @dive_sites = DiveSite.where(sql_query, query: "%#{params[:query]}%")
     else
       # Thx to lazy load, active record will update dive_sites in accordance
