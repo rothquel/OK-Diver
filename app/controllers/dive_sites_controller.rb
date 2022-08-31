@@ -91,6 +91,13 @@ class DiveSitesController < ApplicationController
 
   def create
     @dive_site = DiveSite.new(dive_site_params)
+    @tags = Tag.where(id: params[:dive_site][:tags])
+
+    @tags.each do |tag|
+      dive_site_tag = DiveSiteTag.new(dive_site: @dive_site, tag: tag)
+      dive_site_tag.save
+    end
+    # raise
     if @dive_site.save
       redirect_to new_dive_site_log_path(@dive_site)
     else
