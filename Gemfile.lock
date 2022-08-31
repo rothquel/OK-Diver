@@ -145,7 +145,7 @@ GEM
     erubi (1.11.0)
     execjs (2.8.1)
     ffi (1.15.5)
-    font-awesome-sass (6.1.2)
+    font-awesome-sass (6.2.0)
       sassc (~> 2.0)
     geocoder (1.8.0)
     globalid (1.0.0)
@@ -197,9 +197,7 @@ GEM
       timeout
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.13.8-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-linux)
+    nokogiri (1.13.8-arm64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.3)
@@ -309,8 +307,7 @@ GEM
     zeitwerk (2.6.0)
 
 PLATFORMS
-  x86_64-darwin-21
-  x86_64-linux
+  arm64-darwin-21
 
 DEPENDENCIES
   acts_as_favoritor!
