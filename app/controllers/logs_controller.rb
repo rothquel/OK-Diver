@@ -34,13 +34,14 @@ class LogsController < ApplicationController
   end
 
   def edit
+    @dive_site = DiveSite.find(params[:dive_site_id])
     @log = Log.find(params[:id])
   end
 
   def update
     @log = Log.find(params[:id])
     @log.update(log_params)
-    redirect_to log_path
+    redirect_to log_path(@log)
   end
 
 

@@ -559,3 +559,54 @@ dst = DiveSiteTag.new
 dst.dive_site = site13
 dst.tag = tags[3]
 dst.save!
+
+
+# cloudinary images for users seeds
+
+kieran = URI.open("https://res.cloudinary.com/dbb3sntqk/image/upload/v1661974486/james-thornton-8VoDyBDvv0k-unsplash_egzyli.jpg")
+marielle = URI.open("https://res.cloudinary.com/dbb3sntqk/image/upload/v1661974947/francisco-jesus-navarro-hernandez-KzkL5-P1fDU-unsplash_todx71.jpg")
+matt = URI.open("https://res.cloudinary.com/dbb3sntqk/image/upload/v1661974952/sebastian-pena-lambarri-W5ODK261mLY-unsplash_ng9blq.jpg")
+
+# seeding users
+
+# user 1
+
+kieran_user = User.create(
+  email: "kieran@yopmail.com",
+  password: "123456",
+  first_name: "Kieran",
+  last_name: "Dunch"
+)
+
+kieran_user.photo.attach(io: kieran, filename: "okdiver-image.png", content_type: "image/png")
+kieran_user.save!
+puts "#{kieran_user.name} created"
+
+# user 2
+
+marielle_user = User.create(
+  email: "marielle@yopmail.com",
+  password: "123456",
+  first_name: "Marielle",
+  last_name: "Montenegro"
+)
+
+marielle_user.photo.attach(io: marielle, filename: "okdiver-image.png", content_type: "image/png")
+marielle_user.save!
+puts "#{marielle_user.name} created"
+
+# user 3
+
+matt_user = User.create(
+  email: "matt@yopmail.com",
+  password: "123456",
+  first_name: "Matt",
+  last_name: "Tattah"
+)
+
+matt_user.photo.attach(io: matt, filename: "okdiver-image.png", content_type: "image/png")
+matt_user.save!
+puts "#{matt_user.name} created"
+
+
+# seeding reviews
