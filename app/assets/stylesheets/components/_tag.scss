@@ -1,0 +1,25 @@
+.show-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  background-color: #FF9E00;
+  color: #ffffff;
+  border: 1px solid #FF9E00;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.show-tag-bg {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(ocean-tags.jpg);
+  height: 70%;
+  background-size: cover;
+}
+
+.show-tag-center {
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 80px;
+}
