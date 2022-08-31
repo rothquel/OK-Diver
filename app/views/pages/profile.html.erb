@@ -23,6 +23,7 @@
     <div class="name-bar">
       <h2><%= @user.first_name %> <%= @user.last_name %></h2>
       <% home_country = ISO3166::Country.new(@user.country) %>
+
       <h4><%= home_country %></h4>
     </div>
     <div class="container">
@@ -85,7 +86,7 @@
               <div class="card-index-infos p-3">
                 <div class="card-index-alignment">
                   <div>
-                    <p><% site_country = ISO3166::Country.new(log.dive_site.country) %></p>
+                    <p><% site_country = ISO3166::Country.new(log.dive_site.country_iso) %></p>
                     <p><%= log.dive_site.city %>, <%= site_country %></p>
                     <h2><%= log.dive_site.name %></h2>
                     <p><%= log.date.strftime('%b %d %Y') %></p>

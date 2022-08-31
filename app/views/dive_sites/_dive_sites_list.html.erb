@@ -24,7 +24,7 @@
       <div class="card-index-infos">
         <div class="card-index-alignment">
           <div>
-            <% dive_site_country = ISO3166::Country.new(dive_site.country) %>
+            <% dive_site_country = ISO3166::Country.new(dive_site.country_iso) %>
             <p><%= dive_site.city %>, <%= dive_site_country %></p>
             <h2><%= dive_site.name %></h2>
             <div class="stars-wishlist d-flex gap-2 align-items-center mt-1">
