@@ -1,4 +1,8 @@
-<% dive_site_country_iso = ISO3166::Country.new(@dive_site.country_iso) %>
+<% if @dive_site.country.length == 2 %>
+  <% dive_site_country = ISO3166::Country.new(@dive_site.country) %>
+<% else %>
+  <% dive_site_country = ISO3166::Country.new(@dive_site.country_iso) %>
+<% end %>
 <% def average_rating%>
 <% if @dive_site.reviews.count == 0 %>
   <% review_count = 1 %>
@@ -20,7 +24,7 @@
   <div class="container py-5">
     <div class="row justify-content-between pb-3">
       <div class="col fs-5">
-        <p><i class="fa-solid fa-star star-color"></i> <%= average_rating %> ・ <%= pluralize @dive_site.reviews.count, "review" %> ・ <%= @dive_site.city %>, <%= dive_site_country_iso %></p>
+        <p><i class="fa-solid fa-star star-color"></i> <%= average_rating %> ・ <%= pluralize @dive_site.reviews.count, "review" %> ・ <%= @dive_site.city %>, <%= dive_site_country %></p>
       </div>
       <div class="col text-end fs-5">
         <i class="fa-solid fa-anchor"></i> <%= link_to "Log a dive here", new_dive_site_log_path(@dive_site), class: "text-decoration-underline text-dark" %> ・
@@ -41,8 +45,8 @@
           <%= cl_image_tag @dive_site.photos.first.key, :height=>400, :width=>600, class: "border-radius", :crop=>"fill" %>
           <div class="row justify-content-between pt-5">
           <div class="col-4">
-          <%= cl_image_tag @dive_site.photos.second.key, class: "three-images border-radius", :crop=>"fill" %>
-            <%# <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865527/subtle-cinematics-O5Fr1BZ-aR4-unsplash_eos7kz.jpg" class="three-images"> %>
+          <%# <%= cl_image_tag @dive_site.photos.second.key, class: "three-images border-radius", :crop=>"fill" %>
+            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865527/subtle-cinematics-O5Fr1BZ-aR4-unsplash_eos7kz.jpg" class="three-images border-radius">
           </div>
           <div class="col-4">
             <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865511/sebastian-pena-lambarri-44r12Ck_CoI-unsplash_hojhwv.jpg" class="three-images border-radius">
@@ -168,7 +172,7 @@
   </div>
 </div>
 <div class="container py-5">
-  <h2 class="fw-bold pb-5">Other great dive sites in <%= dive_site_country_iso %>:</h2>
+  <h2 class="fw-bold pb-5">Other great dive sites in <%= dive_site_country %>:</h2>
   <div class="row">
     <% close_sites = @dive_sites.where(country: @dive_site.country) %>
     <% close_sites.each do |dive_site| %>

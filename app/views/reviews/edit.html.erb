@@ -1,5 +1,9 @@
 <div class="container py-5">
-  <% dive_site_country = ISO3166::Country.new(@review.dive_site.country_iso) %>
+  <% if @review.dive_site.country.length == 2 %>
+    <% dive_site_country = ISO3166::Country.new(@review.dive_site.country) %>
+  <% else %>
+    <% dive_site_country = ISO3166::Country.new(@review.dive_site.country_iso) %>
+  <% end %>
   <h3 class="text-center fw-bold">Edit your review for <%= @review.dive_site.name %> (<%= dive_site_country %>)</h3>
   <%= render "form", log: @log %>
 </div>

@@ -1,4 +1,8 @@
-<% dive_site_country = ISO3166::Country.new(dive_site.country_iso) %>
+<% if dive_site.country.length == 2 %>
+  <% dive_site_country = ISO3166::Country.new(dive_site.country) %>
+<% else %>
+  <% dive_site_country = ISO3166::Country.new(dive_site.country_iso) %>
+<% end %>
 
 <div style="width=300px;">
   <% if dive_site.photos.attached? %>
