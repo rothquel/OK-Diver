@@ -1,0 +1,5 @@
+meta_product_name: "OK Diver"
+meta_title: "OK Diver - Find the perfect dive site for you"
+meta_description: "The world's best diving sites curated by divers just like you"
+meta_image: "meta.png" # should exist in `app/assets/images/`
+twitter_account: "@ok-diver"   # required for Twitter Cards

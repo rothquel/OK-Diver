@@ -12,8 +12,9 @@
 }
 
 .link-text {
-  color: #FF9E00;
+  color: var($primary);
   text-decoration: none;
+  font-size: 18px;
 }
 
 .icon-heart .fa-solid {

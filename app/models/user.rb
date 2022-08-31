@@ -15,7 +15,7 @@ class User < ApplicationRecord
   acts_as_messageable
 
   def name
-    return "You should add method :name in your Messageable model"
+    return "#{first_name.capitalize} #{last_name.capitalize}"
   end
 
   def mailboxer_email(_object)
