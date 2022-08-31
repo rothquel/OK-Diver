@@ -1,4 +1,4 @@
-<% dive_site_country = ISO3166::Country.new(dive_site.country) %>
+<% dive_site_country_iso = ISO3166::CountryIso.new(@dive_site.country) %>
 <div style="width=300px;">
   <%= cl_image_tag dive_site.photos.first.key, :height=>150, :width=>200, :crop=>"fill" %>
   <div>
@@ -12,7 +12,7 @@
           <% end %>
       </div>
     <p><%=dive_site.reviews.count %> reviews</p>
-    <p class="card-text"><%= dive_site_country %> // <%= dive_site.level %></p>
+    <p class="card-text"><%= dive_site_country_iso %> // <%= dive_site.level %></p>
     <%= link_to "Use this site", new_dive_site_log_path(dive_site), class: "btn btn-primary" %>
   </div>
 </div>

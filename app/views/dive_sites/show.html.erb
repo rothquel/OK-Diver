@@ -1,5 +1,5 @@
-<% dive_site_country = ISO3166::Country.new(@dive_site.country) %>
-<% def average_rating %>
+<% dive_site_country_iso = ISO3166::CountryIso.new(@dive_site.country) %>
+<% def average_rating%>
 <% if @dive_site.reviews.count == 0 %>
   <% review_count = 1 %>
 <% else %>
@@ -20,7 +20,7 @@
   <div class="container py-5">
     <div class="row justify-content-between pb-3">
       <div class="col fs-5">
-        <p><i class="fa-solid fa-star star-color"></i> <%= average_rating %> ・ <%= pluralize @dive_site.reviews.count, "review" %> ・ <%= @dive_site.city %>, <%= dive_site_country %>
+        <p><i class="fa-solid fa-star star-color"></i> <%= average_rating %> ・ <%= pluralize @dive_site.reviews.count, "review" %> ・ <%= @dive_site.city %>, <%= dive_site_country_iso %></p>
       </div>
       <div class="col text-end fs-5">
         <i class="fa-solid fa-anchor"></i> <%= link_to "Log a dive here", new_dive_site_log_path(@dive_site), class: "text-decoration-underline text-dark" %> ・

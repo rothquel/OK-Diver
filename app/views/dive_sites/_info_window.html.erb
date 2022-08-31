@@ -1,4 +1,5 @@
-<% dive_site_country = ISO3166::Country.new(dive_site.country) %>
+<% dive_site_country_iso = ISO3166::CountryIso.new(@dive_site.country) %>
+
 <div style="width=300px;">
   <%= cl_image_tag dive_site.photos.first.key, :height=>150, :width=>200, :crop=>"fill" %>
   <div>
