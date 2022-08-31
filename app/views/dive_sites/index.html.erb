@@ -47,7 +47,7 @@
     <%# TAGS MULTIPLE ON HOLD %>
     <%= select_tag :tags, options_from_collection_for_select(Tag.all, 'id', 'name'), include_blank: false, multiple: true,
     class: "form-control tag-field-multiples",
-    style: "width: 600px",
+    style: "width: 600px ",
     prompt: 'What do you want to see?',
     data: {
       controller: "tom-select", tom_select_options_value: {tags: true},
