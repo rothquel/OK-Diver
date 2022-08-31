@@ -74,7 +74,10 @@ a {
 
 
 .call-to-action-link {
-  margin-bottom: 100px;
+  // margin-bottom: 100px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 //search bar on homepage
@@ -85,9 +88,9 @@ a {
 
 .search-form-control .explore-button-hero {
   position: absolute;
-  top: 8px;
-  bottom: 8px;
-  right: 8px;
+  // top: 8px;
+  // bottom: 8px;
+  right: 26px;
 }
 
 .search-form-control .form-control {
@@ -100,4 +103,24 @@ a {
   border: 1px solid $blue;
   outline: none !important;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+
+.search-form-control .form-group {
+  margin-top: 28px;
+}
+
+
+.featured-title{
+  color:white;
+  margin-bottom: 38px;
+
+}
+
+.mb-20 {
+  margin-bottom: 150px;
+}
+
+.featured-box {
+  margin-top: 48px !important;
 }
