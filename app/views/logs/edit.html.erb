@@ -1,6 +1,5 @@
 <div class="container py-5">
-  <% dive_site_country = ISO3166::Country.new(@dive_site.country) %>
-  <h2 class="text-center fw-bold pb-3">Edit your log at <%= @dive_site.name %> in <%= dive_site_country %></h2>
+  <h2 class="text-center fw-bold pb-3">Edit your log at <%= @dive_site.name %></h2>
   <div class="d-flex justify-content-center">
     <%= render "form", log: @log %>
   </div>
