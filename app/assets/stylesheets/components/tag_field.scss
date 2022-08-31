@@ -18,7 +18,6 @@
   align-items: center;
   text-align: center;
   text-transform: capitalize;
-
   color: #4D545E;
   text-align: center;
 }
@@ -130,4 +129,12 @@ select::-ms-expand { display: none; }
   // background-image: url(https://res.cloudinary.com/cloudinary972/image/upload/v1661787636/Screen_Shot_2022-08-29_at_11.40.16_AM_tppsdw.png);
 // background: none;
 background-image: none;
+}
+
+#level {
+  padding-right: 10px;
+}
+
+#dive_type {
+  padding-right: 10px;
 }
