@@ -1,6 +1,10 @@
 <% dive_site_country_iso = ISO3166::CountryIso.new(@dive_site.country) %>
 <div style="width=300px;">
+  <% if dive_site.photos.attached? %>
   <%= cl_image_tag dive_site.photos.first.key, :height=>150, :width=>200, :crop=>"fill" %>
+  <% else %>
+  <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" style="height: 150px; width: 200px;">
+  <% end %>
   <div>
     <h5 class="card-title pt-3"><%= dive_site.name %></h5>
       <div class="">
