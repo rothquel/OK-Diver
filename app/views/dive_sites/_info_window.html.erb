@@ -1,9 +1,18 @@
-<% if dive_site.photos.attached? %>
-  <%= cl_image_tag dive_site.photos.first.key, :height=>150, :width=>200, :crop=>"fill" %><br>
-<% else %>
-  <img src="<%= dive_site.image %>" width="200" height="150">
-<% end %>
-<h2><%= dive_site.name %></h2>
-<p><%= dive_site.country %></p>
-<p><%= dive_site.level %></p>
-<%= link_to "Details", dive_site_path(dive_site) %>
+<% dive_site_country = ISO3166::Country.new(dive_site.country) %>
+<div style="width=300px;">
+  <%= cl_image_tag dive_site.photos.first.key, :height=>150, :width=>200, :crop=>"fill" %>
+  <div>
+    <h5 class="card-title pt-3"><%= dive_site.name %></h5>
+      <div class="">
+        <% dive_site.average_rating.times do %>
+          <i class="star-icon fa-solid fa-star fa-sm"></i>
+        <% end %>
+          <% (5 - dive_site.average_rating).times do %>
+            <i class="star-icon fa-regular fa-star fa-sm"></i>
+          <% end %>
+      </div>
+    <p><%=dive_site.reviews.count %> reviews</p>
+    <p class="card-text"><%= dive_site_country %> // <%= dive_site.level %></p>
+    <%= link_to "Details", dive_site_path(dive_site), class: "btn btn-primary" %>
+  </div>
+</div>

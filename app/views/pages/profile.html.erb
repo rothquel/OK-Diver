@@ -73,12 +73,12 @@
             <div class="col-3 card-index mb-3">
               <%# teamfrontend - put the card in here %>
               <% if log.photo.present? %>
-                <%= cl_image_tag log.photo.key, :height=>400, :width=>600, :crop=>"fill", :quality=>100 %>
+                <%= cl_image_tag log.photo.key, :height=>200, :width=>400, :crop=>"fill", :quality=>100, class: "card-img-top" %>
               <% else %>
-                <% if log.dive_site.photos.present? %>
-                  <img src="<%= log.dive_site.photos.first.key %>" height="400" width="100%">
+                <% if log.dive_site.photos.first.present? %>
+                  <%= cl_image_tag log.dive_site.photos.first.key, :height=>200, :width=>400, :crop=>"fill", :quality=>100, class: "card-img-top" %>
                 <% else %>
-                  <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" height="100" width="100%">
+                  <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" height="200" width="400" class="card-img-top">
                 <% end %>
               <% end %>
 
