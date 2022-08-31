@@ -42,37 +42,43 @@
     <div class="row justify-content-between g-5">
       <div class="col-6">
         <% if @dive_site.photos.attached? %>
-          <%= cl_image_tag @dive_site.photos.first.key, :height=>400, :width=>600, class: "border-radius", :crop=>"fill" %>
-          <div class="row justify-content-between pt-5">
-          <div class="col-4">
-          <%# <%= cl_image_tag @dive_site.photos.second.key, class: "three-images border-radius", :crop=>"fill" %>
-            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865527/subtle-cinematics-O5Fr1BZ-aR4-unsplash_eos7kz.jpg" class="three-images border-radius">
-          </div>
-          <div class="col-4">
-            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865511/sebastian-pena-lambarri-44r12Ck_CoI-unsplash_hojhwv.jpg" class="three-images border-radius">
-          </div>
-          <div class="col-4">
-            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865503/jesse-schoff-Ph2KtIqKs7c-unsplash_gn4rrz.jpg" class="three-images border-radius">
-          </div>
-        </div>
-        <% else %>
-          <% if @dive_site.image.present? %>
-            <img class="border-radius" src="<%= @dive_site.image %>" height="400" width="600">
-
-          <% else %>
-            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" class="img-fluid border-radius">
+            <%= cl_image_tag @dive_site.photos.first.key, :height=>400, :width=>600, class: "border-radius", :crop=>"fill" %>
             <div class="row justify-content-between pt-5">
-          <div class="col-4">
-            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865527/subtle-cinematics-O5Fr1BZ-aR4-unsplash_eos7kz.jpg" class="three-images border-radius">
+              <div class="col-4">
+              <% if @dive_site.photos.length >= 2 %>
+                <%= cl_image_tag @dive_site.photos.second.key, class: "three-images border-radius", :crop=>"fill"%>
+              <% else %>
+                <img src="https://res.cloudinary.com/cloudinary972/image/upload/v1661891783/27_opwbmd.jpg" class="img-fluid border-radius">
+               <% end %>
+              </div>
+              <div class="col-4">
+                <% if @dive_site.photos.length >= 3 %>
+                  <%= cl_image_tag @dive_site.photos.third.key, class: "three-images border-radius", :crop=>"fill"%>
+                <% else %>
+                <img src="https://res.cloudinary.com/cloudinary972/image/upload/v1661891787/38_vrq0bx.jpg" class="img-fluid border-radius">
+                <% end %>
+              </div>
+              <div class="col-4">
+                 <% if @dive_site.photos.length >= 4 %>
+                  <%= cl_image_tag @dive_site.photos.fourth.key, class: "three-images border-radius", :crop=>"fill"%>
+                  <% else %>
+                    <img src="https://res.cloudinary.com/cloudinary972/image/upload/v1661891784/22_pg0mks.jpg" class="img-fluid border-radius">
+                  <% end %>
+              </div>
           </div>
-          <div class="col-4">
-            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865511/sebastian-pena-lambarri-44r12Ck_CoI-unsplash_hojhwv.jpg" class="three-images border-radius">
-          </div>
-          <div class="col-4">
-            <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661865503/jesse-schoff-Ph2KtIqKs7c-unsplash_gn4rrz.jpg" class="three-images border-radius">
-          </div>
-        </div>
-          <% end %>
+        <% else %>
+                <img src="https://res.cloudinary.com/cloudinary972/image/upload/v1661891787/38_vrq0bx.jpg" class="img-fluid border-radius">
+                <div class="row justify-content-between pt-5">
+              <div class="col-4">
+                <img src="https://res.cloudinary.com/cloudinary972/image/upload/v1661891784/22_pg0mks.jpg" class="three-images border-radius">
+              </div>
+              <div class="col-4">
+                <img src="https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/5_n7yjbh.jpg" class="three-images border-radius">
+              </div>
+              <div class="col-4">
+                <img src="https://res.cloudinary.com/cloudinary972/image/upload/v1661891783/27_opwbmd.jpg" class="three-images border-radius">
+              </div>
+            </div>
         <% end %>
 
       </div>
