@@ -6,6 +6,7 @@
   <% if !@favorite_dive_sites.nil? %>
     <br>
     <% @favorite_dive_sites.each do |dive_site| %>
+    <a class="wishlist-link" href=<%="https://www.okdiver.com/dive-sites/#{dive_site.id}"%>>
     <div class="card-box flex-d" data-controller="toggle-favorite">
       <div class="card-content--box flex-grow-1">
         <%# flex-d bootstrap not working here (?) %>
@@ -28,7 +29,7 @@
         <div class="main-content">
           <p><%= dive_site.description %></p>
           <div class="tags-box">
-            <ul class="d-flex gap-2 flex-wrap">
+            <ul class="d-flex gap-3 flex-wrap">
               <% if dive_site.tags.each do |tag| %>
                 <li class="tag"><%= tag.name%></li>
               <% end %>
@@ -36,9 +37,7 @@
             </ul>
           </div>
         </div>
-        <div class="d-flex justify-content-start">
-          <%= link_to "Learn More", dive_site_path(dive_site), class: "explore-button m-0" %>
-        </div>
+
       </div>
           <%# SLIDER ONGOING %>
       <div class="img-box overflow-hidden">
@@ -48,6 +47,7 @@
         <img src="<%=dive_site.image%>" alt="" class="d-block overflow-hidden rounded img-wishlist-card">
       </div>
     </div>
+    </a>
     <% end %>
   <% else %>
     <p>You have not saved any Dive Site yet! Hurry up and <a href="https://www.okdiver.com/dive-sites">explore</a>  them all! 🎣 </p>
