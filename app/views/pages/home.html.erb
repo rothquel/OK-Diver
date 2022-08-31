@@ -90,7 +90,11 @@
       <div class="bottom-picture d-flex align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://res.cloudinary.com/cloudinary972/image/upload/v1661918855/v2-moto_lctglt.png)">
         <div class="call-to-action-link d-flex">
           <H3 class="featured-title">Create your digital dive log</H3>
-          <%= link_to "Log a dive", create_log_path, class: "tag-white"%>
+          <% if user_signed_in? %>
+            <%= link_to "Log a dive", create_log_path, class: "tag-white"%>
+            <% else %>
+            <%= link_to "Log a dive", new_user_registration_path, class: "tag-white"%>
+          <% end %>
         </div>
       </div>
     </div>
