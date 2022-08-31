@@ -108,7 +108,14 @@
     </div>
     <div class="col-6">
       <h4 class="fw-bold pb-5">Features other divers have seen at this site:</h4>
-      <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" height="400" width="600">
+      <div class="show-tag-bg">
+        <ul class="mb-3 show-tag-center">
+          <% if @dive_site.tags.each do |tag| %>
+              <li class="show-tag"><%= tag.name%></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
     </div>
 
 
