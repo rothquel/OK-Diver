@@ -65,7 +65,7 @@ file_13_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v166
 site1 = DiveSite.new(
   name: "Balabag Shipwreck",
   description: "A sunken WWII ship on a beautiful coral reef with an abundance of sea life around. An easy dive for beginners - but watch out for the fire coral!",
-  country: "PH",
+  country: "Philippines",
   city: "Balabag",
   latitude: 11.9602977874923,
   longitude: 121.913588047028,
@@ -85,7 +85,7 @@ puts "#{site1.name} created"
 site2 = DiveSite.new(
   name: "Pulau Reef",
   description: "An amazing reef dive off the coast of the island of Pulau Batanme! So many turtles and stingrays around - great for all levels",
-  country: "PH",
+  country: "Philippines",
   city: "Pulau Batanme",
   latitude: -2.23858124636481,
   longitude: 130.580406188965,
@@ -104,7 +104,7 @@ puts "#{site2.name} created"
 site3 = DiveSite.new(
   name: "East of Arborek Island",
   description: "One of the best diving sites that I have been to! Super isolated and in the middle of the ocean, very deep but beautiful. Advanced only!",
-  country: "PH",
+  country: "Philippines",
   city: "Arborek Island",
   latitude: -0.565100090931986,
   longitude: 130.533542633057,
@@ -124,7 +124,7 @@ puts "#{site3.name} created"
 site4 = DiveSite.new(
   name: "National Marine Park La Gabinière",
   description: "National Marine Park of Port-Cros: La Gabinière is a famous dive site, said to be the best in France. Many groupers and school of barracudas can be seen",
-  country: "FR",
+  country: "France",
   city: "Port-Cros",
   latitude: 43.00615,
   longitude: 6.38854,
@@ -144,7 +144,7 @@ puts "#{site4.name} created"
 site5 = DiveSite.new(
   name: "Izu islands",
   description: "One of the best diving sites that I have been to! Super isolated and in the middle of the ocean, very deep but beautiful. Many turtles & great visibility!",
-  country: "JP",
+  country: "Japan",
   city: "Hachijojima",
   latitude: -33.11265,
   longitude: 139.80624,
@@ -164,7 +164,7 @@ puts "#{site5.name} created"
 site6 = DiveSite.new(
   name: "Bajo Alcyone",
   description: "Cocos Island, which lies far from the Costa Rican Pacific coast, is only accessible by liveaboard but is consistently ranked as the top destination in the world for hammerhead diving with this world-class dive site. The seamount known as Bajo Alcyone rises to 82 feet (25 meters) below the surface and is regularly home to large shoals of hammerhead sharks. The diving can be tricky, but the plan is simple. Divers descend to the top of the seamount, wedge themselves between the rocks and watch the action above. This is truly an epic site and worthy of a place on the list!",
-  country: "CR",
+  country: "Costa Rica",
   city: "Cocos Island",
   latitude: 5.509,
   longitude: -87.0231,
@@ -331,8 +331,8 @@ Ghost\ Pipefish
 Seahorse
 Comet\ Goldfish
 Whales
-Temperate diving
-Tropical diving
+Temperate\ diving
+Tropical\ diving
 ]
 
 tag_names.each do |name|
