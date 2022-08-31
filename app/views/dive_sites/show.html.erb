@@ -145,28 +145,30 @@
             <div class="col">
               <%= link_to profile_path(review.user.id) do %>
                 <% if review.user.photo.present? %>
-                  <%= cl_image_tag review.user.photo.key, class: "review-avatar" %><br>
+                  <%= cl_image_tag review.user.photo.key, class: "review-avatar avatar" %><br>
                 <% else %>
-                  <%= image_tag "diver.png", class: "review-avatar"%><br>
+                  <%= image_tag "diver.png", class: "review-avatar avatar"%><br>
                 <% end %>
               <% end %>
             </div>
             <div class="col">
-              <% count = 0 %>
-              <% 5.times do %>
-                <% if review.rating > count %>
-                  <i class="fa-solid fa-star star-color"></i>
-                <% else %>
-                  <i class="fa-regular fa-star star-color"></i>
+              <div class="d-flex">
+                <% count = 0 %>
+                <% 5.times do %>
+                  <% if review.rating > count %>
+                    <i class="fa-solid fa-star star-color"></i>
+                  <% else %>
+                    <i class="fa-regular fa-star star-color"></i>
+                  <% end %>
+                    <% count += 1 %>
                 <% end %>
-                  <% count += 1 %>
-              <% end %>
+              </div>
             </div>
           </div>
-          <h4 class="pt-4 pb-2 text-dark"><%= link_to "#{review.user.first_name} #{review.user.last_name}", profile_path(review.user.id) %></h4>
+          <h4 class="pt-2 text-dark"><%= link_to "#{review.user.first_name} #{review.user.last_name}", profile_path(review.user.id) %></h4>
           <h6 class="fw-bold">Highlights:</h6> <p><%= review.highlight %></p>
           <h6  class="fw-bold">Tips:</h6> <p><%= review.tips %></p>
-          <p class="pb-3">Reviewed on <%= review.created_at.strftime('%b %d %Y') %></p>
+          <p class="">Reviewed on <%= review.created_at.strftime('%b %d %Y') %></p>
             <% if user_signed_in? %>
               <% if review.user.id == current_user.id %>
                 <%= link_to "Edit", edit_review_path(review) %> ・ <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
