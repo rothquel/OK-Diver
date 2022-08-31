@@ -5,26 +5,44 @@
     <%# <p class="d-flex justify-content-center">Dive site name: <%= link_to @log.dive_site.name, dive_site_path(@log.dive_site) %></p>
     <div class="d-flex justify-content-center">
       <div class="row">
-        <div class="d-flex justify-content-between" style="width: 600px">
-          <div class="col-5 flex-grow-1 border">
-            <p>Dive date: <%= @log.date %></p>
-            <p>Dive depth: <%= @log.depth %></p>
-            <p>Dive water temperature: <%= @log.water_temp %></p>
+        <div class="d-flex justify-content-between pb-4" style="width: 600px">
+          <div class="col-5 flex-grow-1">
+            <div class="icons-show-log">
+              <i class="fa-regular fa-calendar"></i>
+              <p>Dive date: <%= @log.date %></p>
+            </div>
+            <div class="icons-show-log">
+              <i class="fa-regular fa-clock"></i>
+              <p>Dive time in: <%= @log.time_in.strftime('%H:%M') %></p>
+            </div>
+            <div class="icons-show-log">
+              <i class="fa-solid fa-arrow-down"></i>
+              <p>Dive depth: <%= @log.depth %> m</p>
+            </div>
           </div>
-          <div class="col-5 flex-grow-1 border">
-            <p>Dive time in: <%= @log.time_in %></p>
-            <p>Dive time out: <%= @log.time_out %></p>
+          <div class="col-5 flex-grow-1">
+            <div class="icons-show-log">
+              <i class="fa-solid fa-temperature-half"></i>
+              <p>Dive water temperature: <%= @log.water_temp %> °C</p>
+            </div>
+            <div class="icons-show-log">
+              <i class="fa-regular fa-clock"></i>
+              <p>Dive time out: <%= @log.time_out.strftime('%H:%M') %></p>
+            </div>
+            <div class="icons-show-log">
+              <i class="fa-regular fa-comment"></i>
+              <p class="overflow-auto">Dive comments: <%= @log.comments %></p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <p class="d-flex justify-content-center py-4">Dive comments: <%= @log.comments %></p>
     <div class="show-log-pic d-flex justify-content-center">
       <% if @log.photo.present? %>
         <%= cl_image_tag @log.photo.key, :height=>400, :width=>600, :crop=>"fill", :quality=>100 %><br>
       <% else %>
-        <% if @log.dive_site.photo.present? %>%
-          <%= cl_image_tag @log.dive_site.photo.key,  :height=>400, :width=>600, :crop=>"fill", :quality=>100 %>
+        <% if @log.dive_site.photos.first.present? %>%
+          <%= cl_image_tag @log.dive_site.photos.first.key,  :height=>400, :width=>600, :crop=>"fill", :quality=>100 %>
         <% else %>
           <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" width="600" height="600">
         <% end %>

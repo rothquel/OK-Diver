@@ -107,14 +107,15 @@
   width: 200px;
   box-shadow: 0px 4px 15px #FF9E00;
   border-radius: 8px;
-  padding: 10px 16px;
+  padding: 26px 16px;
   gap: 10px;
   text-align: center;
   justify-content: center;
   color: $white;
   text-decoration: none;
   font-family: $headers-font;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 18px;
   display: flex;
   align-items: center;
   margin: 0 auto;
@@ -122,9 +123,12 @@
   border-style: none;
   transition: all 0.5s;
   max-height: 50px;
-  color: #FFFFFF
+  color: #FFFFFF !important;
 }
 
+.a-forcing {
+  color: #FFFFFF !important;
+}
 .explore-button-hero a:hover {
   color: #FFFFFF !important;
 }
@@ -160,6 +164,7 @@
 #search_query.form-control.string.required {
   // padding-left: 34px;
   padding: 40px 20px 40px 34px;
+  font-size: 20px;
 }
 // #search_query::-webkit-input-placeholder {
 // padding-left: 34px;
@@ -196,6 +201,39 @@
 
 .fa-heart::after {
   color: #FF9E00;
+}
+
+.fa-calendar {
+  color: #023E8A;
+  margin-right: 5px;
+  // background-color: transparent;
+  // display: flex;
+  // align-items: center;
+}
+
+.fa-arrow-down {
+  color: #023E8A;
+  margin-right: 5px;
+}
+
+.fa-temperature-half {
+  color: #023E8A;
+  margin-right: 5px;
+}
+
+.fa-clock {
+  color: #023E8A;
+  margin-right: 5px;
+}
+
+.fa-comment{
+  color: #023E8A;
+  margin-right: 5px;
+}
+
+.icons-show-log{
+  display: flex;
+  align-items: baseline;
 }
 
 .button-white {

@@ -23,6 +23,7 @@
     <div class="name-bar">
       <h2><%= @user.first_name %> <%= @user.last_name %></h2>
       <% home_country = ISO3166::Country.new(@user.country) %>
+
       <h4><%= home_country %></h4>
     </div>
     <div class="container">
@@ -68,24 +69,24 @@
     </div>
     <div class="row">
       <div class="col-5">
-        <div class="overflow-auto">
+        <div class="">
           <% @user.logs.each do |log| %>
             <div class="col-3 card-index mb-3">
               <%# teamfrontend - put the card in here %>
               <% if log.photo.present? %>
-                <%= cl_image_tag log.photo.key, :height=>400, :width=>600, :crop=>"fill", :quality=>100 %>
+                <%= cl_image_tag log.photo.key, :height=>200, :width=>400, :crop=>"fill", :quality=>100, class: "card-img-top" %>
               <% else %>
-                <% if log.dive_site.photos.present? %>
-                  <img src="<%= log.dive_site.photos.first.key %>" height="400" width="100%">
+                <% if log.dive_site.photos.first.present? %>
+                  <%= cl_image_tag log.dive_site.photos.first.key, :height=>200, :width=>400, :crop=>"fill", :quality=>100, class: "card-img-top" %>
                 <% else %>
-                  <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" height="100" width="100%">
+                  <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" height="200" width="400" class="card-img-top">
                 <% end %>
               <% end %>
 
               <div class="card-index-infos p-3">
                 <div class="card-index-alignment">
                   <div>
-                    <p><% site_country = ISO3166::Country.new(log.dive_site.country) %></p>
+                    <p><% site_country = ISO3166::Country.new(log.dive_site.country_iso) %></p>
                     <p><%= log.dive_site.city %>, <%= site_country %></p>
                     <h2><%= log.dive_site.name %></h2>
                     <p><%= log.date.strftime('%b %d %Y') %></p>

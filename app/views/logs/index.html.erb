@@ -7,14 +7,18 @@
     <div class="container">
       <div class="row">
          <% @my_logs.each do |log| %>
-          <% dive_site_country = ISO3166::Country.new(log.dive_site.country) %>
+            <% if log.dive_site.country.length == 2 %>
+              <% dive_site_country = ISO3166::Country.new(log.dive_site.country) %>
+            <% else %>
+              <% dive_site_country = ISO3166::Country.new(log.dive_site.country_iso) %>
+            <% end %>
           <div class="col-6">
             <div class="card mb-3">
               <% if log.photo.present? %>
                 <%= cl_image_tag log.photo.key, :height=>200, :width=>400, :crop=>"fill", :quality=>100, class: "card-img-top" %>
               <% else %>
-                <% if log.dive_site.photo.present? %>
-                  <%= cl_image_tag log.dive_site.photo.key, :height=>200, :width=>400, :crop=>"fill", :quality=>100, class: "card-img-top" %>
+                <% if log.dive_site.photos.first.present? %>
+                  <%= cl_image_tag log.dive_site.photos.first.key, :height=>200, :width=>400, :crop=>"fill", :quality=>100, class: "card-img-top" %>
                 <% else %>
                   <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" height="200" width="400" class="card-img-top">
                 <% end %>

@@ -16,6 +16,8 @@
       <%= f.input :description %>
       <%= f.input :dive_type, collection: DiveSite::TYPE %>
       <%= f.input :level, collection: DiveSite::PROFICIENCY %>
+      <%= f.input :tag, collection: Tag.all, input_html: { multiple: true }, include_hidden: false %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <div class="text-end py-5">
       <%= f.submit :"Create Dive Site", class: 'register-button' %>
       </div>
