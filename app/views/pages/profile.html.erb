@@ -93,7 +93,7 @@
                     <p><% length_seconds = log.time_out - log.time_in %></p>
                     <p><% length = length_seconds / 60 %></p>
                     <p>Length: <%= length.to_i %> minutes</p>
-                    <p>Depth: <%= log.depth %> feet</p>
+                    <p>Depth: <%= log.depth %> m</p>
                   </div>
                   <div>
                     <% if @user.id == current_user.id %>

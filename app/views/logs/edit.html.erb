@@ -1,3 +1,6 @@
-<h1>Edit a log</h1>
-
-<%= render "form", log: @log %>
+<div class="container py-5">
+  <h2 class="text-center fw-bold pb-3">Edit your log at <%= @log.dive_site.name %></h2>
+  <div class="d-flex justify-content-center">
+    <%= render "form", log: @log %>
+  </div>
+</div>

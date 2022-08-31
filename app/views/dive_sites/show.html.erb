@@ -134,7 +134,7 @@
   <div class="row">
     <% @dive_site.reviews.each do |review|  %>
       <div class="col-3 mb-3">
-        <div class="review-card">
+        <div class="review-card" style="height: 400px">
           <div class="row">
             <div class="col">
               <%= link_to profile_path(review.user.id) do %>
@@ -161,11 +161,11 @@
           <h6 class="fw-bold">Highlights:</h6> <p><%= review.highlight %></p>
           <h6  class="fw-bold">Tips:</h6> <p><%= review.tips %></p>
           <p class="pb-3">Reviewed on <%= review.created_at.strftime('%b %d %Y') %></p>
-          <% if user_signed_in? %>
-            <% if review.user.id == current_user.id %>
-              <%= link_to "Edit", edit_review_path(review) %> ・ <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <% if user_signed_in? %>
+              <% if review.user.id == current_user.id %>
+                <%= link_to "Edit", edit_review_path(review) %> ・ <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+              <% end %>
             <% end %>
-          <% end %>
         </div>
       </div>
     <% end %>
@@ -174,7 +174,7 @@
 <div class="container py-5">
   <h2 class="fw-bold pb-5">Other great dive sites in <%= dive_site_country %>:</h2>
   <div class="row">
-    <% close_sites = @dive_sites.where(country: @dive_site.country) %>
+    <% close_sites = @dive_sites.where(country: @dive_site.country)[0..3] %>
     <% close_sites.each do |dive_site| %>
       <div class="col-3">
         <div class="card">
@@ -187,10 +187,10 @@
               <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" class="card-img-top close-sites-image">
             <% end %>
           <% end %>
-          <div class="card-body">
+          <div class="card-body" style="height: 150px">
             <h3 class="card-title fw-bold"><%= dive_site.name %></h3>
-            <p class="card-text"><%= dive_site.description %></p>
-            <%= link_to "Learn More", dive_site_path(dive_site), class: "btn btn-primary" %>
+            <p class="card-text"><%= dive_site.description.first(10) %></p>
+            <%= link_to "Learn More", dive_site_path(dive_site), class: "tag" %>
           </div>
         </div>
       </div>
