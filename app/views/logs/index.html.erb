@@ -48,3 +48,54 @@
     </div>
   </div>
 </div>
+
+<%# <div class="container py-5">
+  <h2 class="text-center fw-bold">My logs</h2>
+</div> %>
+
+<div class="top-bar mb-logs">
+  <h1>My logs</h1>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <div class="container">
+      <div class="row">
+         <% @my_logs.each do |log| %>
+            <% if log.dive_site.country.length == 2 %>
+              <% dive_site_country = ISO3166::Country.new(log.dive_site.country) %>
+            <% else %>
+              <% dive_site_country = ISO3166::Country.new(log.dive_site.country_iso) %>
+            <% end %>
+          <div class="col-6">
+            <div class="card mb-3">
+              <% if log.photo.present? %>
+                <%= cl_image_tag log.photo.key, :height=>200, :width=>400, :crop=>"fill", :quality=>100, class: "card-img-top" %>
+              <% else %>
+                <% if log.dive_site.photos.first.present? %>
+                  <%= cl_image_tag log.dive_site.photos.first.key, :height=>200, :width=>400, :crop=>"fill", :quality=>100, class: "card-img-top" %>
+                <% else %>
+                  <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" height="200" width="400" class="card-img-top">
+                <% end %>
+              <% end %>
+              <div class="card-body bg-white rounded-bottom text-dark pb-1">
+                <p class="card-text mb-1"><%= log.dive_site.city %>, <%= dive_site_country %>
+                <h5 class="card-title fw-bold mb-0">Log at <%= log.dive_site.name %></h5>
+                <%# < class="card-text">Dive number <%= log.dive_number %>
+                <p class="card-text">Date: <%= log.date %></p>
+                <h5 class="d-flex align-text-center justify-content-end"><%= link_to "View log", log_path(log), class: "btn btn-warning text-white fw-bold" %></h5>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+</div>
