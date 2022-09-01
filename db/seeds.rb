@@ -568,7 +568,8 @@ puts "dive site tags created"
 kieran = URI.open("https://res.cloudinary.com/dbb3sntqk/image/upload/v1661974486/james-thornton-8VoDyBDvv0k-unsplash_egzyli.jpg")
 marielle = URI.open("https://res.cloudinary.com/dbb3sntqk/image/upload/v1661974947/francisco-jesus-navarro-hernandez-KzkL5-P1fDU-unsplash_todx71.jpg")
 matt = URI.open("https://res.cloudinary.com/dbb3sntqk/image/upload/v1661974952/sebastian-pena-lambarri-W5ODK261mLY-unsplash_ng9blq.jpg")
-
+anais = URI.open("https://res.cloudinary.com/dg7mx0hnl/image/upload/v1662056695/T02NE0241-U03N82KV11P-306b8c200ec5-512_peo6kf.jpg")
+nic = URI.open("https://res.cloudinary.com/dg7mx0hnl/image/upload/v1662056705/nicfamily_gdtahe.jpg")
 # seeding users
 
 puts "creating users"
@@ -611,6 +612,27 @@ matt_user = User.create(
 matt_user.photo.attach(io: matt, filename: "okdiver-image.png", content_type: "image/png")
 matt_user.save!
 puts "#{matt_user.first_name} created"
+
+anais_user = User.create(
+  email: "a@a.a",
+  password: "123456",
+  first_name: "Anais",
+  last_name: "Roger"
+)
+anais_user.photo.attach(io: anais, filename: "okdiver-image.png", content_type: "image/png")
+anais_user.save!
+puts "#{anais_user.first_name} created"
+
+
+nic_user = User.create(
+  email: "b@b.b",
+  password: "123456",
+  first_name: "Nic",
+  last_name: "Rothquel"
+)
+nic_user.photo.attach(io: nic, filename: "okdiver-image.png", content_type: "image/png")
+nic_user.save!
+puts "#{nic_user.first_name} created"
 
 # create reviews for the users
 kieran_review_a = Review.new(
@@ -693,5 +715,32 @@ matt_review_c = Review.new(
 matt_review_c.user = matt_user
 matt_review_c.dive_site = site3
 matt_review_c.save!
+
+nic_review_a = Review.new(
+  rating: 5,
+  highlight: "So many fish!!",
+  tips: "Bring lots of snacks"
+)
+nic_review_a.user = nic_user
+nic_review_a.dive_site = site2
+nic_review_a.save!
+
+nic_review_b = Review.new(
+  rating: 5,
+  highlight: "Such a beautiful dive!",
+  tips: "Watch out for the fire coral"
+)
+nic_review_b.user = nic_user
+nic_review_b.dive_site = site1
+nic_review_b.save!
+
+nic_review_c = Review.new(
+  rating: 5,
+  highlight: "The stingrays were huge!",
+  tips: "Take plenty of water!"
+)
+nic_review_c.user = nic_user
+nic_review_c.dive_site = site3
+nic_review_c.save!
 
 puts "reviews created"

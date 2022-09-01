@@ -64,12 +64,12 @@
       <% if @user.id == current_user.id %>
       <h2>Your dives:<h2>
       <% else %>
-      <h2><%= @user.first_name %>'s dives:<h2>
+      <h2 class="text-center"><%= @user.first_name %>'s dives:<h2>
       <% end %>
     </div>
     <div class="row">
       <div class="col-5">
-        <div class="">
+        <div>
           <% @user.logs.each do |log| %>
             <div class="col-3 card-index mb-3">
               <%# teamfrontend - put the card in here %>
@@ -86,8 +86,12 @@
               <div class="card-index-infos p-3">
                 <div class="card-index-alignment">
                   <div>
-                    <p><% site_country = ISO3166::Country.new(log.dive_site.country_iso) %></p>
-                    <p><%= log.dive_site.city %>, <%= site_country %></p>
+                    <% if log.dive_site.country.length == 2 %>
+                      <% dive_site_country = ISO3166::Country.new(log.dive_site.country) %>
+                    <% else %>
+                      <% dive_site_country = ISO3166::Country.new(log.dive_site.country_iso) %>
+                    <% end %>
+                    <p><%= dive_site_country %>, <%= log.dive_site.city %></p>
                     <h2><%= log.dive_site.name %></h2>
                     <p><%= log.date.strftime('%b %d %Y') %></p>
                     <p><% length_seconds = log.time_out - log.time_in %></p>
