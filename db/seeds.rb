@@ -364,7 +364,32 @@ dst.save!
 
 dst = DiveSiteTag.new
 dst.dive_site = site1
+dst.tag = tags[5]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site1
+dst.tag = tags[7]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site1
 dst.tag = tags[3]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site1
+dst.tag = tags[9]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site1
+dst.tag = tags[10]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site1
+dst.tag = tags[12]
 dst.save!
 
 # 2
@@ -383,7 +408,47 @@ dst.dive_site = site2
 dst.tag = tags[6]
 dst.save!
 
+dst = DiveSiteTag.new
+dst.dive_site = site2
+dst.tag = tags[2]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site2
+dst.tag = tags[8]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site2
+dst.tag = tags[13]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site2
+dst.tag = tags[14]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site2
+dst.tag = tags[15]
+dst.save!
+
 # 3
+dst = DiveSiteTag.new
+dst.dive_site = site3
+dst.tag = tags[2]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site3
+dst.tag = tags[4]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site3
+dst.tag = tags[5]
+dst.save!
+
 dst = DiveSiteTag.new
 dst.dive_site = site3
 dst.tag = tags[7]
@@ -399,20 +464,55 @@ dst.dive_site = site3
 dst.tag = tags[9]
 dst.save!
 
-# 4
 dst = DiveSiteTag.new
-dst.dive_site = site4
-dst.tag = tags[10]
-dst.save!
-
-dst = DiveSiteTag.new
-dst.dive_site = site4
+dst.dive_site = site3
 dst.tag = tags[11]
 dst.save!
 
 dst = DiveSiteTag.new
+dst.dive_site = site3
+dst.tag = tags[13]
+dst.save!
+
+# 4
+dst = DiveSiteTag.new
 dst.dive_site = site4
-dst.tag = tags[12]
+dst.tag = tags[0]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site4
+dst.tag = tags[1]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site4
+dst.tag = tags[3]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site4
+dst.tag = tags[2]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site4
+dst.tag = tags[4]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site4
+dst.tag = tags[6]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site4
+dst.tag = tags[9]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site4
+dst.tag = tags[14]
 dst.save!
 
 
@@ -432,6 +532,26 @@ dst.dive_site = site5
 dst.tag = tags[3]
 dst.save!
 
+dst = DiveSiteTag.new
+dst.dive_site = site5
+dst.tag = tags[4]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site5
+dst.tag = tags[6]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site5
+dst.tag = tags[11]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site5
+dst.tag = tags[13]
+dst.save!
+
 # 6
 dst = DiveSiteTag.new
 dst.dive_site = site6
@@ -446,6 +566,31 @@ dst.save!
 dst = DiveSiteTag.new
 dst.dive_site = site6
 dst.tag = tags[3]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site6
+dst.tag = tags[5]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site6
+dst.tag = tags[7]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site6
+dst.tag = tags[9]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site6
+dst.tag = tags[13]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site6
+dst.tag = tags[15]
 dst.save!
 
 # 7
@@ -464,6 +609,31 @@ dst.dive_site = site7
 dst.tag = tags[3]
 dst.save!
 
+dst = DiveSiteTag.new
+dst.dive_site = site7
+dst.tag = tags[6]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site7
+dst.tag = tags[8]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site7
+dst.tag = tags[10]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site7
+dst.tag = tags[13]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site7
+dst.tag = tags[15]
+dst.save!
+
 # 8
 dst = DiveSiteTag.new
 dst.dive_site = site8
@@ -472,12 +642,37 @@ dst.save!
 
 dst = DiveSiteTag.new
 dst.dive_site = site8
-dst.tag = tags[2]
+dst.tag = tags[1]
 dst.save!
 
 dst = DiveSiteTag.new
 dst.dive_site = site8
 dst.tag = tags[3]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site8
+dst.tag = tags[4]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site8
+dst.tag = tags[6]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site8
+dst.tag = tags[8]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site8
+dst.tag = tags[10]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site8
+dst.tag = tags[11]
 dst.save!
 
 # 9
@@ -493,7 +688,32 @@ dst.save!
 
 dst = DiveSiteTag.new
 dst.dive_site = site9
-dst.tag = tags[3]
+dst.tag = tags[4]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site9
+dst.tag = tags[5]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site9
+dst.tag = tags[7]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site9
+dst.tag = tags[11]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site9
+dst.tag = tags[13]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site9
+dst.tag = tags[14]
 dst.save!
 
 # 10
@@ -512,20 +732,90 @@ dst.dive_site = site10
 dst.tag = tags[3]
 dst.save!
 
-# 11
 dst = DiveSiteTag.new
-dst.dive_site = site11
-dst.tag = tags[0]
+dst.dive_site = site10
+dst.tag = tags[4]
 dst.save!
 
 dst = DiveSiteTag.new
+dst.dive_site = site10
+dst.tag = tags[5]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site10
+dst.tag = tags[6]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site10
+dst.tag = tags[7]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site10
+dst.tag = tags[9]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site10
+dst.tag = tags[12]
+dst.save!
+
+# 11
+dst = DiveSiteTag.new
 dst.dive_site = site11
-dst.tag = tags[2]
+dst.tag = tags[1]
 dst.save!
 
 dst = DiveSiteTag.new
 dst.dive_site = site11
 dst.tag = tags[3]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site11
+dst.tag = tags[5]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site11
+dst.tag = tags[6]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site11
+dst.tag = tags[8]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site11
+dst.tag = tags[10]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site11
+dst.tag = tags[11]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site11
+dst.tag = tags[13]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site11
+dst.tag = tags[14]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site11
+dst.tag = tags[15]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site11
+dst.tag = tags[7]
 dst.save!
 
 # 12
@@ -544,6 +834,41 @@ dst.dive_site = site12
 dst.tag = tags[3]
 dst.save!
 
+dst = DiveSiteTag.new
+dst.dive_site = site12
+dst.tag = tags[4]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site12
+dst.tag = tags[5]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site12
+dst.tag = tags[6]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site12
+dst.tag = tags[7]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site12
+dst.tag = tags[8]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site12
+dst.tag = tags[9]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site12
+dst.tag = tags[10]
+dst.save!
+
 # 13
 dst = DiveSiteTag.new
 dst.dive_site = site13
@@ -560,8 +885,41 @@ dst.dive_site = site13
 dst.tag = tags[3]
 dst.save!
 
-puts "dive site tags created"
+dst = DiveSiteTag.new
+dst.dive_site = site13
+dst.tag = tags[4]
+dst.save!
 
+dst = DiveSiteTag.new
+dst.dive_site = site13
+dst.tag = tags[5]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site13
+dst.tag = tags[6]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site13
+dst.tag = tags[7]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site13
+dst.tag = tags[8]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site13
+dst.tag = tags[10]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site13
+dst.tag = tags[11]
+dst.save!
+puts "dive site tags created"
 
 # cloudinary images for users seeds
 
