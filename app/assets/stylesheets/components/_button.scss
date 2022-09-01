@@ -89,6 +89,17 @@
   padding: 8px 12px;
 }
 
+#button-card-index {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#button-card-index-size {
+  width: 115px;
+  font-size: 14px !important;
+  padding: 12px 8px;
+}
+
 .explore-button a {
   font-family: 'Poppins';
   font-style: normal;
