@@ -42,5 +42,4 @@ class DiveSite < ApplicationRecord
   def average_rating
     reviews.average(:rating).to_i || 0
   end
-
 end
