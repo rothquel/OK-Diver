@@ -5,7 +5,8 @@
 <div class="container py-5">
   <div class="show-log-card p-5">
       <%# <h4 class="text-center fw-normal pb-3"> Dive Site > Log Details > <span class="current_spot">Review</span></h4> %>
-      <h4 class="text-center fw-normal pb-3"> <%= link_to "Dive Site", new_dive_site_path(@dive_site, breadcrumb: 'review'), class:"breadcrumb-link" %> > <%= link_to "Log Details", new_dive_site_log_path(@dive_site), class:"breadcrumb-link" %> > <span class="current_spot"><%= link_to "Review", new_dive_site_review_path(@dive_site), class:"breadcrumb-link" %></span></h4>
+      <h4 class="text-center fw-normal pb-3"> <%= link_to "Dive Site", new_dive_site_path(@dive_site, breadcrumb: 'review'), class:"breadcrumb-link" %> >
+      <%= link_to "Log Details", new_dive_site_log_path(@dive_site, breadcrumb: 'review'), class:"breadcrumb-link" %> > <span class="current_spot"><%= link_to "Review", new_dive_site_review_path(@dive_site), class:"breadcrumb-link" %></span></h4>
     <div class="d-flex justify-content-center mt-4">
       <%= render "form", review: @review %>
     </div>

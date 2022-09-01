@@ -41,7 +41,12 @@ class LogsController < ApplicationController
   def update
     @log = Log.find(params[:id])
     @log.update(log_params)
-    redirect_to log_path(@log)
+
+    if params[:breadcrumb] == 'log-details'
+      redirect_to new_dive_site_log_path(@log)
+    else
+      redirect_to log_path(@log)
+    end
   end
 
 

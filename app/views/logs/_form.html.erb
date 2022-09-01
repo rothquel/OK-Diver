@@ -29,5 +29,7 @@
   <div class="text-end py-5">
     <%= f.submit class: 'register-button' %>
   </div>
+    <%= hidden_field_tag 'breadcrumb', params[:breadcrumb] %>
+
   <% end %>
 </div>
