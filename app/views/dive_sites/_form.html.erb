@@ -2,13 +2,13 @@
   <div data-controller="create-site-map"
     data-create-site-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     <%= simple_form_for(@dive_site) do |f| %>
-    <p>If you know the GPS co-ordinates of your dive enter them here, or pinpoint your dive site on the map below</p>
-      <%= f.input :latitude, input_html: { data: { create_site_map_target: "latitude" } } %>
-      <%= f.input :longitude, input_html: { data: { create_site_map_target: "longitude" } } %>
+    <p class="text-center">Pinpoint your dive site on the map below</p>
+      <%= f.input :latitude, :as => :hidden, input_html: { data: { create_site_map_target: "latitude" } } %>
+      <%= f.input :longitude, :as => :hidden, input_html: { data: { create_site_map_target: "longitude" } } %>
     <div class="border-radius" style="width: 100%; height: 600px;"
       data-create-site-map-target="map">
-      </div>
-<div>
+    </div>
+    <div class="pt-3">
       <%= f.input :country %>
       <%= f.input :city %>
       <%= f.input :name %>
@@ -18,9 +18,9 @@
       <%= f.input :tags, collection: Tag.all, input_html: { multiple: true }, include_hidden: false, as: :check_boxes, input_html: { class: "form-tag-selector" }, item_wrapper_class: 'form-tag-item'  %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <div class="text-end py-5">
-      <%= f.submit :"Create Dive Site", class: 'register-button' %>
+        <%= f.submit :"Create Dive Site", class: 'register-button' %>
       </div>
+    </div>
     <% end %>
   </div>
-</div>
 </div>

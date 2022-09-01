@@ -118,13 +118,11 @@
     </div>
     <div class="col-6">
       <h4 class="fw-bold pb-5">Features other divers have seen at this site:</h4>
-      <div class="show-tag-bg">
-        <ul class="mb-3 show-tag-center">
+      <div class="show-tag-bg d-flex justify-content-center align-items-center h-50">
           <% if @dive_site.tags.each do |tag| %>
-              <li class="show-tag"><%= tag.name%></li>
+              <div class="show-tag"><%= tag.name%></div>
             <% end %>
           <% end %>
-        </ul>
       </div>
     </div>
 

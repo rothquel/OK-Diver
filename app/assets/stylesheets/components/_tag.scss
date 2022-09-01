@@ -1,8 +1,8 @@
 .show-tag {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   border-radius: 50rem;
-  padding: 0.1rem 0.5rem;
+  padding: 0.2rem 0.6rem;
   background-color: #FF9E00;
   color: #ffffff;
   border: 1px solid #FF9E00;
@@ -36,17 +36,17 @@
 .form-tag-selector + label {
   cursor: pointer;
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   border-radius: 50rem;
-  padding: 0.1rem 0.5rem;
-  background-color: #E5F1F8;
-  color: #023E8A;
-  border: 1px solid #023E8A;
+  padding: 0.2rem 0.6rem;
+  background-color: #FFE6BF;
+  color: #FF9E00;
+  border: 1px solid #FF9E00;
   margin-right: 0.6rem;
   margin-bottom: 0.4rem;
 }
 
 .form-tag-selector:checked + label {
-  background-color: #023E8A;
+  background-color: #FF9E00;
   color: white;
 }
