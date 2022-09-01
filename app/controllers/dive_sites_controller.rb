@@ -86,7 +86,12 @@ class DiveSitesController < ApplicationController
   end
 
   def new
-    @dive_site = DiveSite.new
+    if params[:format].present?
+      @dive_site = DiveSite.find(params[:format])
+    else
+      @dive_site = DiveSite.new
+    end
+    # raise
   end
 
   def create
@@ -102,6 +107,17 @@ class DiveSitesController < ApplicationController
       redirect_to new_dive_site_log_path(@dive_site)
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @dive_site = DiveSite.find(params[:id])
+    @dive_site.update(dive_site_params)
+
+    if params[:breadcrumb] == 'review'
+      redirect_to new_dive_site_review_path(@dive_site)
+    else
+      redirect_to new_dive_site_log_path(@dive_site)
     end
   end
 

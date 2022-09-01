@@ -1,3 +1,11 @@
 .current_spot{
   color: $navy-blue;
 }
+
+.breadcrumb-link {
+  color: inherit;
+}
+
+.breadcrumb-link:hover {
+  color: #1C3E8A;
+}
