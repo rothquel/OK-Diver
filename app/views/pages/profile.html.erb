@@ -64,12 +64,12 @@
       <% if @user.id == current_user.id %>
       <h2>Your dives:<h2>
       <% else %>
-      <h2><%= @user.first_name %>'s dives:<h2>
+      <h2 class="text-center"><%= @user.first_name %>'s dives:<h2>
       <% end %>
     </div>
     <div class="row">
       <div class="col-5">
-        <div class="">
+        <div>
           <% @user.logs.each do |log| %>
             <div class="col-3 card-index mb-3">
               <%# teamfrontend - put the card in here %>
