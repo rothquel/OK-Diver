@@ -15,6 +15,7 @@ class ConversationsController < ApplicationController
   def create
     @recipient = User.find(params[:user_id])
     receipt = current_user.send_message(@recipient, params[:body], params[:subject])
+    @recipient.notify("Hi","Bob has just viewed your profile!")
     redirect_to conversation_path(receipt.conversation)
   end
 end

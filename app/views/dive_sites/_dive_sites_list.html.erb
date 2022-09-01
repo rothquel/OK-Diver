@@ -49,7 +49,7 @@
         <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
         <ul class="card-index-tags mb-3">
           <% if dive_site.tags.each_with_index do |tag, index| %>
-            <li class="tag"><%= tag.name%></li>
+            <li class="show-tag"><%= tag.name%></li>
             <% break if index == 3 %>
             <% end %>
           <% end %>

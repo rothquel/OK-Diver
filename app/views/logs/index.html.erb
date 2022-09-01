@@ -27,12 +27,12 @@
                   <img src="https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661440322/sebastian-pena-lambarri-7i5HMCGupVw-unsplash_a5d3st.jpg" height="200" width="400" class="card-img-top">
                 <% end %>
               <% end %>
-              <div class="card-body">
-                <p class="card-text"><%= log.dive_site.city %>, <%= dive_site_country %>
-                <h5 class="card-title fw-bold">Log at <%= log.dive_site.name %></h5>
+              <div class="card-body bg-white rounded-bottom text-dark pb-1">
+                <p class="card-text mb-1"><%= log.dive_site.city %>, <%= dive_site_country %>
+                <h5 class="card-title fw-bold mb-0">Log at <%= log.dive_site.name %></h5>
                 <%# < class="card-text">Dive number <%= log.dive_number %>
                 <p class="card-text">Date: <%= log.date %></p>
-                <h5><%= link_to "View log", log_path(log), class: "btn btn-warning text-white fw-bold" %></h5>
+                <h5 class="d-flex align-text-center justify-content-end"><%= link_to "View log", log_path(log), class: "btn btn-warning text-white fw-bold" %></h5>
               </div>
             </div>
           </div>
