@@ -1,5 +1,5 @@
 <%= link_to "Back to all conversations", conversations_path, class:"d-flex px-5 py-5" %>
-<div class="container w-75 py-5">
+<div class="container w-75">
   <h2 class="text-center fw-bold pb-5"><%= @conversation.subject %></h2>
   <div class="list-group mb-5">
     <% @conversation.receipts_for(current_user).order(created_at: :asc).each do |receipt| %>
@@ -15,7 +15,7 @@
     <div>
       <%= text_area_tag :body, nil, placeholder: "Reply...", class: 'form-control' %>
     </div>
-    <div class="row pt-3 text-end">
+    <div class="row pt-5 py-5 text-end">
       <div>
         <%= submit_tag "Send", class: "register-button"%>
       </div>
