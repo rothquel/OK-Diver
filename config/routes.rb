@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:edit, :update, :destroy]
 
-  resources :dive_sites, only: [:new, :create, :index, :show], path: '/dive-sites' do
+  resources :dive_sites, only: [:new, :create, :index, :show, :update], path: '/dive-sites' do
     resources :reviews, only: [:new, :create]
     resources :logs, only: [:new, :create, :edit, :update]
   end
@@ -31,6 +31,4 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-  # get 'dive-sites/', to: 'appointments#my_agent_appointments'
-
 end
