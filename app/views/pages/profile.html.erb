@@ -86,8 +86,12 @@
               <div class="card-index-infos p-3">
                 <div class="card-index-alignment">
                   <div>
-                    <p><% site_country = ISO3166::Country.new(log.dive_site.country_iso) %></p>
-                    <p><%= log.dive_site.city %>, <%= site_country %></p>
+                    <% if log.dive_site.country.length == 2 %>
+                      <% dive_site_country = ISO3166::Country.new(log.dive_site.country) %>
+                    <% else %>
+                      <% dive_site_country = ISO3166::Country.new(log.dive_site.country_iso) %>
+                    <% end %>
+                    <p><%= dive_site_country %>, <%= log.dive_site.city %></p>
                     <h2><%= log.dive_site.name %></h2>
                     <p><%= log.date.strftime('%b %d %Y') %></p>
                     <p><% length_seconds = log.time_out - log.time_in %></p>

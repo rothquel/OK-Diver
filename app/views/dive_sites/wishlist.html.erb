@@ -10,6 +10,11 @@
       <div class="card-box flex-d" data-controller="toggle-favorite">
         <div class="card-content--box flex-grow-1">
           <div class="flex-d card-content--location">
+            <% if dive_site.country.length == 2 %>
+              <% dive_site_country = ISO3166::Country.new(dive_site.country) %>
+            <% else %>
+              <% dive_site_country = ISO3166::Country.new(dive_site.country_iso) %>
+            <% end %>
             <p><%= dive_site.country %>, <%= dive_site.city %></p>
           </div>
           <H2><%= dive_site.name %></H2>
