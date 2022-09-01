@@ -89,10 +89,22 @@
   padding: 8px 12px;
 }
 
+<<<<<<< HEAD
 #button-card-index-explore {
   width: 115px;
   font-size: 14px !important;
   padding: 10px 12px;
+=======
+#button-card-index {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#button-card-index-size {
+  width: 115px;
+  font-size: 14px !important;
+  padding: 12px 8px;
+>>>>>>> master
 }
 
 .explore-button a {
