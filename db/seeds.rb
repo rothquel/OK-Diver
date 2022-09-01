@@ -1,4 +1,5 @@
 require "open-uri"
+require_relative "seed_files/users"
 
 DiveSiteTag.delete_all
 Tag.delete_all
