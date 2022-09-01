@@ -1,6 +1,10 @@
 class LogsController < ApplicationController
   def new
-    @log = Log.new
+    if params[:log_id].present?
+      @log = Log.find(params[:log_id])
+    else
+      @log = Log.new
+    end
     @dive_site = DiveSite.find(params[:dive_site_id])
   end
 
@@ -11,7 +15,7 @@ class LogsController < ApplicationController
     @dive_site = DiveSite.find(params[:dive_site_id])
     @log.dive_site = @dive_site
     if @log.save
-      redirect_to new_dive_site_review_path(@dive_site)
+      redirect_to new_dive_site_review_path(@dive_site, log_id: @log.id)
     else
       render :new, status: :unprocessable_entity
     end
@@ -41,11 +45,16 @@ class LogsController < ApplicationController
   def update
     @log = Log.find(params[:id])
     @log.update(log_params)
-    redirect_to log_path(@log)
+
+    if params[:breadcrumb] == 'review'
+      redirect_to new_dive_site_review_path(params[:dive_site_id], log_id: @log.id)
+    else
+      redirect_to log_path(@log)
+    end
   end
 
-
   private
+
   def log_params
     params.require(:log).permit(:date, :dive_site_id, :dive_number, :depth, :time_in, :time_out, :air_temp, :water_temp, :bar_start, :bar_end, :wet_suit, :weight, :visibility, :comments, :dive_center, :photo)
   end

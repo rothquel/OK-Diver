@@ -1,5 +1,5 @@
 <div style="width:800px">
-  <%= simple_form_for [@dive_site, @log] do |f| %>
+  <%= simple_form_for [@dive_site, @log], method: @log.id ? :put : :post do |f| %>
   <div class="row">
     <div class="col-6">
       <%= f.input :date, html5: true %>
@@ -29,5 +29,6 @@
   <div class="text-end py-5">
     <%= f.submit class: 'register-button' %>
   </div>
+    <%= hidden_field_tag 'breadcrumb', params[:breadcrumb] %>
   <% end %>
 </div>

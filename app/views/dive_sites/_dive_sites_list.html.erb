@@ -43,14 +43,20 @@
             </div>
           </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div>
             <%= link_to "Learn More", dive_site_path(dive_site), class: "explore-button", id: "button-card-index-explore" %>
 =======
           <div>
             <%= link_to "Learn More", dive_site_path(dive_site), id: "button-card-index-size", class: "explore-button button-card-index-size" %>
 >>>>>>> master
+=======
+          <div>
+            <%= link_to "Learn More", dive_site_path(dive_site), id: "button-card-index-size", class: "explore-button button-card-index-size" %>
+>>>>>>> master
           </div>
         </div>
+        <p class="fw-bold pt-2"><%= dive_site.level %> · <%= dive_site.dive_type %></p>
         <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
         <ul class="card-index-tags mb-3">
           <% if dive_site.tags.each_with_index do |tag, index| %>

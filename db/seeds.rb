@@ -17,7 +17,7 @@ file_2_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661
 file_2_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/7_bvxtqs.jpg")
 file_2_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/2_f0csjk.jpg")
 file_2_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/1_opdhrb.jpg")
-file_3_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/3_i0hnmc.jpg")
+file_3_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891787/4_elykj2.jpg")
 file_3_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/4_llxfib.jpg")
 file_3_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661460002/IMG_9033-scaled_bhfwlc.webp")
 file_3_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891782/52_y2yxpl.jpg")
@@ -115,7 +115,7 @@ site3 = DiveSite.new(
   longitude: 130.533542633057,
   dive_type: DiveSite::TYPE[2],
   level: DiveSite::PROFICIENCY[1],
-  image: "https://res.cloudinary.com/dg7mx0hnl/image/upload/v1661219744/development/xi7rpzkhdyh35zte0rwqb8blz8ik.jpg"
+  image: "https://res.cloudinary.com/cloudinary972/image/upload/v1661891788/37_uynm4d.jpg"
 )
 site3.save!
 site3.photos.attach(io: file_3_1, filename: "okdiver-image.png", content_type: "image/png")
@@ -334,7 +334,7 @@ Phytoplankton
 Red\ algae
 Kelp
 Sharks
-Ship's\ wreck
+Shipwreck
 Reef
 Pipefish
 Lionfish

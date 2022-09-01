@@ -117,7 +117,7 @@ class DiveSitesController < ApplicationController
     if params[:breadcrumb] == 'review'
       redirect_to new_dive_site_review_path(@dive_site)
     else
-      redirect_to new_dive_site_log_path(@dive_site)
+    redirect_to new_dive_site_log_path(@dive_site)
     end
   end
 
