@@ -12,7 +12,6 @@
   border-radius: 8px;
   padding: 0 !important;
   margin-left: 10px;
-
 }
 
 .card-index-format {
@@ -69,7 +68,7 @@
   // background: #FFD1A2;
   // border: 2px solid #F49037;
   // border-radius: 8px;
-  height: 65%;
+  height: 60%;
   width: 100%;
   object-fit: cover;
 }
@@ -100,6 +99,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  // margin-bottom: 105px;
 }
 
 .card-index-infos .card-index-user {
@@ -116,8 +116,8 @@
   padding: 0px;
   // align-items: flex-start;
   // justify-content: center;
-  margin-top: 15px;
-  column-gap: 12px;
+  margin-top: 39px;
+  column-gap: 20px;
 }
 
 // wishlist card by marving
