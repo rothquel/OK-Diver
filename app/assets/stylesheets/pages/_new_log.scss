@@ -9,3 +9,7 @@
 .breadcrumb-link:hover {
   color: #1C3E8A;
 }
+
+
+.form-check-input.is-valid ~ .form-check-label {
+  color: #FF9E00 !important;}
