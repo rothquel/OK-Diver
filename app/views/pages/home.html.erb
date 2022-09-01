@@ -11,10 +11,10 @@
     id: "search_query",
     placeholder: "Where do you want to dive in?"
   %>
-    <button name="button" type="submit" class="explore-button-hero">
-      <%= submit_tag "EXPLORE NOW", name: nil, class: "a-forcing" %>
+    <%# <button name="button" type="submit" class="explore-button-hero"> %>
+      <%= submit_tag "EXPLORE NOW", name: nil, class: "a-forcing explore-button-hero" %>
      <%# <%= link_to "EXPLORE NOW", dive_sites_path, class:"a-forcing"%>
-    </button>
+    <%# </button> %>
   </div>
 <% end %>
 
@@ -30,7 +30,7 @@
     <h4 class="subheading my-5">Inspiration for your next dive</h4>
       <div class="row d-flex justify-content-around">
         <div class="col-3">
-        <a href="https://www.okdiver.com/dive-sites?country=hawaii&city=&dive_type=&level=&commit=Search">
+        <a href="https://www.okdiver.com/dive-sites?query=Philippines">
           <div class="card border-light">
             <img class="card-img-top" src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1661727336/nazarizal-mohammad-k5Z2AhnRwT8-unsplash_tcjffq.jpg" alt="Card image cap">
             <div class="card-body" id="card-1">
@@ -41,7 +41,7 @@
           </a>
         </div>
         <div class="col-3">
-          <a href="https://www.okdiver.com/dive-sites?country=martinique&city=&dive_type=&level=&commit=Search">
+          <a href="https://www.okdiver.com/dive-sites?query=iceland">
             <div class="card border-light" >
               <img class="card-img-top" src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1661790580/francesco-ungaro-lkFDqeMPlmI-unsplash_odxaju.jpg" alt="Card image cap">
               <div class="card-body" id="card-2">
@@ -53,7 +53,7 @@
 
         </div>
         <div class="col-3">
-          <a href="https://www.okdiver.com/dive-sites?country=colombia&city=&dive_type=&level=&commit=Search">
+          <a href="http://127.0.0.1:3000/dive-sites?country=mexico&city=&dive_type=&level=&commit=Search">
             <div class="card border-light">
               <img class="card-img-top" src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1661790390/federico-burgalassi-fqp8XPjIDeM-unsplash_udpeye.jpg" alt="Card image cap">
               <div class="card-body" id="card-3">
@@ -64,7 +64,7 @@
           </a>
         </div>
         <div class="col-3">
-          <a href="https://www.okdiver.com/dive-sites?country=saguenay&city=&dive_type=&level=&commit=Search">
+          <a href="http://127.0.0.1:3000/dive-sites?query=australia">
             <div class="card border-light" >
               <img class="card-img-top" src="https://res.cloudinary.com/dbb3sntqk/image/upload/v1661790193/chase-baker-yvb8NrIhIFI-unsplash_ypoopi.jpg" alt="Card image cap">
               <div class="card-body" id="card-4">
