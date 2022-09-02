@@ -321,10 +321,10 @@ puts "#{site12.name} created"
 
 site13 = DiveSite.new(
   name: "Silfra Fissure",
-  description: "Certainly one of the most unique night dives, the Manta Night Dive is a ballet for manta rays. Just off the coast of Kona is an artificially illuminated area where divers descend to the sandy observation areas. As the light attracts plankton, mantas arrive to take advantage of the feast. All the divers need to do is relax and enjoy the show while the graceful manta rays turn and spin overhead.",
-  country: "Philippines",
-  country_iso: "PH",
-  city: "Thingvellir National Park",
+  description: "Silfra Fissure in Iceland is the only place in the world where you can dive between two continents. Dive into one of the best snorkeling spots on earth! Rated one of the top ten activities in the world by TripAdvisor in 2019.",
+  country: "Iceland",
+  country_iso: "ISL",
+  city: "Þingvellir",
   latitude: 64.255572,
   longitude: -21.116568,
   dive_type: DiveSite::TYPE[6],
