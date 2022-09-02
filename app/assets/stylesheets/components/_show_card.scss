@@ -40,3 +40,20 @@
   width: 168px;
   height: 100px;
 }
+
+
+.tags-box-show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  // flex-basis: 60%;
+
+  column-gap: 40px;
+  row-gap: 40px;
+  width: 80%;
+
+}
