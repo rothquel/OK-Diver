@@ -325,7 +325,7 @@ site13 = DiveSite.new(
   country: "Philippines",
   country_iso: "PH",
   city: "Thingvellir National Park",
-  latitude:  64.255572,
+  latitude: 64.255572,
   longitude: -21.116568,
   dive_type: DiveSite::TYPE[6],
   level: DiveSite::PROFICIENCY[0],
