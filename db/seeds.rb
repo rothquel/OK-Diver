@@ -1,6 +1,7 @@
 require "open-uri"
 require_relative "seed_files/users"
 
+ActiveRecord::Base.connection.execute("delete from messages")
 DiveSiteTag.delete_all
 Tag.delete_all
 Review.delete_all
@@ -146,11 +147,11 @@ site4.save!
 puts "#{site4.name} created"
 
 site5 = DiveSite.new(
-  name: "Izu islands",
-  description: "One of the best diving sites that I have been to! Super isolated and in the middle of the ocean, very deep but beautiful. Many turtles & great visibility!",
-  country: "Japan",
-  country_iso: "JP",
-  city: "Hachijojima",
+  name: "Outback Diving",
+  description: "One of the best cave diving sites that I have been to! Super isolated and in the middle of the desert, very deep but beautiful. Many turtles & great visibility!",
+  country: "Australia",
+  country_iso: "AU",
+  city: "Darwin",
   latitude: -33.11265,
   longitude: 139.80624,
   dive_type: DiveSite::TYPE[3],
@@ -344,6 +345,10 @@ Comet\ Goldfish
 Whales
 Temperate\ diving
 Tropical\ diving
+Lake
+Seals
+Cold
+Freshwater
 ]
 
 tag_names.each do |name|
@@ -927,7 +932,7 @@ kieran = URI.open("https://res.cloudinary.com/dbb3sntqk/image/upload/v1661974486
 marielle = URI.open("https://res.cloudinary.com/dbb3sntqk/image/upload/v1661974947/francisco-jesus-navarro-hernandez-KzkL5-P1fDU-unsplash_todx71.jpg")
 matt = URI.open("https://res.cloudinary.com/dbb3sntqk/image/upload/v1661974952/sebastian-pena-lambarri-W5ODK261mLY-unsplash_ng9blq.jpg")
 anais = URI.open("https://res.cloudinary.com/dg7mx0hnl/image/upload/v1662056695/T02NE0241-U03N82KV11P-306b8c200ec5-512_peo6kf.jpg")
-nic = URI.open("https://res.cloudinary.com/dg7mx0hnl/image/upload/v1662056705/nicfamily_gdtahe.jpg")
+marving = URI.open("https://res.cloudinary.com/dg7mx0hnl/image/upload/v1662066245/marving-moreton-montreal_ainmy8.jpg")
 # seeding users
 
 puts "creating users"
@@ -982,15 +987,15 @@ anais_user.save!
 puts "#{anais_user.first_name} created"
 
 
-nic_user = User.create(
+marving_user = User.create(
   email: "b@b.b",
   password: "123456",
-  first_name: "Nic",
-  last_name: "Rothquel"
+  first_name: "Marving",
+  last_name: "Moreton"
 )
-nic_user.photo.attach(io: nic, filename: "okdiver-image.png", content_type: "image/png")
-nic_user.save!
-puts "#{nic_user.first_name} created"
+marving_user.photo.attach(io: marving, filename: "okdiver-image.png", content_type: "image/png")
+marving_user.save!
+puts "#{marving_user.first_name} created"
 
 # create reviews for the users
 kieran_review_a = Review.new(
@@ -1074,31 +1079,64 @@ matt_review_c.user = matt_user
 matt_review_c.dive_site = site3
 matt_review_c.save!
 
-nic_review_a = Review.new(
+marving_review_a = Review.new(
   rating: 5,
   highlight: "So many fish!!",
   tips: "Bring lots of snacks"
 )
-nic_review_a.user = nic_user
-nic_review_a.dive_site = site2
-nic_review_a.save!
+marving_review_a.user = marving_user
+marving_review_a.dive_site = site2
+marving_review_a.save!
 
-nic_review_b = Review.new(
+marving_review_b = Review.new(
   rating: 5,
   highlight: "Such a beautiful dive!",
   tips: "Watch out for the fire coral"
 )
-nic_review_b.user = nic_user
-nic_review_b.dive_site = site1
-nic_review_b.save!
+marving_review_b.user = marving_user
+marving_review_b.dive_site = site1
+marving_review_b.save!
 
-nic_review_c = Review.new(
+marving_review_c = Review.new(
   rating: 5,
   highlight: "The stingrays were huge!",
   tips: "Take plenty of water!"
 )
-nic_review_c.user = nic_user
-nic_review_c.dive_site = site3
-nic_review_c.save!
+marving_review_c.user = marving_user
+marving_review_c.dive_site = site3
+marving_review_c.save!
 
 puts "reviews created"
+
+anais_log1 = Log.new(
+  date: Date.new(2022, 8, 1),
+  dive_number: 1,
+  depth: 20,
+  time_in: Time.now,
+  time_out: Time.now + 10.minutes
+)
+anais_log1.user = anais_user
+anais_log1.dive_site = site10
+anais_log1.save!
+
+anais_log2 = Log.new(
+  date: Date.new(2022, 8, 10),
+  dive_number: 2,
+  depth: 15,
+  time_in: Time.now,
+  time_out: Time.now + 15.minutes
+)
+anais_log2.user = anais_user
+anais_log2.dive_site = site9
+anais_log2.save!
+
+anais_log3 = Log.new(
+  date: Date.new(2022, 8, 18),
+  dive_number: 3,
+  depth: 12,
+  time_in: Time.now,
+  time_out: Time.now + 13.minutes
+)
+anais_log3.user = anais_user
+anais_log3.dive_site = site8
+anais_log3.save!

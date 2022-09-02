@@ -3,3 +3,4 @@
 //= link_tree ../builds
 //= link application.css
 //= link video.mp4
+//= link application.css
