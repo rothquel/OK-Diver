@@ -1,18 +1,34 @@
 .show-tag {
   display: inline-block;
-  font-size: 13px;
+  font-size: 0.8rem;
   border-radius: 50rem;
-  padding: 0.2rem 0.6rem;
+  padding: 0.6rem 1rem;
+  background-color: #FF9E00;
+  color: #ffffff;
+  border: 1px solid #FF9E00;
+  margin-right: 0.4rem;
+  margin-bottom: 0.4rem;
+  font-weight:600;
+}
+
+.show-tag-show {
+  display: inline-block;
+  font-size: 0.9rem;
+  border-radius: 50rem;
+  padding: 0.6rem 1rem;
   background-color: #FF9E00;
   color: #ffffff;
   border: 1px solid #FF9E00;
   margin-right: -0.4rem;
   margin-bottom: 0.4rem;
+  font-weight:600;
 }
 
 .show-tag-bg {
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(ocean-tags.jpg);
-  height: 70%;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/cloudinary972/image/upload/v1662082541/background-tags-V3_vjf0jh.png);
+  // height: 100% !important;
+  width: 100 !important;
+  height: 320px;
   background-size: cover;
 }
 
