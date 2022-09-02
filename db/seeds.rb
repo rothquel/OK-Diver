@@ -58,8 +58,8 @@ file_12_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v166
 file_12_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/7_ygl7hq.jpg")
 file_12_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/8_thrswa.jpg")
 file_12_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/44_fjie9p.jpg")
-file_13_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/40_exhazp.jpg")
-file_13_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891787/6_k7jqzp.jpg")
+file_13_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1662145249/15_rzaxzo.jpg")
+file_13_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1662145288/e52Qv9JBKROfVJOBOdKeIVz3GQru6LwlrsA07iUvCA0_1_1_oehhei.webp")
 file_13_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/5_h2cdtj.jpg")
 file_13_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891787/2_qn1iba.jpg")
 
