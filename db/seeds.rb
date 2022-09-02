@@ -1,7 +1,7 @@
 require "open-uri"
 require_relative "seed_files/users"
 
-ActiveRecord::Base.connection.execute("delete from messages")
+# ActiveRecord::Base.connection.execute("delete from messages")
 DiveSiteTag.delete_all
 Tag.delete_all
 Review.delete_all
@@ -62,6 +62,18 @@ file_13_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v166
 file_13_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891787/6_k7jqzp.jpg")
 file_13_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/5_h2cdtj.jpg")
 file_13_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891787/2_qn1iba.jpg")
+
+
+file_14_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1662135306/1_uuarhe.png")
+file_14_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1662135306/7_m52kcl.png")
+file_14_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/5_h2cdtj.jpg")
+file_14_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1662135306/5_jyf2cl.png")
+
+
+file_15_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1662135306/4_k5kvfr.png")
+file_15_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891787/6_k7jqzp.jpg")
+file_15_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1662135307/3_yqjagd.png")
+file_15_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1662135308/8_pxolhm.png")
 
 
 
@@ -310,13 +322,13 @@ puts "#{site12.name} created"
 site13 = DiveSite.new(
   name: "Silfra Fissure",
   description: "Certainly one of the most unique night dives, the Manta Night Dive is a ballet for manta rays. Just off the coast of Kona is an artificially illuminated area where divers descend to the sandy observation areas. As the light attracts plankton, mantas arrive to take advantage of the feast. All the divers need to do is relax and enjoy the show while the graceful manta rays turn and spin overhead.",
-  country: "Iceland",
-  country_iso: "IS",
+  country: "Philippines",
+  country_iso: "PH",
   city: "Thingvellir National Park",
   latitude:  64.255572,
   longitude: -21.116568,
   dive_type: DiveSite::TYPE[6],
-  level: DiveSite::PROFICIENCY[2],
+  level: DiveSite::PROFICIENCY[0],
   image: "https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/4_llxfib.jpg"
 )
 site13.save!
@@ -327,6 +339,47 @@ site13.photos.attach(io: file_13_4, filename: "okdiver-4.png", content_type: "im
 site13.save!
 
 puts "#{site13.name} created"
+
+site14 = DiveSite.new(
+  name: "Tubbataha Reefs",
+  description: "Tubbataha Reefs Natural Park is a UNESCO World Heritage Site located in Palawan, in the heart of the Sulu Sea.",
+  country: "Philippines",
+  country_iso: "PH",
+  city: "Palawan",
+  latitude: 9.642892,
+  longitude: 118.165731,
+  dive_type: DiveSite::TYPE[3],
+  level: DiveSite::PROFICIENCY[0],
+  image: "https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/6_rqfjly.jpg"
+)
+site14.save!
+site14.photos.attach(io: file_14_1, filename: "okdiver-image.png", content_type: "image/png")
+site14.photos.attach(io: file_14_2, filename: "okdiver-2.png", content_type: "image/png")
+site14.photos.attach(io: file_14_3, filename: "okdiver-3.png", content_type: "image/png")
+site14.photos.attach(io: file_14_4, filename: "okdiver-4.png", content_type: "image/png")
+site14.save!
+puts "#{site14.name} created"
+
+site15 = DiveSite.new(
+  name: "Anilao",
+  description: "Only a 2-hour drive away from Manila lies Anilao, one of the world's best macro photography destinations. Boasting a wide array of rare critters, it's literally a heaven-on-earth for muck diving, blackwater diving, and macro photography. ",
+  country: "Philippines",
+  country_iso: "PH",
+  city: "Batangas",
+  latitude: 13.720796,
+  longitude: 121.050686,
+  dive_type: DiveSite::TYPE[3],
+  level: DiveSite::PROFICIENCY[0],
+  image: "https://res.cloudinary.com/cloudinary972/image/upload/v1661459991/6_rqfjly.jpg"
+)
+site15.save!
+site15.photos.attach(io: file_15_1, filename: "okdiver-image.png", content_type: "image/png")
+site15.photos.attach(io: file_15_2, filename: "okdiver-2.png", content_type: "image/png")
+site15.photos.attach(io: file_15_3, filename: "okdiver-3.png", content_type: "image/png")
+site15.photos.attach(io: file_15_4, filename: "okdiver-4.png", content_type: "image/png")
+site15.save!
+puts "#{site15.name} created"
+
 
 tag_names = %w[
 Underwater\ fauna
