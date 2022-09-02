@@ -58,8 +58,8 @@ file_12_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v166
 file_12_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/7_ygl7hq.jpg")
 file_12_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/8_thrswa.jpg")
 file_12_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/44_fjie9p.jpg")
-file_13_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/40_exhazp.jpg")
-file_13_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891787/6_k7jqzp.jpg")
+file_13_1 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1662145249/15_rzaxzo.jpg")
+file_13_2 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1662145288/e52Qv9JBKROfVJOBOdKeIVz3GQru6LwlrsA07iUvCA0_1_1_oehhei.webp")
 file_13_3 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891786/5_h2cdtj.jpg")
 file_13_4 = URI.open("https://res.cloudinary.com/cloudinary972/image/upload/v1661891787/2_qn1iba.jpg")
 
@@ -321,11 +321,11 @@ puts "#{site12.name} created"
 
 site13 = DiveSite.new(
   name: "Silfra Fissure",
-  description: "Certainly one of the most unique night dives, the Manta Night Dive is a ballet for manta rays. Just off the coast of Kona is an artificially illuminated area where divers descend to the sandy observation areas. As the light attracts plankton, mantas arrive to take advantage of the feast. All the divers need to do is relax and enjoy the show while the graceful manta rays turn and spin overhead.",
-  country: "Philippines",
-  country_iso: "PH",
-  city: "Thingvellir National Park",
-  latitude:  64.255572,
+  description: "Silfra Fissure in Iceland is the only place in the world where you can dive between two continents. Dive into one of the best snorkeling spots on earth! Rated one of the top ten activities in the world by TripAdvisor in 2019.",
+  country: "Iceland",
+  country_iso: "ISL",
+  city: "Þingvellir",
+  latitude: 64.255572,
   longitude: -21.116568,
   dive_type: DiveSite::TYPE[6],
   level: DiveSite::PROFICIENCY[0],
@@ -945,7 +945,7 @@ dst.save!
 
 dst = DiveSiteTag.new
 dst.dive_site = site13
-dst.tag = tags[4]
+dst.tag = tags[13]
 dst.save!
 
 dst = DiveSiteTag.new
@@ -978,6 +978,100 @@ dst.dive_site = site13
 dst.tag = tags[11]
 dst.save!
 puts "dive site tags created"
+
+# 14
+dst = DiveSiteTag.new
+dst.dive_site = site14
+dst.tag = tags[0]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site14
+dst.tag = tags[2]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site14
+dst.tag = tags[3]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site14
+dst.tag = tags[1]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site14
+dst.tag = tags[5]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site14
+dst.tag = tags[6]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site14
+dst.tag = tags[7]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site14
+dst.tag = tags[8]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site14
+dst.tag = tags[10]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site14
+dst.tag = tags[11]
+dst.save!
+puts "dive site tags created"
+
+
+# 15
+dst = DiveSiteTag.new
+dst.dive_site = site15
+dst.tag = tags[0]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site15
+dst.tag = tags[2]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site15
+dst.tag = tags[4]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site15
+dst.tag = tags[5]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site15
+dst.tag = tags[7]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site15
+dst.tag = tags[11]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site15
+dst.tag = tags[13]
+dst.save!
+
+dst = DiveSiteTag.new
+dst.dive_site = site15
+dst.tag = tags[14]
+dst.save!
 
 # cloudinary images for users seeds
 
